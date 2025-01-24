@@ -113,9 +113,14 @@ export function Navbar() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            className={cn("text-2xl", !isScrolled && "text-white")}
+            className={cn("text-2xl", isScrolled ? "text-foreground" : "text-white/90")}
             onClick={() => setIsMobileMenuOpen(true)}
-            sx={{ padding: '8px' }}
+            sx={{ 
+              padding: '8px',
+              '&:hover': {
+                backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.04)' : 'rgba(255, 255, 255, 0.1)',
+              }
+            }}
           >
             <MenuIcon fontSize="inherit" />
           </IconButton>

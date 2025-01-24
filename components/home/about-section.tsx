@@ -116,7 +116,7 @@ export function AboutSection() {
                   />
                   <img
                     src="/gdg-logo.svg"
-                    alt="GDG Lviv"
+                    alt="null VJA"
                     className="h-6 mx-auto mt-4"
                   />
                 </div>

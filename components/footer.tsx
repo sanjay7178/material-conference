@@ -76,7 +76,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 GDG Lviv. All rights reserved.</p>
+          <p>&copy; 2025 Null VJA. All rights reserved.</p>
         </div>
       </div>
     </footer>
