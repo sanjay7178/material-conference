@@ -69,14 +69,14 @@ export function Navbar() {
             <Bell className="h-5 w-5" />
             <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-purple-600" />
           </IconButton>
-          <Button
+          {/* <Button
             className="ghost"
             sx={{ color: !isScrolled ? 'white' : 'inherit' }}
           >
             SIGN IN
-          </Button>
+          </Button> */}
             <Button className="primary" sx={{ borderRadius: '0px' }}>
-              BUY TICKET
+              REGISTER
             </Button>
         </div>
 

@@ -1,7 +1,9 @@
+'use client'
+
 import { Button as MuiButton } from "@mui/material"
 import { styled } from "@mui/material/styles"
 
-export const Button = styled(MuiButton)(({ theme }) => ({
+export const Button = styled(MuiButton)({
   borderRadius: '0.5rem',
   textTransform: 'none',
   fontWeight: 600,
@@ -25,4 +27,4 @@ export const Button = styled(MuiButton)(({ theme }) => ({
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
     },
   },
-}))
+})

@@ -26,11 +26,11 @@ export function Hero() {
           <p className="text-lg md:text-xl">Join the community, learn new things!</p>
         </div>
         <div className="flex items-center justify-center gap-4">
-          <Button variant="outline" className="text-white border-white hover:bg-white/10">
+          {/* <Button2  className="text-white border-white hover:bg-white/10" sx={{ borderRadius: '0px' }}>
             VIEW HIGHLIGHTS
-          </Button>
+          </Button2> */}
           <Button2 className="primary" sx={{ borderRadius: '0px' }}>
-              BUY TICKET
+              REGISTER
             </Button2>
         </div>
       </div>
