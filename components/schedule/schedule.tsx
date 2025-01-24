@@ -118,13 +118,26 @@ export function Schedule() {
   return (
     <div className="relative">
       <Tabs defaultValue="september-9" onValueChange={setActiveTab}>
-        <div className="sticky top-20 z-10 bg-gradient-to-b  backdrop-blur-sm pb-4">
+        <div className="sticky top-20 z-10 bg-gradient-to-b backdrop-blur-sm pb-4">
           <div className="flex justify-between items-center mb-8">
-            <TabsList className="bg-white/50 backdrop-blur-sm">
-              <TabsTrigger value="september-9" className="data-[state=active]:bg-white">
+            <TabsList className="relative h-10 bg-transparent p-0 border-b border-gray-200">
+              <div
+                className="absolute bottom-0 h-0.5 bg-purple-600 transition-all duration-300"
+                style={{
+                  left: activeTab === "september-9" ? "0" : "50%",
+                  width: "50%",
+                }}
+              />
+              <TabsTrigger 
+                value="september-9" 
+                className="relative h-10 rounded-none px-8 font-medium data-[state=active]:text-purple-600 data-[state=active]:bg-transparent transition-colors"
+              >
                 September 9
               </TabsTrigger>
-              <TabsTrigger value="september-10" className="data-[state=active]:bg-white">
+              <TabsTrigger 
+                value="september-10" 
+                className="relative h-10 rounded-none px-8 font-medium data-[state=active]:text-purple-600 data-[state=active]:bg-transparent transition-colors"
+              >
                 September 10
               </TabsTrigger>
             </TabsList>
@@ -135,99 +148,106 @@ export function Schedule() {
           </div>
         </div>
 
-        {Object.entries(scheduleData).map(([day, sessions]) => (
-          <TabsContent key={day} value={day}>
-            <div className="space-y-6">
-              {sessions.map((session, index) => (
-                <Card key={index} className="relative overflow-hidden transition-all duration-200 hover:shadow-lg">
-                  <CardContent className="p-6">
-                    <div className="flex gap-6">
-                      <div className="w-20 flex-shrink-0 flex flex-col items-center">
-                        <div className="text-3xl font-bold text-purple-600">
-                          {session.time}
-                          <span className="text-base text-purple-400">{session.timeMinutes}</span>
-                        </div>
-                        <div className="flex items-center gap-1 text-sm text-muted-foreground mt-1">
-                          <Clock className="h-3 w-3" />
-                          {session.duration}
-                        </div>
-                      </div>
-
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between">
-                          <div className="flex items-start gap-3">
-                            <div className="mt-1">
-                              <SessionTypeIcon type={session.type} />
-                            </div>
-                            <div>
-                              <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
-                                {session.title}
-                                {session.language && (
-                                  <Badge variant="outline" className="ml-2">
-                                    {session.language}
-                                  </Badge>
-                                )}
-                              </h3>
-                              <p className="text-muted-foreground mb-4">{session.description}</p>
-                            </div>
+        {/* Add smooth transition for tab content */}
+        <div className="relative">
+          {Object.entries(scheduleData).map(([day, sessions]) => (
+            <TabsContent 
+              key={day} 
+              value={day}
+              className="transition-all duration-300 animate-in slide-in-from-right-4"
+            >
+              <div className="space-y-6">
+                {sessions.map((session, index) => (
+                  <Card key={index} className="relative overflow-hidden transition-all duration-200 hover:shadow-lg">
+                    <CardContent className="p-6">
+                      <div className="flex gap-6">
+                        <div className="w-20 flex-shrink-0 flex flex-col items-center">
+                          <div className="text-3xl font-bold text-purple-600">
+                            {session.time}
+                            <span className="text-base text-purple-400">{session.timeMinutes}</span>
                           </div>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="text-purple-500 hover:text-purple-600 hover:bg-purple-50"
-                          >
-                            <Bookmark className="h-4 w-4" />
-                          </Button>
+                          <div className="flex items-center gap-1 text-sm text-muted-foreground mt-1">
+                            <Clock className="h-3 w-3" />
+                            {session.duration}
+                          </div>
                         </div>
 
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {session.track && (
-                            <Badge variant="outline" className={cn("font-medium", trackColors[session.track])}>
-                              {session.track}
-                            </Badge>
-                          )}
-                          {session.difficulty && (
-                            <Badge
-                              variant="outline"
-                              className={cn("font-medium", difficultyColors[session.difficulty])}
-                            >
-                              {session.difficulty}
-                            </Badge>
-                          )}
-                        </div>
-
-                        {session.speakers && (
-                          <div className="flex flex-wrap gap-4 mt-4 pt-4 border-t">
-                            {session.speakers.map((speaker, idx) => (
-                              <div
-                                key={idx}
-                                className="flex items-center gap-3 bg-gray-50 rounded-full pl-1 pr-4 py-1 transition-colors hover:bg-gray-100"
-                              >
-                                <Avatar className="h-8 w-8 border-2 border-white">
-                                  <AvatarImage src={speaker.avatar} alt={speaker.name} />
-                                  <AvatarFallback className="bg-purple-100 text-purple-700">
-                                    {speaker.name
-                                      .split(" ")
-                                      .map((n) => n[0])
-                                      .join("")}
-                                  </AvatarFallback>
-                                </Avatar>
-                                <div>
-                                  <div className="font-medium text-sm">{speaker.name}</div>
-                                  <div className="text-xs text-muted-foreground">{speaker.company}</div>
-                                </div>
+                        <div className="flex-1">
+                          <div className="flex items-start justify-between">
+                            <div className="flex items-start gap-3">
+                              <div className="mt-1">
+                                <SessionTypeIcon type={session.type} />
                               </div>
-                            ))}
+                              <div>
+                                <h3 className="text-xl font-semibold mb-2 flex items-center gap-2">
+                                  {session.title}
+                                  {session.language && (
+                                    <Badge variant="outline" className="ml-2">
+                                      {session.language}
+                                    </Badge>
+                                  )}
+                                </h3>
+                                <p className="text-muted-foreground mb-4">{session.description}</p>
+                              </div>
+                            </div>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="text-purple-500 hover:text-purple-600 hover:bg-purple-50"
+                            >
+                              <Bookmark className="h-4 w-4" />
+                            </Button>
                           </div>
-                        )}
+
+                          <div className="flex flex-wrap gap-2 mb-4">
+                            {session.track && (
+                              <Badge variant="outline" className={cn("font-medium", trackColors[session.track])}>
+                                {session.track}
+                              </Badge>
+                            )}
+                            {session.difficulty && (
+                              <Badge
+                                variant="outline"
+                                className={cn("font-medium", difficultyColors[session.difficulty])}
+                              >
+                                {session.difficulty}
+                              </Badge>
+                            )}
+                          </div>
+
+                          {session.speakers && (
+                            <div className="flex flex-wrap gap-4 mt-4 pt-4 border-t">
+                              {session.speakers.map((speaker, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-center gap-3 bg-gray-50 rounded-full pl-1 pr-4 py-1 transition-colors hover:bg-gray-100"
+                                >
+                                  <Avatar className="h-8 w-8 border-2 border-white">
+                                    <AvatarImage src={speaker.avatar} alt={speaker.name} />
+                                    <AvatarFallback className="bg-purple-100 text-purple-700">
+                                      {speaker.name
+                                        .split(" ")
+                                        .map((n) => n[0])
+                                        .join("")}
+                                    </AvatarFallback>
+                                  </Avatar>
+                                  <div>
+                                    <div className="font-medium text-sm">{speaker.name}</div>
+                                    <div className="text-xs text-muted-foreground">{speaker.company}</div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-        ))}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+          ))}
+        </div>
       </Tabs>
     </div>
   )
