@@ -32,7 +32,7 @@ export function Navbar() {
         isScrolled ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" : "bg-transparent",
       )}
     >
-      <div className="container flex h-20 items-center justify-between">
+      <div className="relative flex h-20 items-center justify-between px-[2rem] md:px-[10rem]">
         <Link href="/" className="flex items-center space-x-2">
           <img src="/gdg-logo.svg" alt="GDG DevFest" className="h-8 w-8" />
           <span className={cn("font-bold transition-colors", isScrolled ? "text-foreground" : "text-white/90")}>
@@ -56,11 +56,15 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <Button variant={isScrolled ? "ghost" : "ghost-white"} size="icon" className="relative">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className={cn("relative", !isScrolled && "text-white hover:text-white/70")}
+          >
             <Bell className="h-5 w-5" />
             <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-purple-600" />
           </Button>
-          <Button variant={isScrolled ? "ghost" : "ghost-white"}>SIGN IN</Button>
+          <Button variant="ghost" className={cn(!isScrolled && "text-white hover:text-white/70")}>SIGN IN</Button>
           <Button className="bg-purple-600 hover:bg-purple-700">BUY TICKET</Button>
         </div>
       </div>
