@@ -18,7 +18,7 @@ const videos = [
 
 export function FeaturedVideos() {
   return (
-    <section className="py-20">
+    <section className="relative min-h-screen flex items-center justify-center">
       <div className="container">
         <h2 className="text-3xl font-bold mb-12">DFUA'16 featured videos</h2>
         <div className="grid md:grid-cols-3 gap-6">

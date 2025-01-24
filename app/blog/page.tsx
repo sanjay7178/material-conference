@@ -40,7 +40,7 @@ const posts = [
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen py-20">
+    <div className="relative min-h-screen flex items-center justify-center py-20">
       <div className="container">
         <div className="max-w-2xl mb-12">
           <h1 className="text-4xl font-bold mb-4">Blog</h1>

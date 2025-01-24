@@ -32,7 +32,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
   return (
     <article>
-      <div className="h-[60vh] relative bg-cover bg-center" style={{ backgroundImage: `url(${post.heroImage})` }}>
+      <div className="h-[60vh] relative flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${post.heroImage})` }}>
         <div className="absolute inset-0 bg-black/50" />
         <div className="container relative h-full flex items-end pb-20">
           <div className="max-w-3xl text-white">

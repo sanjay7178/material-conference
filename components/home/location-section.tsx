@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react"
 
 export function LocationSection() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="relative min-h-screen py-10 flex items-center justify-center bg-gray-50">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>

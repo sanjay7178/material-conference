@@ -118,7 +118,7 @@ export function Schedule() {
   return (
     <div className="relative">
       <Tabs defaultValue="september-9" onValueChange={setActiveTab}>
-        <div className="sticky top-20 z-10 bg-gradient-to-b from-purple-50 to-purple-50/95 backdrop-blur-sm pb-4">
+        <div className="sticky top-20 z-10 bg-gradient-to-b  backdrop-blur-sm pb-4">
           <div className="flex justify-between items-center mb-8">
             <TabsList className="bg-white/50 backdrop-blur-sm">
               <TabsTrigger value="september-9" className="data-[state=active]:bg-white">

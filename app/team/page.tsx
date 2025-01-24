@@ -81,7 +81,7 @@ const programCommittee = [
 
 export default function TeamPage() {
   return (
-    <div className="min-h-screen">
+    <div className="relative min-h-screen flex items-center justify-center">
       <div className="container py-20">
         <h1 className="text-4xl font-bold mb-20">Team</h1>
         <TeamIntro />

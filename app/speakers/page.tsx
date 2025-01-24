@@ -3,7 +3,7 @@ import { PreviousSpeakers } from "@/components/speakers/previous-speakers"
 
 export default function SpeakersPage() {
   return (
-    <div className="min-h-screen py-20">
+    <div className="relative min-h-screen flex items-center justify-center py-20">
       <div className="container">
         <div className="max-w-3xl">
           <h1 className="text-4xl font-bold mb-6">Speakers</h1>
