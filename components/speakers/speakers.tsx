@@ -71,45 +71,62 @@ export function Speakers() {
   const [filter, setFilter] = useState("all")
 
   return (
-    <div className="mb-20">
-      <div className="flex justify-end mb-8">
-        <Button variant="outline" className="gap-2">
-          <SlidersHorizontal className="h-4 w-4" />
+    <div className="px-4 md:px-6 mb-12 md:mb-20">
+      <div className="flex justify-end mb-6 md:mb-8">
+        <Button variant="outline" className="gap-2 text-sm">
+          <SlidersHorizontal className="h-3 w-3 md:h-4 md:w-4" />
           FILTERS
         </Button>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         {speakers.map((speaker) => (
           <Card key={speaker.name} className="overflow-hidden">
             <CardContent className="p-0">
-              <div className="p-6 text-center">
-                <div className="mb-4">
+              <div className="p-4 md:p-6 text-center">
+                <div className="mb-3 md:mb-4">
                   <img
                     src={speaker.image || "/placeholder.svg"}
                     alt={speaker.name}
-                    className="w-32 h-32 rounded-full mx-auto"
+                    className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto"
                   />
                 </div>
                 <div className="mb-2">
-                  <img src="/gdg-logo.svg" alt="Null VJA" className="h-6 mx-auto" />
+                  <img 
+                    src="/gdg-logo.svg" 
+                    alt="Null VJA" 
+                    className="h-4 md:h-6 mx-auto" 
+                  />
                 </div>
-                <h3 className="font-bold text-lg mb-1">{speaker.name}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{speaker.location}</p>
-                <p className="text-sm text-muted-foreground mb-4">{speaker.bio}</p>
-                <div className="flex justify-center gap-2">
+                <h3 className="font-bold text-base md:text-lg mb-1">{speaker.name}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground mb-2 md:mb-4">
+                  {speaker.location}
+                </p>
+                <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 line-clamp-3 px-2">
+                  {speaker.bio}
+                </p>
+                <div className="flex justify-center gap-3">
                   {speaker.social.twitter && (
-                    <a href={speaker.social.twitter} className="text-muted-foreground hover:text-primary">
-                      <Twitter className="h-4 w-4" />
+                    <a 
+                      href={speaker.social.twitter} 
+                      className="text-muted-foreground hover:text-primary p-1"
+                    >
+                      <Twitter className="h-3 w-3 md:h-4 md:w-4" />
                     </a>
                   )}
                   {speaker.social.facebook && (
-                    <a href={speaker.social.facebook} className="text-muted-foreground hover:text-primary">
-                      <Facebook className="h-4 w-4" />
+                    <a 
+                      href={speaker.social.facebook} 
+                      className="text-muted-foreground hover:text-primary p-1"
+                    >
+                      <Facebook className="h-3 w-3 md:h-4 md:w-4" />
                     </a>
                   )}
                   {speaker.social.linkedin && (
-                    <a href={speaker.social.linkedin} className="text-muted-foreground hover:text-primary">
-                      <Linkedin className="h-4 w-4" />
+                    <a 
+                      href={speaker.social.linkedin} 
+                      className="text-muted-foreground hover:text-primary p-1"
+                    >
+                      <Linkedin className="h-3 w-3 md:h-4 md:w-4" />
                     </a>
                   )}
                 </div>

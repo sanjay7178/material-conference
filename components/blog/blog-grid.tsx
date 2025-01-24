@@ -13,28 +13,26 @@ interface Post {
 
 export function BlogGrid({ posts }: { posts: Post[] }) {
   return (
-    <div className="grid md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
       {posts.map((post) => (
-        <Link key={post.id} href={`/blog/${post.id}`}>
-          <Card className="overflow-hidden h-full group">
-            <CardContent className="p-0">
-              <div className="relative aspect-[16/9]">
-                <img src={post.image || "/placeholder.svg"} alt={post.title} className="object-cover w-full h-full" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-                <div className="absolute bottom-0 p-6 text-white">
-                  <Badge variant="secondary" className="mb-3">
-                    {post.category}
-                  </Badge>
-                  <h3 className="text-2xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-sm text-gray-300 line-clamp-2">{post.excerpt}</p>
-                  <p className="text-sm text-gray-400 mt-4">{post.date}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
+        <div key={post.id} className="space-y-3 md:space-y-4">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full aspect-video object-cover rounded-lg"
+          />
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
+              <span>{post.category}</span>
+              <span>•</span>
+              <span>{post.date}</span>
+            </div>
+            <h2 className="text-lg md:text-xl font-semibold line-clamp-2">{post.title}</h2>
+            <p className="text-sm md:text-base text-muted-foreground line-clamp-3">
+              {post.excerpt}
+            </p>
+          </div>
+        </div>
       ))}
     </div>
   )

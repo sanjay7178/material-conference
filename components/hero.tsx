@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Button  as Button2 } from "@/components/ui/mui-button"
+import { Scroll } from "lucide-react"
+import { ScrollIndicator } from "./scroll-indicator"
 
 
 export function Hero() {
@@ -36,12 +38,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="w-6 h-10 border-2 border-white rounded-full p-1">
-          <div className="w-1.5 h-3 bg-white rounded-full animate-bounce mx-auto" />
-        </div>
-      </div>
+      <ScrollIndicator />
     </div>
   )
 }
