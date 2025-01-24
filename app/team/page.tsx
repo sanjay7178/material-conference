@@ -1,5 +1,5 @@
-import { TeamIntro } from "../../components/team/team-intro"
-import { TeamSection } from "../../components/team/team-section"
+import { TeamIntro } from "@/components/team/team-intro"
+import { TeamSection } from "@/components/team/team-section"
 
 // This would typically come from a CMS or API
 const coreTeam = [

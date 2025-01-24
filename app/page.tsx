@@ -1,22 +1,20 @@
-import { HeroSection } from "@/components/hero-section"
-import { AboutSection } from "@/components/about-section"
-import { SpeakersSection } from "@/components/speakers-section"
-import { ScheduleSection } from "@/components/schedule-section"
-import { VideosSection } from "@/components/videos-section"
-import { NewsSection } from "@/components/news-section"
-import { SponsorsSection } from "@/components/sponsors-section"
+import { Hero } from "@/components/hero"
+import { AboutSection } from "../components/home/about-section"
+import { TicketsSection } from "../components/home/tickets-section"
+import { HighlightsSection } from "../components/home/highlights-section"
+import { FeaturedVideos } from "../components/home/featured-videos"
+import { LocationSection } from "../components/home/location-section"
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <HeroSection />
+    <main>
+      <Hero />
       <AboutSection />
-      <SpeakersSection />
-      <ScheduleSection />
-      <VideosSection />
-      <NewsSection />
-      <SponsorsSection />
-    </div>
+      <TicketsSection />
+      <HighlightsSection />
+      <FeaturedVideos />
+      <LocationSection />
+    </main>
   )
 }
 
