@@ -11,8 +11,8 @@ const posts: Record<string, BlogPost> = {
   "looking-for-speakers": {
     id: "looking-for-speakers",
     title: "We're looking for speakers",
-    date: "FEB 12, 2017",
-    heroImage: "/placeholder.svg",
+    date: "Jan 26, 2025",
+    heroImage: "/cfs.jpg",
     content: `
       GDG DevFest Ukraine was announced, for the sixth year in a row, the conference will bring together 900 developers, managers and entrepreneurs on October 13-14 to Lviv.
 
