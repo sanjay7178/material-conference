@@ -10,38 +10,38 @@ export function Footer() {
             <h3 className="font-bold mb-4">About</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  GDG Lviv
+                <a href="https://null.community/chapters/28-vijayawada" className="text-muted-foreground hover:text-primary">
+                  Null Vijayawada
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <a href="/team" className="text-muted-foreground hover:text-primary">
                   Meet the Team
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
+                <a href="https://null.community/chapters/28-vijayawada" className="text-muted-foreground hover:text-primary">
                   Past Events
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-bold mb-4">Explore Past DevFests</h3>
+            <h3 className="font-bold mb-4">Explore Past Null Vijaywada Community Events</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  DevFest 2023
+                <a href="https://null.community/chapters/28-vijayawada" className="text-muted-foreground hover:text-primary">
+                  Monthly Meetups
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  DevFest 2022
+                <a href="https://null.community/chapters/28-vijayawada" className="text-muted-foreground hover:text-primary">
+                  Humla Session
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary">
-                  DevFest 2021
+                <a href="https://null.community/chapters/28-vijayawada" className="text-muted-foreground hover:text-primary">
+                  CTF 
                 </a>
               </li>
             </ul>

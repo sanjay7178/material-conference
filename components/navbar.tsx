@@ -43,9 +43,9 @@ export function Navbar() {
     >
       <div className="relative flex h-20 items-center justify-between px-4 md:px-[10rem]">
         <Link href="/" className="flex items-center space-x-2">
-          <img src="/gdg-logo.svg" alt="GDG DevFest" className="h-8 w-8" />
+          {/* <img src="/gdg-logo.svg" alt="GDG DevFest" className="h-8 w-8" /> */}
           <span className={cn("font-bold transition-colors", isScrolled ? "text-foreground" : "text-white/90")}>
-            GDG DevFest
+            Null Vijaywada
           </span>
         </Link>
 

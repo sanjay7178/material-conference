@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Facebook, Twitter, LinkIcon } from "lucide-react"
 
 const stats = [
-  { number: "900", label: "Attendees" },
+  { number: "160", label: "Attendees" },
   { number: "2", label: "Days" },
   { number: "50", label: "Sessions" },
   { number: "4", label: "Tracks" },

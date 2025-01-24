@@ -10,9 +10,9 @@ export default function Home() {
     <main>
       <Hero />
       <AboutSection />
-      <TicketsSection />
-      <HighlightsSection />
-      <FeaturedVideos />
+      {/* <TicketsSection /> */}
+      {/* <HighlightsSection /> */}
+      {/* <FeaturedVideos /> */}
       <LocationSection />
     </main>
   )
