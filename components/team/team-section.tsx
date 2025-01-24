@@ -23,7 +23,7 @@ export function TeamSection({ title, members }: { title: string; members: any[] 
       <h2 className="text-2xl md:text-3xl font-bold">{title}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
         {members.map((member) => (
-          <div key={member.name} className="text-center space-y-3">
+          <div key={member.name} className="text-center space-y-3">s
             <img
               src={member.image}
               alt={member.name}

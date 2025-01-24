@@ -1,33 +1,11 @@
-interface BlogPost {
-  id: string
-  title: string
-  date: string
-  content: string
-  heroImage: string
-}
-
-// This would typically come from a CMS or API
-const posts: Record<string, BlogPost> = {
-  "looking-for-speakers": {
-    id: "looking-for-speakers",
-    title: "We're looking for speakers",
-    date: "Jan 26, 2025",
-    heroImage: "/cfs.jpg",
-    content: `
-      GDG DevFest Ukraine was announced, for the sixth year in a row, the conference will bring together 900 developers, managers and entrepreneurs on October 13-14 to Lviv.
-
-      This year our team is doing big advancement in the content, we're building an extra stage to accommodate more visitors and provide three fully independent tracks on Android, Web and Google Cloud topics.
-
-      Our focus is the content. We're looking for speakers like you, who are ready to rock the stage and deliver the best talk or workshop in the field. "I've been to conferences all over the world and what you've created in Lviv is world class. It's easily first league of conferences." - Piotr Tuszynski, DevFest '16 Keynote Speaker
-    `,
-  },
-}
+import { getAllPosts, getPostBySlug } from '@/lib/blog-data';
+import { notFound } from 'next/navigation';
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = posts[params.slug]
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
-    return <div>Post not found</div>
+    notFound();
   }
 
   return (
@@ -61,6 +39,14 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </div>
       </div>
     </article>
-  )
+  );
+}
+
+// Generate static paths for all blog posts
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 

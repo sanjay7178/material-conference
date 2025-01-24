@@ -1,35 +1,26 @@
 import Link from "next/link"
+import { BlogPost } from "@/types/blog"
 import { Card, CardContent } from "@/components/ui/card"
 
-interface Post {
-  id: string
-  title: string
-  excerpt: string
-  date: string
-  image: string
-}
-
-export function BlogList({ posts }: { posts: Post[] }) {
+export function BlogList({ posts }: { posts: BlogPost[] }) {
   return (
-    <div className="space-y-6 md:space-y-8">
+    <div className="space-y-8 md:space-y-12">
       {posts.map((post) => (
-        <Link key={post.id} href={`/blog/${post.id}`}>
-          <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+        <Link key={post.slug} href={`/blog/${post.slug}`}>
+          <Card className="overflow-hidden hover:shadow-lg transition-shadow ">
             <CardContent className="p-0">
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
                 <img
-                  src={post.image || "/placeholder.svg"}
+                  src={post.heroImage}
                   alt={post.title}
-                  className="w-full sm:w-48 md:w-64 aspect-video object-cover rounded-lg"
+                  className="w-full sm:w-48 md:w-64 aspect-video object-cover"
                 />
-                <div className="space-y-2 md:space-y-3">
-                  <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
-                    <span>{post.date}</span>
-                  </div>
-                  <h2 className="text-lg md:text-xl font-semibold">{post.title}</h2>
-                  <p className="text-sm md:text-base text-muted-foreground line-clamp-2 md:line-clamp-3">
-                    {post.excerpt}
-                  </p>
+                <div className="p-4 space-y-2">
+                  <p className="text-sm text-muted-foreground">{post.date}</p>
+                  <h2 className="text-lg font-semibold">{post.title}</h2>
+                  {post.excerpt && (
+                    <p className="text-muted-foreground line-clamp-2">{post.excerpt}</p>
+                  )}
                 </div>
               </div>
             </CardContent>
@@ -39,4 +30,3 @@ export function BlogList({ posts }: { posts: Post[] }) {
     </div>
   )
 }
-
