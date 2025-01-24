@@ -5,7 +5,7 @@ import { Bell } from "lucide-react"
 import { Button } from "@/components/ui/mui-button"
 import { cn } from "@/lib/utils"
 import { useState, useEffect } from "react"
-import { IconButton, Drawer, List, ListItem, ListItemText, Tabs, Tab, Box } from "@mui/material"
+import { IconButton, List, ListItem, ListItemText, Tabs, Tab, Box } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import CloseIcon from "@mui/icons-material/Close"
 
@@ -107,84 +107,64 @@ export function Navbar() {
             </Button>
         </div>
 
-        {/* Mobile Menu Button - Make sure it's visible on mobile */}
+        {/* Mobile Menu Button */}
         <div className="flex md:hidden">
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            className={cn("text-2xl", isScrolled ? "text-foreground" : "text-white/90")}
-            onClick={() => setIsMobileMenuOpen(true)}
-            sx={{ 
-              padding: '8px',
-              '&:hover': {
-                backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.04)' : 'rgba(255, 255, 255, 0.1)',
-              }
-            }}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={cn(
+              "p-2 focus:outline-none",
+              isScrolled ? "text-foreground" : "text-white/90"
+            )}
           >
-            <MenuIcon fontSize="inherit" />
-          </IconButton>
+            <span className="sr-only">Open main menu</span>
+            {!isMobileMenuOpen ? (
+              <svg className="h-6 w-6" fill="none" strokeWidth="1.5" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            ) : (
+              <svg className="h-6 w-6" fill="none" strokeWidth="1.5" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            )}
+          </button>
         </div>
 
-        {/* Mobile Menu Drawer */}
-        <Drawer
-          anchor="right"
-          open={isMobileMenuOpen}
-          onClose={() => setIsMobileMenuOpen(false)}
-          sx={{
-            '& .MuiDrawer-paper': {
-              width: '80%',
-              maxWidth: '300px',
-              background: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(0, 0, 0, 0.9)',
-              color: isScrolled ? 'inherit' : 'white',
-              backdropFilter: 'blur(10px)',
-            },
-          }}
-        >
+        {/* Mobile Menu */}
+        <div className={cn(
+          "fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-background/95 backdrop-blur-sm md:hidden transform transition-transform duration-300 ease-in-out",
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        )}>
           <div className="flex flex-col h-full">
-            <div className="flex justify-end p-4">
-              <IconButton 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={isScrolled ? '' : 'text-white'}
-              >
-                <CloseIcon />
-              </IconButton>
+            <div className="pt-20 pb-4 px-4">
+              <nav className="space-y-4">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block py-2 text-base font-medium hover:text-primary"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </nav>
             </div>
-            <List className="flex-1">
-              {navigation.map((item) => (
-                <ListItem 
-                  key={item.name}
-                  component={Link}
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  sx={{
-                    color: isScrolled ? 'inherit' : 'white',
-                    '&:hover': {
-                      backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.04)' : 'rgba(255, 255, 255, 0.1)',
-                    },
-                  }}
-                >
-                  <ListItemText 
-                    primary={item.name}
-                    primaryTypographyProps={{
-                      className: "font-medium",
-                    }}
-                  />
-                </ListItem>
-              ))}
-            </List>
-            <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-              <div className="space-y-3">
-                {/* <Button className="ghost w-full" sx={{ justifyContent: 'flex-start' }}>
-                  SIGN IN
-                </Button> */}
-                <Button className="primary w-full" sx={{ borderRadius: '0px' }}>
-                  REGISTER
-                </Button>
-              </div>
+            <div className="mt-auto p-4 border-t">
+              <Button className="primary w-full" sx={{ borderRadius: '0px' }}>
+                REGISTER
+              </Button>
             </div>
           </div>
-        </Drawer>
+        </div>
+
+        {/* Overlay */}
+        {isMobileMenuOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 md:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+        )}
+
       </div>
     </header>
   )
