@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button"
+import { Button  as Button2 } from "@/components/ui/mui-button"
+
 
 export function Hero() {
   return (
@@ -27,7 +29,9 @@ export function Hero() {
           <Button variant="outline" className="text-white border-white hover:bg-white/10">
             VIEW HIGHLIGHTS
           </Button>
-          <Button className="bg-purple-600 hover:bg-purple-700">BUY TICKET</Button>
+          <Button2 className="primary" sx={{ borderRadius: '0px' }}>
+              BUY TICKET
+            </Button2>
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/mui-button"
 
 export function HeroSection() {
   return (
@@ -9,10 +9,16 @@ export function HeroSection() {
         <p className="text-xl md:text-2xl">Lviv. October 12-13, 2024</p>
         <p className="text-lg md:text-xl">Join the community, learn new things!</p>
         <div className="flex items-center justify-center gap-4">
-          <Button variant="outline" className="text-white border-white hover:bg-white/10">
+          <Button
+            className="outline"
+            variant="outlined"
+            sx={{ color: 'white', borderColor: 'white' }}
+          >
             VIEW HIGHLIGHTS
           </Button>
-          <Button className="bg-purple-600 hover:bg-purple-700">BUY TICKET</Button>
+          <Button className="primary" sx={{ borderRadius: '0px' }}>
+            BUY TICKET
+          </Button>
         </div>
       </div>
     </section>
