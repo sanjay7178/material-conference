@@ -20,10 +20,10 @@ interface Speaker {
 
 const speakers: Speaker[] = [
   {
-    name: "Adrian Kajda",
-    role: "Creator of Fuelio app",
-    location: "Poland",
-    bio: "Creator of Fuelio app. Fuelio was his hobby project started in 2012. Three years later the app was acquired by Sygic.",
+    name: "Speaker 1",
+    role: "AI Safety Researcher",
+    location: "Physical",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     image: "/placeholder.svg",
     social: {
       twitter: "#",
@@ -32,10 +32,10 @@ const speakers: Speaker[] = [
     },
   },
   {
-    name: "Aleksander Piotrowski",
-    role: "Mobile Developer",
-    location: "Warsaw, Poland",
-    bio: "Became a mobile developer after long run as a backend developer. Because of age, holding senior positions from the day one as an Android programmer. Serial...",
+    name: "Speaker 2",
+    role: "ML Engineer",
+    location: "Physical",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
     image: "/placeholder.svg",
     social: {
       twitter: "#",
@@ -44,10 +44,10 @@ const speakers: Speaker[] = [
     },
   },
   {
-    name: "Anton Minashkin",
-    role: "Android Developer",
-    location: "Lviv, Ukraine",
-    bio: "Android developer, currently works at EPAM. Have experience in both server and mobile side development. All my free time I spend on the endless search of...",
+    name: "Speaker 3",
+    role: "Security Researcher",
+    location: "Physical",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
     image: "/placeholder.svg",
     social: {
       facebook: "#",
@@ -56,10 +56,10 @@ const speakers: Speaker[] = [
     },
   },
   {
-    name: "Carmen Popoviciu",
-    role: "Front-end Engineer",
-    location: "Cluj-Napoca, Romania",
-    bio: "Carmen is a front-end engineer and a #1 fan of dev communities. She loves Angular but has since recently developed feelings for Polymer too. She strongly believ...",
+    name: "Speaker 4",
+    role: "AI Ethics Specialist",
+    location: "Physical",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
     image: "/placeholder.svg",
     social: {
       twitter: "#",
@@ -91,7 +91,7 @@ export function Speakers() {
                   />
                 </div>
                 <div className="mb-2">
-                  <img src="/gdg-logo.svg" alt="GDG Lviv" className="h-6 mx-auto" />
+                  <img src="/gdg-logo.svg" alt="Null VJA" className="h-6 mx-auto" />
                 </div>
                 <h3 className="font-bold text-lg mb-1">{speaker.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{speaker.location}</p>
