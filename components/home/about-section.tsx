@@ -50,12 +50,12 @@ const speakers = [
 
 export function AboutSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pb-20 ">
-      <div className="container">
-        <h2 className="text-3xl font-bold mb-8 pt-20 ">Overview</h2>
+    <section className="relative min-h-screen flex items-center justify-center py-10 md:py-20">
+      <div className="container px-4 md:px-6">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 pt-10 md:pt-20">Overview</h2>
 
-        <div className="max-w-3xl mb-16 pb-10">
-          <p className="text-lg text-muted-foreground mb-6">
+        <div className="max-w-3xl mb-10 md:mb-16">
+          <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-6">
             The LLM Security Bootcamp aims to provide a comprehensive
             understanding of security principles and best practices specific to
             Large Language Models (LLMs). The bootcamp will include hands-on
@@ -64,67 +64,48 @@ export function AboutSection() {
             Intelligence and cybersecurity.
           </p>
 
-            <h3 className="font-semibold mb-4">Objective</h3>
-            <ul className="list-disc pl-6 mb-6 text-muted-foreground">
+          <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">Objective</h3>
+          <ul className="list-disc pl-4 md:pl-6 mb-4 md:mb-6 text-sm md:text-base text-muted-foreground space-y-2">
             <li>To educate students on security aspects of Large Language Models (LLMs)</li>
             <li>To provide exposure to real-world applications of LLMs in cybersecurity</li>
             <li>To bridge the gap between theoretical knowledge and industry practices in LLM security</li>
-            </ul>
-
-          {/* <Button
-            variant="link"
-            className="text-purple-600 p-0 h-auto font-semibold"
-          >
-            EXPLORE FEATURED SESSION
-          </Button>
-
-          <p className="text-lg text-muted-foreground mt-8 mb-6">
-            Described by many as 'Google I/O of Ukraine', our team creates
-            DevFest to be the best place for experience sharing in a phenomenal
-            atmosphere.
-          </p>
-          <Button
-            variant="link"
-            className="text-purple-600 p-0 h-auto font-semibold"
-          >
-            SEE HOW IT WAS IN 2016
-          </Button> */}
+          </ul>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-2 gap-4 md:gap-8 mb-12 md:mb-20">
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-4xl font-bold mb-2">{stat.number}</div>
-              <div className="text-muted-foreground">{stat.label}</div>
+            <div key={stat.label} className="text-center p-3 md:p-4">
+              <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">{stat.number}</div>
+              <div className="text-sm md:text-base text-muted-foreground">{stat.label}</div>
             </div>
           ))}
         </div>
 
-        <h2 className="text-3xl font-bold mb-12">Speakers</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">Speakers</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {speakers.map((speaker) => (
             <Card
               key={speaker.name}
               className="bg-transparent border-none shadow-none"
             >
               <CardContent className="p-0 text-center">
-                <div className="mb-4 relative">
+                <div className="mb-3 md:mb-4 relative">
                   <img
                     src={speaker.image || "/placeholder.svg"}
                     alt={speaker.name}
-                    className="w-32 h-32 rounded-full mx-auto"
+                    className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto"
                   />
                   <img
                     src="/gdg-logo.svg"
                     alt="null VJA"
-                    className="h-6 mx-auto mt-4"
+                    className="h-5 md:h-6 mx-auto mt-3"
                   />
                 </div>
-                <h3 className="font-bold text-lg mb-2">{speaker.name}</h3>
-                <p className="text-sm text-muted-foreground mb-4">
+                <h3 className="font-bold text-base md:text-lg mb-1 md:mb-2">{speaker.name}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 px-2">
                   {speaker.role}
                 </p>
-                <div className="flex justify-center gap-2">
+                <div className="flex justify-center gap-3">
                   {speaker.social.facebook && (
                     <a
                       href={speaker.social.facebook}
