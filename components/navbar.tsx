@@ -118,9 +118,9 @@ export function Navbar() {
                 </ListItem>
               ))}
               <ListItem className="flex flex-col space-y-4 pt-4 border-t mt-4">
-                <Button className="ghost w-full">SIGN IN</Button>
-                <Button className="primary w-full">
-                  BUY TICKET
+                {/* <Button className="ghost w-full">SIGN IN</Button> */}
+                <Button className="primary w-full" sx={{ borderRadius: '0px' }}>
+                  REGISTER
                 </Button>
               </ListItem>
             </List>
