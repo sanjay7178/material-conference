@@ -5,7 +5,7 @@ import { Bell } from "lucide-react"
 import { Button } from "@/components/ui/mui-button"
 import { cn } from "@/lib/utils"
 import { useState, useEffect } from "react"
-import { IconButton, Drawer, List, ListItem, ListItemText } from "@mui/material"
+import { IconButton, Drawer, List, ListItem, ListItemText, Tabs, Tab, Box } from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
 import CloseIcon from "@mui/icons-material/Close"
 
@@ -20,6 +20,7 @@ const navigation = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +29,10 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    setActiveTab(newValue)
+  }
 
   return (
     <header
@@ -44,21 +49,43 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={cn(
-                "text-sm font-medium transition-colors",
-                isScrolled ? "text-foreground hover:text-purple-400" : "text-white hover:text-white/70",
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
+        {/* Desktop Navigation with Material UI */}
+        <Box className="hidden md:block">
+          <Tabs 
+            value={activeTab} 
+            onChange={handleTabChange}
+            sx={{
+              '& .MuiTab-root': {
+                color: isScrolled ? 'text.primary' : 'white',
+                opacity: 0.7,
+                '&.Mui-selected': {
+                  color: isScrolled ? 'primary.main' : 'white',
+                  opacity: 1,
+                },
+                '&:hover': {
+                  opacity: 1,
+                },
+                minWidth: 'auto',
+                padding: '12px 16px',
+                textTransform: 'uppercase',
+                fontSize: '0.875rem',
+                fontWeight: 500,
+              },
+              '& .MuiTabs-indicator': {
+                backgroundColor: isScrolled ? 'primary.main' : 'white',
+              },
+            }}
+          >
+            {navigation.map((item, index) => (
+              <Tab
+                key={item.name}
+                label={item.name}
+                component={Link}
+                href={item.href}
+              />
+            ))}
+          </Tabs>
+        </Box>
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center space-x-4">
@@ -80,50 +107,77 @@ export function Navbar() {
             </Button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          className={cn("md:hidden", !isScrolled && "text-white")}
-          onClick={() => setIsMobileMenuOpen(true)}
-        >
-          <MenuIcon />
-        </IconButton>
+        {/* Mobile Menu Button - Make sure it's visible on mobile */}
+        <div className="flex md:hidden">
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            className={cn("text-2xl", !isScrolled && "text-white")}
+            onClick={() => setIsMobileMenuOpen(true)}
+            sx={{ padding: '8px' }}
+          >
+            <MenuIcon fontSize="inherit" />
+          </IconButton>
+        </div>
 
         {/* Mobile Menu Drawer */}
         <Drawer
           anchor="right"
           open={isMobileMenuOpen}
           onClose={() => setIsMobileMenuOpen(false)}
+          sx={{
+            '& .MuiDrawer-paper': {
+              width: '80%',
+              maxWidth: '300px',
+              background: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(0, 0, 0, 0.9)',
+              color: isScrolled ? 'inherit' : 'white',
+              backdropFilter: 'blur(10px)',
+            },
+          }}
         >
-          <div className="w-[280px] p-4">
-            <div className="flex justify-end mb-4">
-              <IconButton onClick={() => setIsMobileMenuOpen(false)}>
+          <div className="flex flex-col h-full">
+            <div className="flex justify-end p-4">
+              <IconButton 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={isScrolled ? '' : 'text-white'}
+              >
                 <CloseIcon />
               </IconButton>
             </div>
-            <List>
+            <List className="flex-1">
               {navigation.map((item) => (
                 <ListItem 
                   key={item.name}
-                  onClick={() => setIsMobileMenuOpen(false)}
                   component={Link}
                   href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  sx={{
+                    color: isScrolled ? 'inherit' : 'white',
+                    '&:hover': {
+                      backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.04)' : 'rgba(255, 255, 255, 0.1)',
+                    },
+                  }}
                 >
                   <ListItemText 
-                    primary={item.name} 
-                    className="text-foreground hover:text-purple-400"
+                    primary={item.name}
+                    primaryTypographyProps={{
+                      className: "font-medium",
+                    }}
                   />
                 </ListItem>
               ))}
-              <ListItem className="flex flex-col space-y-4 pt-4 border-t mt-4">
-                {/* <Button className="ghost w-full">SIGN IN</Button> */}
+            </List>
+            <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="space-y-3">
+                {/* <Button className="ghost w-full" sx={{ justifyContent: 'flex-start' }}>
+                  SIGN IN
+                </Button> */}
                 <Button className="primary w-full" sx={{ borderRadius: '0px' }}>
                   REGISTER
                 </Button>
-              </ListItem>
-            </List>
+              </div>
+            </div>
           </div>
         </Drawer>
       </div>
