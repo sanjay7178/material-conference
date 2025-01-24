@@ -90,7 +90,7 @@ export default function TeamPage() {
     //   </div>
     // </div>
         <div className="relative ">
-          <div className="relative h-[60vh] bg-[url('/speakers-hero.jpg')] bg-cover bg-center  flex items-center justify-center">
+          <div className="relative h-[60vh] bg-[url('/team.jpeg')] bg-cover bg-center  flex items-center justify-center">
             <div className="absolute inset-0 bg-black/50" />
             <div className="relative container h-full flex items-center">
               <div className="max-w-3xl text-white">
