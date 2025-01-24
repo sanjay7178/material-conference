@@ -1,5 +1,5 @@
-import { BlogGrid } from "@/components/blog/blog-grid"
-import { BlogList } from "@/components/blog/blog-list"
+import { BlogGrid } from "@/components/blog/blog-grid";
+import { BlogList } from "@/components/blog/blog-list";
 
 // This would typically come from a CMS or API
 const posts = [
@@ -15,7 +15,8 @@ const posts = [
   {
     id: "announcing-devfest-2017",
     title: "Announcing GDG DevFest Ukraine 2017",
-    excerpt: "It is official. GDG DevFest Ukraine 2017 is going to take place in Lviv, on October 13-14.",
+    excerpt:
+      "It is official. GDG DevFest Ukraine 2017 is going to take place in Lviv, on October 13-14.",
     date: "FEB 6, 2017",
     image: "/placeholder.svg",
     category: "Event",
@@ -23,7 +24,8 @@ const posts = [
   {
     id: "thank-you-support",
     title: "Thank you all for your support",
-    excerpt: "Our team wants to thank one more time our partners, who made GDG DevFest Ukraine 2016 possible...",
+    excerpt:
+      "Our team wants to thank one more time our partners, who made GDG DevFest Ukraine 2016 possible...",
     date: "SEP 29, 2016",
     image: "/placeholder.svg",
     category: "Community",
@@ -36,25 +38,44 @@ const posts = [
     image: "/placeholder.svg",
     category: "Event",
   },
-]
+];
 
 export default function BlogPage() {
   return (
-    <div className="relative min-h-screen flex items-center justify-center py-20">
-      <div className="container">
-        <div className="max-w-2xl mb-12">
-          <h1 className="text-4xl font-bold mb-4">News</h1>
-          <p className="text-lg text-muted-foreground">
-            Latest news, updates, and stories from the Null Vijayawada team.
-          </p>
-        </div>
+    // <div className="relative min-h-screen flex items-center justify-center py-20">
+    //   <div className="container">
+    //     <div className="max-w-2xl mb-12">
+    //       <h1 className="text-4xl font-bold mb-4">News</h1>
+    //       <p className="text-lg text-muted-foreground">
+    //         Latest news, updates, and stories from the Null Vijayawada team.
+    //       </p>
+    //     </div>
 
+    //     <div className="space-y-20">
+    //       <BlogGrid posts={posts.slice(0, 3)} />
+    //       <BlogList posts={posts.slice(3)} />
+    //     </div>
+    //   </div>
+    // </div>
+    <div className="relative ">
+      <div className="relative h-[60vh] bg-[url('/speakers-hero.jpg')] bg-cover bg-center  flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative container h-full flex items-center">
+          <div className="max-w-3xl text-white">
+            <h1 className="text-5xl font-bold mb-6">News</h1>
+            <p className="text-xl text-gray-200 mb-12">
+            Latest news, updates, and stories from the Null Vijayawada team.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-2 md:px-2 py-16 max-w-11xl">
         <div className="space-y-20">
           <BlogGrid posts={posts.slice(0, 3)} />
           <BlogList posts={posts.slice(3)} />
         </div>
       </div>
     </div>
-  )
+  );
 }
-
