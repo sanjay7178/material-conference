@@ -1,5 +1,5 @@
-import { Speakers } from "../../components/speakers/speakers"
-import { PreviousSpeakers } from "../../components/speakers/previous-speakers"
+import { Speakers } from "@/components/speakers/speakers"
+import { PreviousSpeakers } from "@/components/speakers/previous-speakers"
 
 export default function SpeakersPage() {
   return (
