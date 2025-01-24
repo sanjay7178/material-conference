@@ -14,7 +14,7 @@ const navigation = [
   { name: "SPEAKERS", href: "/speakers" },
   { name: "SCHEDULE", href: "/schedule" },
   { name: "TEAM", href: "/team" },
-  { name: "BLOG", href: "/blog" },
+  { name: "NEWS", href: "/blog" },
 ]
 
 export function Navbar() {

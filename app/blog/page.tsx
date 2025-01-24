@@ -43,9 +43,9 @@ export default function BlogPage() {
     <div className="relative min-h-screen flex items-center justify-center py-20">
       <div className="container">
         <div className="max-w-2xl mb-12">
-          <h1 className="text-4xl font-bold mb-4">Blog</h1>
+          <h1 className="text-4xl font-bold mb-4">News</h1>
           <p className="text-lg text-muted-foreground">
-            Latest news, updates, and stories from the GDG DevFest Ukraine team.
+            Latest news, updates, and stories from the Null Vijayawada team.
           </p>
         </div>
 
