@@ -1,21 +1,12 @@
 import { BlogPost } from "@/types/blog";
 
 export const blogPosts: Record<string, BlogPost> = {
-  "looking-for-speakers": {
-    id: "looking-for-speakers",
-    slug: "looking-for-speakers",
-    title: "We're looking for speakers",
-    date: "Jan 26, 2025",
-    heroImage: "/cfs.jpg",
-    excerpt:
-      "GDG DevFest Ukraine was announced, for the sixth year in a row...",
-    content: `// ...existing content...`,
-  },
+
   "llm-security-workshop": {
     id: "llm-security-workshop",
     slug: "llm-security-workshop",
     title: "Call for Industry Experts: LLM Security Workshop",
-    date: "Feb 15, 2024",
+    date: "Jan 26, 2024",
     heroImage: "/workshop-banner.jpg",
     excerpt:
       "Join us for a comprehensive two-day LLM Security Bootcamp aimed at providing hands-on experience with security principles and best practices for Large Language Models.",
