@@ -4,7 +4,7 @@ import { TeamSection } from "@/components/team/team-section"
 // This would typically come from a CMS or API
 const coreTeam = [
   {
-    name: "Diana Pinchuk",
+    name: "Member 1",
     role: "Social",
     image: "/placeholder.svg",
     social: {
@@ -12,7 +12,7 @@ const coreTeam = [
     },
   },
   {
-    name: "Marta Maxymiak",
+    name: "Member 2", 
     role: "Party and happiness",
     image: "/placeholder.svg",
     social: {
@@ -20,9 +20,9 @@ const coreTeam = [
     },
   },
   {
-    name: "Oleh Zasadnyy",
+    name: "Member 3",
     role: "Website and sponsors",
-    image: "/placeholder.svg",
+    image: "/placeholder.svg", 
     social: {
       facebook: "#",
       twitter: "#",
@@ -30,26 +30,26 @@ const coreTeam = [
     },
   },
   {
-    name: "Ostap Andrusiv",
+    name: "Member 4",
     role: "Sponsors",
     image: "/placeholder.svg",
     social: {
-      linkedin: "#",
+      linkedin: "#", 
       twitter: "#",
       email: "#",
     },
   },
   {
-    name: "Sofiya Huts",
+    name: "Member 5",
     role: "Social media",
     image: "/placeholder.svg",
     social: {
       facebook: "#",
-      twitter: "#",
+      twitter: "#", 
     },
   },
   {
-    name: "Vasylyna Mytsak",
+    name: "Member 6",
     role: "Party and happiness",
     image: "/placeholder.svg",
     social: {
@@ -60,7 +60,7 @@ const coreTeam = [
 
 const programCommittee = [
   {
-    name: "Dmytro Danylyk",
+    name: "Member 7",
     role: "Android Stream",
     image: "/placeholder.svg",
     social: {
@@ -69,8 +69,8 @@ const programCommittee = [
     },
   },
   {
-    name: "Ihor Dvoretskyi",
-    role: "Cloud stream",
+    name: "Member 8",
+    role: "Cloud stream", 
     image: "/placeholder.svg",
     social: {
       facebook: "#",
@@ -96,9 +96,9 @@ export default function TeamPage() {
       
       <div className="container mx-auto px-4 md:px-6 py-8 md:py-16">
         <div className="space-y-12 md:space-y-20">
-          <TeamIntro />
-          <TeamSection title="Core Team" members={coreTeam} />
-          <TeamSection title="Program Committee" members={programCommittee} />
+          {/* <TeamIntro /> */}
+          {/* <TeamSection title="Core Team" members={coreTeam} />
+          <TeamSection title="Program Committee" members={programCommittee} /> */}
         </div>
       </div>
     </div>

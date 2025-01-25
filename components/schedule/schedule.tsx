@@ -31,56 +31,113 @@ interface Session {
 }
 
 const scheduleData: Record<string, Session[]> = {
-  "september-9": [
+  "day-1": [
     {
       time: "09",
-      timeMinutes: "00",
-      title: "Registration & morning Coffee",
-      description: "Get your badge, coffee, enjoy talking with tech edicts around.",
-      duration: "1 hour",
+      timeMinutes: "30",
+      title: "Registration & Welcome Coffee",
+      description: "Get your workshop materials and enjoy morning refreshments",
+      duration: "30 mins",
       type: "break",
     },
     {
       time: "10",
       timeMinutes: "00",
-      title: "GDG DevFest Ukraine 2024 Opening",
-      description: "Official start of the conference. Greetings from the organizers, sponsors and partners.",
-      duration: "15 mins",
+      title: "Session 1: Adversarial Robustness",
+      description: "Understanding and mitigating adversarial attacks on LLMs, including prompt injection and evasion.",
+      duration: "3 hours",
       language: "EN",
-      type: "talk",
-    },
-    {
-      time: "14",
-      timeMinutes: "00",
-      title: "Windows and .NET on Google Cloud Platform",
-      description:
-        "In this session, we will take a look at Windows and .NET support on Google Cloud Platform. We will build a simple ASP.NET...",
-      duration: "40 mins",
-      language: "EN",
-      difficulty: "Beginner",
-      track: "Cloud",
+      difficulty: "Intermediate",
+      track: "ML/AI",
       type: "workshop",
       speakers: [
         {
-          name: "Mete Atamel",
-          role: "Developer Advocate",
-          company: "Google",
-          location: "London, United Kingdom",
-          avatar: "/placeholder.svg",
+          name: "Dr. Chester Rebeiro",
+          role: "Principal Investigator",
+          company: "IIT Madras",
+          location: "Chennai, India",
+          avatar: "/investigator/prof-chester.png",
         },
       ],
     },
     {
-      time: "18",
-      timeMinutes: "30",
-      title: "Afterparty & Networking",
-      description: "Join us for an evening of networking, food, and fun!",
-      duration: "4 hours",
-      type: "networking",
+      time: "13",
+      timeMinutes: "00",
+      title: "Lunch Break",
+      description: "Networking lunch",
+      duration: "1 hour",
+      type: "break",
+    },
+    {
+      time: "14",
+      timeMinutes: "00",
+      title: "Session 2: Data Privacy and Security",
+      description: "Protecting sensitive data in LLM interactions and preventing data leakage.",
+      duration: "3 hours",
+      language: "EN",
+      difficulty: "Advanced",
+      track: "ML/AI",
+      type: "workshop",
+      speakers: [
+        {
+          name: "Dr. Hari Seetha",
+          role: "Convenor",
+          company: "VIT-AP University",
+          location: "Amaravati, India",
+          avatar: "/convenors/Dr_Hari_Seetha_SCOPE_0741_2b647e6904.avif",
+        },
+      ],
     },
   ],
-  "september-10": [
-    // Similar structure for day 2
+  "day-2": [
+    {
+      time: "10",
+      timeMinutes: "00",
+      title: "Session 3: Bias and Fairness Mitigation",
+      description: "Identifying and mitigating biases in LLM-generated content for ethical AI deployment.",
+      duration: "3 hours",
+      language: "EN",
+      difficulty: "Intermediate",
+      track: "ML/AI",
+      type: "workshop",
+      speakers: [
+        {
+          name: "Dr. Sibi Chakkaravarthy S",
+          role: "Coordinator",
+          company: "VIT-AP University",
+          location: "Amaravati, India",
+          avatar: "/coordinators/Dr_Sibi_Chakkaravarthy_S_70084_0587_206cccb3ec.avif",
+        },
+      ],
+    },
+    {
+      time: "13",
+      timeMinutes: "00",
+      title: "Lunch Break",
+      description: "Networking lunch",
+      duration: "1 hour",
+      type: "break",
+    },
+    {
+      time: "14",
+      timeMinutes: "00",
+      title: "Session 4: Detection and Mitigation of Misuse",
+      description: "Techniques to identify and mitigate malicious use cases of LLMs, like phishing or misinformation.",
+      duration: "3 hours",
+      language: "EN",
+      difficulty: "Advanced",
+      track: "ML/AI",
+      type: "workshop",
+      speakers: [
+        {
+          name: "Dr. Sudhakar Ilango",
+          role: "Convenor",
+          company: "VIT-AP University",
+          location: "Amaravati, India",
+          avatar: "/convenors/Dr_Sudhakar_Ilango_70087_IMG_4727_SCOPE_68f8caba72.avif",
+        },
+      ],
+    },
   ],
 }
 
@@ -113,32 +170,32 @@ const SessionTypeIcon = ({ type }: { type: Session["type"] }) => {
 }
 
 export function Schedule() {
-  const [activeTab, setActiveTab] = useState("september-9")
+  const [activeTab, setActiveTab] = useState("day-1")
 
   return (
     <div className="relative">
-      <Tabs defaultValue="september-9" onValueChange={setActiveTab}>
+      <Tabs defaultValue="day-1" onValueChange={setActiveTab}>
         <div className="sticky top-20 z-10 bg-gradient-to-b backdrop-blur-sm pb-4">
           <div className="flex justify-between items-center mb-8">
             <TabsList className="relative h-10 bg-transparent p-0 border-b border-gray-200">
               <div
                 className="absolute bottom-0 h-0.5 bg-purple-600 transition-all duration-300"
                 style={{
-                  left: activeTab === "september-9" ? "0" : "50%",
+                  left: activeTab === "day-1" ? "0" : "50%",
                   width: "50%",
                 }}
               />
               <TabsTrigger 
-                value="september-9" 
+                value="day-1" 
                 className="relative h-10 rounded-none px-8 font-medium data-[state=active]:text-purple-600 data-[state=active]:bg-transparent transition-colors"
               >
-                September 9
+                Day 1 
               </TabsTrigger>
               <TabsTrigger 
-                value="september-10" 
+                value="day-2" 
                 className="relative h-10 rounded-none px-8 font-medium data-[state=active]:text-purple-600 data-[state=active]:bg-transparent transition-colors"
               >
-                September 10
+                Day 2
               </TabsTrigger>
             </TabsList>
             <Button variant="outline" size="sm" className="gap-2">
