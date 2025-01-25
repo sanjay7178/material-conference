@@ -1,6 +1,10 @@
+"use client"
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Facebook, Twitter, LinkIcon } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const stats = [
   { number: "180+", label: "Attendees" },
@@ -48,7 +52,36 @@ const speakers = [
   },
 ];
 
+function SpeakerSkeleton() {
+  return (
+    <Card className="bg-transparent border-none shadow-none">
+      <CardContent className="p-0 text-center">
+        <div className="mb-3 md:mb-4 relative">
+          <Skeleton className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto" />
+          <Skeleton className="h-5 md:h-6 w-16 mx-auto mt-3" />
+        </div>
+        <Skeleton className="h-5 w-32 mx-auto mb-1 md:mb-2" />
+        <Skeleton className="h-4 w-48 mx-auto mb-3 md:mb-4" />
+        <div className="flex justify-center gap-3">
+          <Skeleton className="h-4 w-4 rounded-full" />
+          <Skeleton className="h-4 w-4 rounded-full" />
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
 export function AboutSection() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center py-10 md:py-20">
       <div className="container px-4 md:px-6">
@@ -83,49 +116,59 @@ export function AboutSection() {
 
         <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">Speakers</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {speakers.map((speaker) => (
-            <Card
-              key={speaker.name}
-              className="bg-transparent border-none shadow-none"
-            >
-              <CardContent className="p-0 text-center">
-                <div className="mb-3 md:mb-4 relative">
-                  <img
-                    src={speaker.image || "/placeholder.svg"}
-                    alt={speaker.name}
-                    className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto"
-                  />
-                  <img
-                    src="/gdg-logo.svg"
-                    alt=""
-                    className="h-5 md:h-6 mx-auto mt-3"
-                  />
-                </div>
-                <h3 className="font-bold text-base md:text-lg mb-1 md:mb-2">{speaker.name}</h3>
-                <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 px-2">
-                  {speaker.role}
-                </p>
-                <div className="flex justify-center gap-3">
-                  {speaker.social.facebook && (
-                    <a
-                      href={speaker.social.facebook}
-                      className="text-muted-foreground hover:text-purple-600"
-                    >
-                      <Facebook className="h-4 w-4" />
-                    </a>
-                  )}
-                  {speaker.social.twitter && (
-                    <a
-                      href={speaker.social.twitter}
-                      className="text-muted-foreground hover:text-purple-600"
-                    >
-                      <Twitter className="h-4 w-4" />
-                    </a>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+          {isLoading ? (
+            <>
+              {[...Array(4)].map((_, index) => (
+                <SpeakerSkeleton key={index} />
+              ))}
+            </>
+          ) : (
+            <>
+              {speakers.map((speaker) => (
+                <Card
+                  key={speaker.name}
+                  className="bg-transparent border-none shadow-none"
+                >
+                  <CardContent className="p-0 text-center">
+                    <div className="mb-3 md:mb-4 relative">
+                      <img
+                        src={speaker.image || "/placeholder.svg"}
+                        alt={speaker.name}
+                        className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto"
+                      />
+                      <img
+                        src="/gdg-logo.svg"
+                        alt=""
+                        className="h-5 md:h-6 mx-auto mt-3"
+                      />
+                    </div>
+                    <h3 className="font-bold text-base md:text-lg mb-1 md:mb-2">{speaker.name}</h3>
+                    <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 px-2">
+                      {speaker.role}
+                    </p>
+                    <div className="flex justify-center gap-3">
+                      {speaker.social.facebook && (
+                        <a
+                          href={speaker.social.facebook}
+                          className="text-muted-foreground hover:text-purple-600"
+                        >
+                          <Facebook className="h-4 w-4" />
+                        </a>
+                      )}
+                      {speaker.social.twitter && (
+                        <a
+                          href={speaker.social.twitter}
+                          className="text-muted-foreground hover:text-purple-600"
+                        >
+                          <Twitter className="h-4 w-4" />
+                        </a>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </>
+          )}
         </div>
       </div>
     </section>
