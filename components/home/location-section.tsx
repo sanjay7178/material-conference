@@ -39,7 +39,7 @@ export function LocationSection() {
               <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Organizer</h2>
               <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">
                 Organized by: VIT-AP University in association with IITM ,
-                Managed by Null Vijaywada
+                Managed by Null Vijayawada
               </p>
               <Button
                 variant="link"

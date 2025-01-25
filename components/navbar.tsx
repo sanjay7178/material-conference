@@ -5,9 +5,21 @@ import { Bell } from "lucide-react"
 import { Button } from "@/components/ui/mui-button"
 import { cn } from "@/lib/utils"
 import { useState, useEffect } from "react"
-import { IconButton, List, ListItem, ListItemText, Tabs, Tab, Box } from "@mui/material"
+import { 
+  IconButton, 
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemButton,
+  Tabs,
+  Tab,
+  Box,
+  Divider,
+  AppBar,
+  Toolbar,
+} from "@mui/material"
 import MenuIcon from "@mui/icons-material/Menu"
-import CloseIcon from "@mui/icons-material/Close"
 
 const navigation = [
   { name: "HOME", href: "/" },
@@ -19,7 +31,7 @@ const navigation = [
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
   const [activeTab, setActiveTab] = useState(0)
 
   useEffect(() => {
@@ -30,27 +42,84 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen)
+  }
+
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue)
   }
 
+  // Mobile drawer content
+  const drawer = (
+    <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <List sx={{ flexGrow: 1, pt: 8 }}>
+        {navigation.map((item) => (
+          <ListItem key={item.name} disablePadding>
+            <ListItemButton
+              component={Link}
+              href={item.href}
+              onClick={handleDrawerToggle}
+              sx={{
+                py: 2,
+                '&:hover': {
+                  bgcolor: 'primary.light',
+                  color: 'primary.main',
+                }
+              }}
+            >
+              <ListItemText 
+                primary={item.name}
+                sx={{
+                  '& .MuiListItemText-primary': {
+                    fontSize: '1rem',
+                    fontWeight: 500,
+                  }
+                }} 
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <Box sx={{ p: 2 }}>
+        <Button 
+          className="primary" 
+          fullWidth 
+          sx={{ 
+            borderRadius: '0px',
+            py: 1.5
+          }}
+        >
+          REGISTER
+        </Button>
+      </Box>
+    </Box>
+  )
+
   return (
-    <header
-      className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-300",
-        isScrolled ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" : "bg-transparent",
-      )}
+    <AppBar
+      position="fixed"
+      color="transparent"
+      elevation={0}
+      sx={{
+        bgcolor: isScrolled ? 'background.default/95' : 'transparent',
+        backdropFilter: isScrolled ? 'blur(10px)' : 'none',
+        transition: 'all 0.3s'
+      }}
     >
-      <div className="relative flex h-20 items-center justify-between px-4 md:px-[10rem]">
+      <Toolbar sx={{ px: { xs: 2, md: '10rem' }, height: '5rem' }}>
         <Link href="/" className="flex items-center space-x-2">
-          {/* <img src="/gdg-logo.svg" alt="GDG DevFest" className="h-8 w-8" /> */}
-          <span className={cn("font-bold transition-colors", isScrolled ? "text-foreground" : "text-white/90")}>
-            Null Vijaywada
+          <span className={cn(
+            "font-bold transition-colors",
+            isScrolled ? "text-foreground" : "text-white/90"
+          )}>
+            Null Vijayawada
           </span>
         </Link>
 
-        {/* Desktop Navigation with Material UI */}
-        <Box className="hidden md:block">
+        {/* Desktop Navigation */}
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
           <Tabs 
             value={activeTab} 
             onChange={handleTabChange}
@@ -76,7 +145,7 @@ export function Navbar() {
               },
             }}
           >
-            {navigation.map((item, index) => (
+            {navigation.map((item) => (
               <Tab
                 key={item.name}
                 label={item.name}
@@ -88,85 +157,76 @@ export function Navbar() {
         </Box>
 
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center space-x-4">
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 2 }}>
           <IconButton
             size="small"
-            className={cn("relative", !isScrolled && "text-white")}
+            sx={{ 
+              color: !isScrolled ? 'white' : 'inherit',
+              position: 'relative'
+            }}
           >
             <Bell className="h-5 w-5" />
-            <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-purple-600" />
+            <Box
+              component="span"
+              sx={{
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                width: 8,
+                height: 8,
+                borderRadius: '50%',
+                bgcolor: 'purple.600'
+              }}
+            />
           </IconButton>
-          {/* <Button
-            className="ghost"
-            sx={{ color: !isScrolled ? 'white' : 'inherit' }}
+          <Button 
+            className="primary" 
+            sx={{ 
+              borderRadius: '0px',
+              ml: 2
+            }}
           >
-            SIGN IN
-          </Button> */}
-            <Button className="primary" sx={{ borderRadius: '0px' }}>
-              REGISTER
-            </Button>
-        </div>
+            REGISTER
+          </Button>
+        </Box>
 
         {/* Mobile Menu Button */}
-        <div className="flex md:hidden">
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={cn(
-              "p-2 focus:outline-none",
-              isScrolled ? "text-foreground" : "text-white/90"
-            )}
-          >
-            <span className="sr-only">Open main menu</span>
-            {!isMobileMenuOpen ? (
-              <svg className="h-6 w-6" fill="none" strokeWidth="1.5" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-            ) : (
-              <svg className="h-6 w-6" fill="none" strokeWidth="1.5" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            )}
-          </button>
-        </div>
+                  <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={handleDrawerToggle}
+          sx={{ 
+            ml: 'auto',
+            display: { md: 'none' },
+            color: isScrolled ? 'text.primary' : '#fff'
+          }}
+        >
+          <MenuIcon />
+        </IconButton>
 
-        {/* Mobile Menu */}
-        <div className={cn(
-          "fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-background/95 backdrop-blur-sm md:hidden transform transition-transform duration-300 ease-in-out",
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        )}>
-          <div className="flex flex-col h-full">
-            <div className="pt-20 pb-4 px-4">
-              <nav className="space-y-4">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="block py-2 text-base font-medium hover:text-primary"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-            <div className="mt-auto p-4 border-t">
-              <Button className="primary w-full" sx={{ borderRadius: '0px' }}>
-                REGISTER
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Overlay */}
-        {isMobileMenuOpen && (
-          <div
-            className="fixed inset-0 bg-black/50 md:hidden"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-        )}
-
-      </div>
-    </header>
+        {/* Mobile Drawer */}
+        <Drawer
+          variant="temporary"
+          anchor="right"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: 'block', md: 'none' },
+            '& .MuiDrawer-paper': { 
+              boxSizing: 'border-box', 
+              width: '100%',
+              maxWidth: 320,
+              bgcolor: 'background.default/95',
+              backdropFilter: 'blur(10px)'
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </Toolbar>
+    </AppBar>
   )
 }
-

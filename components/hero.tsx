@@ -43,7 +43,7 @@ export function Hero() {
           </p>
           <p className="text-lg md:text-xl">
             Organized by: VIT-AP University in association with IITM , Managed
-            by Null Vijaywada
+            by Null Vijayawada
           </p>
         </div>
         <div className="flex items-center justify-center gap-4">
