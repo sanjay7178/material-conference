@@ -93,7 +93,7 @@ export function Speakers() {
                 <div className="mb-2">
                   <img 
                     src="/gdg-logo.svg" 
-                    alt="Null VJA" 
+                    alt="" 
                     className="h-4 md:h-6 mx-auto" 
                   />
                 </div>

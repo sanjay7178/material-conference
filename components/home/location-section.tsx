@@ -60,24 +60,28 @@ export function LocationSection() {
 
         <div className="mt-12 md:mt-20 py-6 md:py-10">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 items-center justify-items-center">
-            {[...Array(10)].map((_, i) => (
+            {[...Array(12)].map((_, i) => (
               <img
-                key={i}
-                src={
-                  i % 3 === 0
-                    ? "/vit-ap.svg"
-                    : i % 3 === 1
-                    ? "/iitm.svg"
-                    : "/null.svg"
-                }
-                alt={
-                  i % 3 === 0
-                    ? "vit-ap"
-                    : i % 3 === 1
-                    ? "iitm"
-                    : "null"
-                }
-                className="h-8 md:h-12 opacity-60 hover:opacity-100 transition-opacity"
+              key={i}
+              src={
+                i % 4 === 0
+                ? "/vit-ap.svg"
+                : i % 4 === 1
+                ? "/iitm.svg"
+                : i % 4 === 2
+                ? "/null.svg"
+                : "/cystar.jpg"
+              }
+              alt={
+                i % 4 === 0
+                ? "vit-ap"
+                : i % 4 === 1
+                ? "iitm"
+                : i % 4 === 2
+                ? "null"
+                : "cystar"
+              }
+              className="h-8 md:h-12 opacity-60 hover:opacity-100 transition-opacity"
               />
             ))}
           </div>

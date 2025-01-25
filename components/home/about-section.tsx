@@ -97,7 +97,7 @@ export function AboutSection() {
                   />
                   <img
                     src="/gdg-logo.svg"
-                    alt="null VJA"
+                    alt=""
                     className="h-5 md:h-6 mx-auto mt-3"
                   />
                 </div>
