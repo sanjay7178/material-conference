@@ -19,20 +19,19 @@ export function Hero() {
       {/* Content */}
       <div className="relative container text-center text-white space-y-8">
         <div className="flex justify-center mb-4">
-          <div className="flex space-x-8">
-            <a href="https://cystar.iitm.ac.in/" target="_blank">
-              <img src="/cystar.jpg" alt="Sponsor 1" className="h-20" />
-            </a>
-            <a href="https://iitm.ac.in" target="_blank">
-              <img src="/iitm.svg" alt="Sponsor 2" className="h-20" />
-            </a>
-            <a href="https://vitap.ac.in" target="_blank">
-              <img src="/vitap.png" alt="Sponsor 3" className="h-20" />
-            </a>
-            <a href="https://null.community" target="_blank">
-            <img src="/null.jpeg" alt="Sponsor 4" className="h-20" />
-
-            </a>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+        <a href="https://cystar.iitm.ac.in/" target="_blank" className="flex items-center">
+          <img src="/cystar.jpg" alt="Sponsor 1" className="h-12 md:h-20 object-contain" />
+        </a>
+        <a href="https://iitm.ac.in" target="_blank" className="flex items-center">
+          <img src="/iitm.svg" alt="Sponsor 2" className="h-12 md:h-20 object-contain" />
+        </a>
+        <a href="https://vitap.ac.in" target="_blank" className="flex items-center">
+          <img src="/vitap.png" alt="Sponsor 3" className="h-12 md:h-20 object-contain" />
+        </a>
+        <a href="https://null.community" target="_blank" className="flex items-center">
+          <img src="/null.jpeg" alt="Sponsor 4" className="h-12 md:h-20 object-contain" />
+        </a>
           </div>
         </div>
         <div className="space-y-4">

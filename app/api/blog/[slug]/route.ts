@@ -10,14 +10,14 @@ const posts: Record<string, BlogPost> = {
     heroImage: "/cfs.jpg",
     content: `// ...existing content...`
   },
-  "llm-security-workshop": {
-    id: "2",
-    slug: "llm-security-workshop",
-    title: "Call for Industry Experts: LLM Security Workshop",
-    date: "Feb 15, 2024",
-    heroImage: "/workshop-banner.jpg",
-    content: `// ...existing content...`
-  }
+  // "llm-security-workshop": {
+  //   id: "2",
+  //   slug: "llm-security-workshop",
+  //   title: "Call for Industry Experts: LLM Security Workshop",
+  //   date: "Feb 15, 2024",
+  //   heroImage: "/workshop-banner.jpg",
+  //   content: `// ...existing content...`
+  // }
 };
 
 export async function GET(
