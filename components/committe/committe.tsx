@@ -2,7 +2,9 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Skeleton } from "@/components/ui/skeleton"
 import { Linkedin, Mail, SlidersHorizontal } from "lucide-react"
+import { useState, useEffect } from "react"
 
 interface CommitteeMember {
   name: string
@@ -94,7 +96,49 @@ const investigators: CommitteeMember[] = [
   }
 ]
 
+function CommitteeMemberSkeleton() {
+  return (
+    <Card className="overflow-hidden">
+      <CardContent className="p-0">
+        <div className="p-6 text-center">
+          <div className="mb-4">
+            <Skeleton className="w-32 h-32 rounded-full mx-auto" />
+          </div>
+          <div className="mb-2">
+            <Skeleton className="h-6 w-16 mx-auto" />
+          </div>
+          <Skeleton className="h-5 w-40 mx-auto mb-1" />
+          <Skeleton className="h-4 w-24 mx-auto mb-2" />
+          <Skeleton className="h-4 w-48 mx-auto mb-4" />
+          <div className="flex justify-center gap-2">
+            <Skeleton className="h-4 w-4 rounded-full" />
+            <Skeleton className="h-4 w-4 rounded-full" />
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
 export function Committee() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  const renderSkeletonGroup = (count: number) => (
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {[...Array(count)].map((_, index) => (
+        <CommitteeMemberSkeleton key={index} />
+      ))}
+    </div>
+  )
+
   return (
     <div className="mb-20 py-10 flex items-center justify-center">
       <div className="container">
@@ -109,124 +153,128 @@ export function Committee() {
         {/* Investigators Section */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold  mb-12">Princial Investigator</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {investigators.map((member) => (
-              <Card key={member.name} className="overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="p-6 text-center">
-                    <div className="mb-4">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-32 h-32 rounded-full mx-auto"
-                      />
+          {isLoading ? renderSkeletonGroup(1) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {investigators.map((member) => (
+                <Card key={member.name} className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="p-6 text-center">
+                      <div className="mb-4">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-32 h-32 rounded-full mx-auto"
+                        />
+                      </div>
+                      <div className="mb-2">
+                        <img src="/gdg-logo.svg" alt="" className="h-6 mx-auto" />
+                      </div>
+                      <h3 className="font-bold text-lg mb-1">{member.name}</h3>
+                      <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
+                      <p className="text-sm text-muted-foreground mb-4">{member.department}</p>
+                      <div className="flex justify-center gap-2">
+                        {member.social.linkedin && (
+                          <a href={member.social.linkedin} className="text-muted-foreground hover:text-primary">
+                            <Linkedin className="h-4 w-4" />
+                          </a>
+                        )}
+                        {member.social.email && (
+                          <a href={member.social.email} className="text-muted-foreground hover:text-primary">
+                            <Mail className="h-4 w-4" />
+                          </a>
+                        )}
+                      </div>
                     </div>
-                    <div className="mb-2">
-                      <img src="/gdg-logo.svg" alt="" className="h-6 mx-auto" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-1">{member.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
-                    <p className="text-sm text-muted-foreground mb-4">{member.department}</p>
-                    <div className="flex justify-center gap-2">
-                      {member.social.linkedin && (
-                        <a href={member.social.linkedin} className="text-muted-foreground hover:text-primary">
-                          <Linkedin className="h-4 w-4" />
-                        </a>
-                      )}
-                      {member.social.email && (
-                        <a href={member.social.email} className="text-muted-foreground hover:text-primary">
-                          <Mail className="h-4 w-4" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Convenors Section */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold  mb-12">Convenors</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {convenors.map((member) => (
-              <Card key={member.name} className="overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="p-6 text-center">
-                    <div className="mb-4">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-32 h-32 rounded-full mx-auto"
-                      />
+          {isLoading ? renderSkeletonGroup(2) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {convenors.map((member) => (
+                <Card key={member.name} className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="p-6 text-center">
+                      <div className="mb-4">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-32 h-32 rounded-full mx-auto"
+                        />
+                      </div>
+                      <div className="mb-2">
+                        <img src="/gdg-logo.svg" alt="" className="h-6 mx-auto" />
+                      </div>
+                      <h3 className="font-bold text-lg mb-1">{member.name}</h3>
+                      <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
+                      <p className="text-sm text-muted-foreground mb-4">{member.department}</p>
+                      <div className="flex justify-center gap-2">
+                        {member.social.linkedin && (
+                          <a href={member.social.linkedin} className="text-muted-foreground hover:text-primary">
+                            <Linkedin className="h-4 w-4" />
+                          </a>
+                        )}
+                        {member.social.email && (
+                          <a href={member.social.email} className="text-muted-foreground hover:text-primary">
+                            <Mail className="h-4 w-4" />
+                          </a>
+                        )}
+                      </div>
                     </div>
-                    <div className="mb-2">
-                      <img src="/gdg-logo.svg" alt="" className="h-6 mx-auto" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-1">{member.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
-                    <p className="text-sm text-muted-foreground mb-4">{member.department}</p>
-                    <div className="flex justify-center gap-2">
-                      {member.social.linkedin && (
-                        <a href={member.social.linkedin} className="text-muted-foreground hover:text-primary">
-                          <Linkedin className="h-4 w-4" />
-                        </a>
-                      )}
-                      {member.social.email && (
-                        <a href={member.social.email} className="text-muted-foreground hover:text-primary">
-                          <Mail className="h-4 w-4" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Coordinators Section */}
         <div>
           <h3 className="text-3xl font-bold  mb-12">Coordinators</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {coordinators.map((member) => (
-              <Card key={member.name} className="overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="p-6 text-center">
-                    <div className="mb-4">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-32 h-32 rounded-full mx-auto"
-                      />
+          {isLoading ? renderSkeletonGroup(4) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {coordinators.map((member) => (
+                <Card key={member.name} className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="p-6 text-center">
+                      <div className="mb-4">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-32 h-32 rounded-full mx-auto"
+                        />
+                      </div>
+                      <div className="mb-2">
+                        <img src="/gdg-logo.svg" alt="" className="h-6 mx-auto" />
+                      </div>
+                      <h3 className="font-bold text-lg mb-1">{member.name}</h3>
+                      <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
+                      <p className="text-sm text-muted-foreground mb-4">{member.department}</p>
+                      <div className="flex justify-center gap-2">
+                        {member.social.linkedin && (
+                          <a href={member.social.linkedin} className="text-muted-foreground hover:text-primary">
+                            <Linkedin className="h-4 w-4" />
+                          </a>
+                        )}
+                        {member.social.email && (
+                          <a href={member.social.email} className="text-muted-foreground hover:text-primary">
+                            <Mail className="h-4 w-4" />
+                          </a>
+                        )}
+                      </div>
                     </div>
-                    <div className="mb-2">
-                      <img src="/gdg-logo.svg" alt="" className="h-6 mx-auto" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-1">{member.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
-                    <p className="text-sm text-muted-foreground mb-4">{member.department}</p>
-                    <div className="flex justify-center gap-2">
-                      {member.social.linkedin && (
-                        <a href={member.social.linkedin} className="text-muted-foreground hover:text-primary">
-                          <Linkedin className="h-4 w-4" />
-                        </a>
-                      )}
-                      {member.social.email && (
-                        <a href={member.social.email} className="text-muted-foreground hover:text-primary">
-                          <Mail className="h-4 w-4" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
-
-        
       </div>
     </div>
   )
