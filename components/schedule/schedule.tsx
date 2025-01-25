@@ -3,10 +3,12 @@
 import { useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
-import { SlidersHorizontal, Bookmark, Clock, Users, Coffee, Presentation, PartyPopperIcon as Party } from "lucide-react"
+import { SlidersHorizontal, Bookmark, Clock, Users, Coffee, Presentation, PartyPopperIcon as Party, X, Mic } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent } from "@/components/ui/card"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Checkbox } from "@/components/ui/checkbox"
 import { cn } from "@/lib/utils"
 
 interface Speaker {
@@ -25,8 +27,8 @@ interface Session {
   duration: string
   language?: string
   difficulty?: "Beginner" | "Intermediate" | "Advanced"
-  track?: "Android" | "Web" | "Cloud" | "ML/AI"
-  type?: "talk" | "workshop" | "break" | "networking"
+  track?: "Adversarial Robustness" | "Data Privacy" | "Bias and Fairness" | "Misuse Detection" | "ML/AI" | "OWASP Top 10 for LLM" | "Security Engineering" | "Secure Development" | "Security" | "LLM" | "ML/AI"
+  type?: "talk" | "workshop" | "break" | "networking" | "podcast"
   speakers?: Speaker[]
 }
 
@@ -121,6 +123,39 @@ const scheduleData: Record<string, Session[]> = {
     {
       time: "14",
       timeMinutes: "00",
+      title: "Podcast: LLM Security - Industry Perspectives",
+      description: "An engaging discussion between industry leaders on real-world LLM security challenges and solutions",
+      duration: "1 hour",
+      language: "EN",
+      track: "Security",
+      type: "podcast",
+      speakers: [
+        {
+          name: "Satya Nadella",
+          role: "CEO",
+          company: "Microsoft",
+          location: "Redmond, USA",
+          avatar: "/speakers/satya-nadella.png",
+        },
+        {
+          name: "Sundar Pichai",
+          role: "CEO",
+          company: "Google",
+          location: "Mountain View, USA",
+          avatar: "/speakers/sundar-pichai.png",
+        },
+        {
+          name: "Sam Altman",
+          role: "CEO",
+          company: "OpenAI",
+          location: "San Francisco, USA",
+          avatar: "/speakers/sam-altman.png",
+        }
+      ],
+    },
+    {
+      time: "15",
+      timeMinutes: "00",
       title: "Session 4: Detection and Mitigation of Misuse",
       description: "Techniques to identify and mitigate malicious use cases of LLMs, like phishing or misinformation.",
       duration: "3 hours",
@@ -141,11 +176,17 @@ const scheduleData: Record<string, Session[]> = {
   ],
 }
 
-const trackColors = {
-  Android: "bg-green-100 text-green-800 border-green-200",
-  Web: "bg-blue-100 text-blue-800 border-blue-200",
-  Cloud: "bg-purple-100 text-purple-800 border-purple-200",
+const trackColors: Record<string, string> = {
+  "Adversarial Robustness": "bg-green-100 text-green-800 border-green-200",
+  "Data Privacy": "bg-blue-100 text-blue-800 border-blue-200",
+  "Bias and Fairness": "bg-purple-100 text-purple-800 border-purple-200",
+  "Misuse Detection": "bg-red-100 text-red-800 border-red-200",
   "ML/AI": "bg-orange-100 text-orange-800 border-orange-200",
+  "OWASP Top 10 for LLM": "bg-yellow-100 text-yellow-800 border-yellow-200",
+  "Security Engineering": "bg-teal-100 text-teal-800 border-teal-200",
+  "Secure Development": "bg-cyan-100 text-cyan-800 border-cyan-200",
+  "Security": "bg-indigo-100 text-indigo-800 border-indigo-200",
+  "LLM": "bg-violet-100 text-violet-800 border-violet-200"
 }
 
 const difficultyColors = {
@@ -153,6 +194,10 @@ const difficultyColors = {
   Intermediate: "bg-amber-100 text-amber-800",
   Advanced: "bg-rose-100 text-rose-800",
 }
+
+const tracks = ["Adversarial Robustness" , "Data Privacy" , "Bias and Fairness" , "Misuse Detection" , "ML/AI" , "OWASP Top 10 for LLM" , "Security Engineering" , "Secure Development" , "Security" , "LLM" ]
+const difficulties = ["Beginner", "Intermediate", "Advanced"]
+const types = ["talk", "workshop", "break", "networking" ,"podcast"]
 
 const SessionTypeIcon = ({ type }: { type: Session["type"] }) => {
   switch (type) {
@@ -164,6 +209,8 @@ const SessionTypeIcon = ({ type }: { type: Session["type"] }) => {
       return <Coffee className="h-5 w-5" />
     case "networking":
       return <Party className="h-5 w-5" />
+    case "podcast":
+      return <Mic className="h-5 w-5" />
     default:
       return null
   }
@@ -171,6 +218,28 @@ const SessionTypeIcon = ({ type }: { type: Session["type"] }) => {
 
 export function Schedule() {
   const [activeTab, setActiveTab] = useState("day-1")
+  const [filters, setFilters] = useState({
+    tracks: [] as string[],
+    difficulties: [] as string[],
+    types: [] as string[]
+  })
+
+  const filterSession = (session: Session) => {
+    if (filters.tracks.length && session.track && !filters.tracks.includes(session.track)) return false
+    if (filters.difficulties.length && session.difficulty && !filters.difficulties.includes(session.difficulty)) return false
+    if (filters.types.length && session.type && !filters.types.includes(session.type)) return false
+    return true
+  }
+
+  const clearFilters = () => {
+    setFilters({
+      tracks: [],
+      difficulties: [],
+      types: []
+    })
+  }
+
+  const hasActiveFilters = filters.tracks.length > 0 || filters.difficulties.length > 0 || filters.types.length > 0
 
   return (
     <div className="relative">
@@ -198,14 +267,103 @@ export function Schedule() {
                 Day 2
               </TabsTrigger>
             </TabsList>
-            <Button variant="outline" size="sm" className="gap-2">
-              <SlidersHorizontal className="h-4 w-4" />
-              FILTERS
-            </Button>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button variant="outline" size="sm" className="gap-2">
+                  <SlidersHorizontal className="h-4 w-4" />
+                  FILTERS
+                  {hasActiveFilters && (
+                    <Badge variant="secondary" className="ml-1 rounded-full">
+                      {filters.tracks.length + filters.difficulties.length + filters.types.length}
+                    </Badge>
+                  )}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-80">
+                <div className="space-y-4">
+                  {hasActiveFilters && (
+                    <div className="flex justify-between items-center pb-2 border-b">
+                      <h4 className="font-medium">Active Filters</h4>
+                      <Button variant="ghost" size="sm" onClick={clearFilters} className="h-auto p-1">
+                        <X className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  )}
+                  
+                  <div className="space-y-2">
+                    <h4 className="font-medium">Track</h4>
+                    <div className="grid grid-cols-2 gap-2">
+                      {tracks.map((track) => (
+                        <div key={track} className="flex items-center space-x-2">
+                          <Checkbox 
+                            id={`track-${track}`}
+                            checked={filters.tracks.includes(track)}
+                            onCheckedChange={(checked) => {
+                              setFilters(prev => ({
+                                ...prev,
+                                tracks: checked 
+                                  ? [...prev.tracks, track]
+                                  : prev.tracks.filter(t => t !== track)
+                              }))
+                            }}
+                          />
+                          <label htmlFor={`track-${track}`} className="text-sm">{track}</label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h4 className="font-medium">Difficulty</h4>
+                    <div className="grid grid-cols-2 gap-2">
+                      {difficulties.map((difficulty) => (
+                        <div key={difficulty} className="flex items-center space-x-2">
+                          <Checkbox 
+                            id={`difficulty-${difficulty}`}
+                            checked={filters.difficulties.includes(difficulty)}
+                            onCheckedChange={(checked) => {
+                              setFilters(prev => ({
+                                ...prev,
+                                difficulties: checked 
+                                  ? [...prev.difficulties, difficulty]
+                                  : prev.difficulties.filter(d => d !== difficulty)
+                              }))
+                            }}
+                          />
+                          <label htmlFor={`difficulty-${difficulty}`} className="text-sm">{difficulty}</label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h4 className="font-medium">Type</h4>
+                    <div className="grid grid-cols-2 gap-2">
+                      {types.map((type) => (
+                        <div key={type} className="flex items-center space-x-2">
+                          <Checkbox 
+                            id={`type-${type}`}
+                            checked={filters.types.includes(type)}
+                            onCheckedChange={(checked) => {
+                              setFilters(prev => ({
+                                ...prev,
+                                types: checked 
+                                  ? [...prev.types, type]
+                                  : prev.types.filter(t => t !== type)
+                              }))
+                            }}
+                          />
+                          <label htmlFor={`type-${type}`} className="text-sm capitalize">{type}</label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
 
-        {/* Add smooth transition for tab content */}
         <div className="relative">
           {Object.entries(scheduleData).map(([day, sessions]) => (
             <TabsContent 
@@ -214,7 +372,7 @@ export function Schedule() {
               className="transition-all duration-300 animate-in slide-in-from-right-4"
             >
               <div className="space-y-6">
-                {sessions.map((session, index) => (
+                {sessions.filter(filterSession).map((session, index) => (
                   <Card key={index} className="relative overflow-hidden transition-all duration-200 hover:shadow-lg">
                     <CardContent className="p-6">
                       <div className="flex gap-6">

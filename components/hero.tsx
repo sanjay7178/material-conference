@@ -18,7 +18,7 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative container text-center text-white space-y-8">
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-4">
           <div className="flex space-x-8">
             <a href="https://cystar.iitm.ac.in/" target="_blank">
               <img src="/cystar.jpg" alt="Sponsor 1" className="h-20" />
