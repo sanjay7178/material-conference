@@ -53,6 +53,21 @@ export function Navbar() {
   // Mobile drawer content
   const drawer = (
     <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ 
+        display: 'flex', 
+        justifyContent: 'flex-end', 
+        p: 2, 
+        position: 'absolute',
+        right: 0,
+        top: 0,
+        zIndex: 1
+      }}>
+        <IconButton onClick={handleDrawerToggle}>
+          <svg className="h-6 w-6" fill="none" strokeWidth="1.5" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </IconButton>
+      </Box>
       <List sx={{ flexGrow: 1, pt: 8 }}>
         {navigation.map((item) => (
           <ListItem key={item.name} disablePadding>
@@ -63,8 +78,8 @@ export function Navbar() {
               sx={{
                 py: 2,
                 '&:hover': {
-                  bgcolor: 'primary.light',
-                  color: 'primary.main',
+                  bgcolor: 'rgba(147, 51, 234, 0.1)',
+                  color: '#9333EA',
                 }
               }}
             >
