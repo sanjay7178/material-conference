@@ -45,3 +45,53 @@
   }
 }
 
+/* Markdown Content Styles */
+.markdown-content {
+  @apply text-base leading-relaxed;
+}
+
+.markdown-content strong {
+  @apply font-semibold;
+}
+
+.markdown-content hr {
+  @apply my-8 border-gray-200;
+}
+
+.markdown-content blockquote {
+  @apply pl-4 border-l-4 border-gray-200 italic my-6;
+}
+
+.markdown-content pre {
+  @apply bg-gray-50 p-4 rounded-lg overflow-x-auto my-6;
+}
+
+.markdown-content code {
+  @apply bg-gray-50 px-1 py-0.5 rounded text-sm;
+}
+
+/* Basic Prose Styles */
+.prose {
+  @apply text-gray-900 max-w-none;
+}
+
+.prose > * + * {
+  @apply mt-4;
+}
+
+.prose img {
+  @apply rounded-lg;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-purple-200 pl-4 italic;
+}
+
+.prose pre {
+  @apply bg-gray-50 p-4 rounded-lg;
+}
+
+.prose code {
+  @apply bg-gray-50 px-1 py-0.5 rounded text-sm;
+}
+
