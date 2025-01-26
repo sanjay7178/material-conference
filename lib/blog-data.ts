@@ -61,7 +61,6 @@ Participants will need access to various API keys for hands-on sessions:
 
 Join us for this exciting opportunity to learn about LLM security from industry experts!
 
-[Register Now](#registration)
     `,
     submitProposalLabel: "Propose a Session",
     submitProposalUrl: "",
