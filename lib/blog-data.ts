@@ -5,7 +5,7 @@ export const blogPosts: Record<string, BlogPost> = {
     id: "llm-security-workshop",
     slug: "llm-security-workshop",
     title: "Call for Industry Experts: LLM Security Workshop",
-    date: "Jan 26, 2024",
+    date: "Jan 26, 2025",
     heroImage: "/workshop-banner.jpg",
     excerpt:
       "Join us for a comprehensive two-day LLM Security Bootcamp aimed at providing hands-on experience with security principles and best practices for Large Language Models.",
@@ -63,16 +63,18 @@ Join us for this exciting opportunity to learn about LLM security from industry 
 
 [Register Now](#registration)
     `,
+    submitProposalLabel: "Propose a Session",
+    submitProposalUrl: "https://example.com/submit-llm-security",
   },
 
   "call-for-volunteers": {
     id: "call-for-volunteers",
     slug: "call-for-volunteers",
     title: "Call for Volunteers: LLM Security Workshop",
-    date: "Feb 18, 2024",
+    date: "Jan 26, 2025",
     heroImage: "/volunteer-banner.jpg",
     excerpt:
-      "We are seeking 15 event co-coordinators for the Two-Day Bootcamp on LLM Security.",
+      "We are seeking 20 event co-coordinators for the Two-Day Bootcamp on LLM Security.",
     content: `
 I hope this message finds you well. We are excited to announce the upcoming Two-Day Bootcamp on LLM Security to be held in Amaravati (Venue : VIT AP University) on 21st & 22nd February, 2025. This event is being organized by VIT-AP University in association with IITM and managed by Null Vijayawada.
 
@@ -102,6 +104,8 @@ We are confident that your involvement will help make this bootcamp a success. P
 
 Thank you for your support and enthusiasm in contributing to the success of this significant event.
   `,
+    submitProposalLabel: "Sign Up to Volunteer",
+    submitProposalUrl: "https://example.com/volunteer-form",
   },
 };
 
@@ -112,3 +116,5 @@ export function getAllPosts(): BlogPost[] {
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts[slug];
 }
+
+

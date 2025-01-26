@@ -44,9 +44,14 @@ function BlogContent({ post }: { post: any }) {
         components={components}
       />
       <div className="mt-6 sm:mt-8 md:mt-12">
-        <button className="w-full sm:w-auto bg-purple-600 text-white px-4 md:px-6 py-3 text-sm md:text-base rounded-lg font-medium hover:bg-purple-700 transition-colors">
-          SUBMIT A PROPOSAL
-        </button>
+        {post.submitProposalUrl && post.submitProposalLabel && (
+          <a
+            href={post.submitProposalUrl} target='_blank' rel='noopener noreferrer'
+            className="inline-block bg-purple-600 text-white px-4 md:px-6 py-3 text-sm md:text-base rounded-lg font-medium hover:bg-purple-700 transition-colors text-center"
+          >
+            {post.submitProposalLabel}
+          </a>
+        )}
       </div>
     </div>
   );

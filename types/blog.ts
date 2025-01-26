@@ -6,4 +6,6 @@ export interface BlogPost {
   heroImage: string;
   excerpt?: string;
   slug: string;
+  submitProposalLabel?: string;
+  submitProposalUrl?: string;
 }
