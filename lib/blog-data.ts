@@ -64,7 +64,7 @@ Join us for this exciting opportunity to learn about LLM security from industry 
 [Register Now](#registration)
     `,
     submitProposalLabel: "Propose a Session",
-    submitProposalUrl: "https://example.com/submit-llm-security",
+    submitProposalUrl: "",
   },
 
   "call-for-volunteers": {
@@ -105,7 +105,7 @@ We are confident that your involvement will help make this bootcamp a success. P
 Thank you for your support and enthusiasm in contributing to the success of this significant event.
   `,
     submitProposalLabel: "Sign Up to Volunteer",
-    submitProposalUrl: "https://example.com/volunteer-form",
+    submitProposalUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfnmevFFJLZVOTQsvNINAR8LoC01cdLQNmhu26WWMThhymLCA/viewform",
   },
 };
 
