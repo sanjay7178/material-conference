@@ -1,7 +1,6 @@
 import { BlogPost } from "@/types/blog";
 
 export const blogPosts: Record<string, BlogPost> = {
-
   "llm-security-workshop": {
     id: "llm-security-workshop",
     slug: "llm-security-workshop",
@@ -11,8 +10,8 @@ export const blogPosts: Record<string, BlogPost> = {
     excerpt:
       "Join us for a comprehensive two-day LLM Security Bootcamp aimed at providing hands-on experience with security principles and best practices for Large Language Models.",
     content: `
-## Event Details
-**Dates**: February 21-22, 2025
+[//]: # Event Details
+**Dates**: February 21-22, 2025  
 **Location**: VIT-AP University, Amaravati
 
 ## Overview
@@ -64,6 +63,45 @@ Join us for this exciting opportunity to learn about LLM security from industry 
 
 [Register Now](#registration)
     `,
+  },
+
+  "call-for-volunteers": {
+    id: "call-for-volunteers",
+    slug: "call-for-volunteers",
+    title: "Call for Volunteers: LLM Security Workshop",
+    date: "Feb 18, 2024",
+    heroImage: "/volunteer-banner.jpg",
+    excerpt:
+      "We are seeking 15 event co-coordinators for the Two-Day Bootcamp on LLM Security.",
+    content: `
+I hope this message finds you well. We are excited to announce the upcoming Two-Day Bootcamp on LLM Security to be held in Amaravati (Venue : VIT AP University) on 21st & 22nd February, 2025. This event is being organized by VIT-AP University in association with IITM and managed by Null Vijayawada.
+
+To ensure the success of this event, we are seeking **20** event co-coordinators to assist with various responsibilities such as event logistics, participant support, and on-site management.
+
+## Event Details
+**Title**: Two-Day Bootcamp on LLM Security  
+**Date**: 21st & 22nd February, 2025  
+**Location**: Amaravati  
+**Organized by**: VIT-AP University in association with IITM  
+**Managed by**: Null Vijayawada
+
+### Principal Investigator 
+- Dr Chester Rebeiro, IITM
+
+### Convenors
+- Dr. Hari Seetha
+- Dr. Sudhakar Ilango
+
+### Coordinators
+- Dr. Sibi Chakkaravarthy S
+- Dr. Ganesh Reddy Karri
+- Dr. Nandha Kumar
+- Dr. Priyanka S
+
+We are confident that your involvement will help make this bootcamp a success. Please confirm your interest in volunteering by today. If you have any questions, feel free to reach out to me directly at sanjay - +91 6302635053, Hari krishna - 9361816271.
+
+Thank you for your support and enthusiasm in contributing to the success of this significant event.
+  `,
   },
 };
 
