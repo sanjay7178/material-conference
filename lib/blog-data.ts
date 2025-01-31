@@ -7,6 +7,7 @@ export const blogPosts: Record<string, BlogPost> = {
     title: "Call for Industry Experts: LLM Security Workshop",
     date: "Jan 26, 2025",
     heroImage: "/workshop-banner.jpg",
+    tags: ["important"],
     excerpt:
       "Join us for a comprehensive two-day LLM Security Bootcamp aimed at providing hands-on experience with security principles and best practices for Large Language Models.",
     content: `
@@ -72,6 +73,7 @@ Join us for this exciting opportunity to learn about LLM security from industry 
     title: "Call for Volunteers: LLM Security Workshop",
     date: "Jan 26, 2025",
     heroImage: "/volunteer-banner.jpg",
+    tags: ["regular"],
     excerpt:
       "We are seeking 20 event co-coordinators for the Two-Day Bootcamp on LLM Security.",
     content: `

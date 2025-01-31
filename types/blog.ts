@@ -8,4 +8,5 @@ export interface BlogPost {
   heroImage?: string;
   submitProposalUrl?: string;
   submitProposalLabel?: string;
+  tags : string[];
 }

@@ -9,6 +9,8 @@ interface NewsItem {
   title: string;
   date: string;
   excerpt: string;
+  isLatest: boolean;
+  isImportant: boolean;
 }
 
 export default function NewsContainer() {
@@ -25,7 +27,9 @@ export default function NewsContainer() {
         month: 'long',
         day: 'numeric'
       }),
-      excerpt: post.excerpt || post.title || ''
+      excerpt: post.excerpt || post.title || '',
+      isLatest: true, // Assuming the top 3 posts are the latest
+      isImportant: post.tags.includes('important') // Assuming 'tags' is an array in BlogPost
     }));
 
   useEffect(() => {
@@ -56,6 +60,10 @@ export default function NewsContainer() {
                 <div className="text-sm text-gray-500">{item.date}</div>
                 <h3 className="text-lg font-semibold mt-1">{item.title}</h3>
                 <p className="text-gray-600 mt-2 line-clamp-2">{item.excerpt}</p>
+                <div className="flex space-x-2 mt-2">
+                  {item.isLatest && <span className="text-xs bg-green-200 text-green-800 px-2 py-1 rounded">Latest</span>}
+                  {item.isImportant && <span className="text-xs bg-red-200 text-red-800 px-2 py-1 rounded">Important</span>}
+                </div>
                 <Link 
                   href={`/blog/${item.slug}`} 
                   className="text-purple-600 hover:text-purple-800 mt-2 inline-block"
