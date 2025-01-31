@@ -90,7 +90,7 @@ Please send your:
 - Previous speaking experiences
 - Preferred session slot
 
-Submit your proposal by February 1, 2025
+Submit your proposal by February 10th, 2025
 
 For queries contact:
 - Sanjay: +91 9966018440
