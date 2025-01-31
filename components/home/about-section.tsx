@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Facebook, Twitter, LinkIcon } from "lucide-react";
 import { useState, useEffect } from "react";
+import NewsContainer from "../NewsContainer";
 
 const stats = [
   { number: "180+", label: "Attendees" },
@@ -85,26 +86,37 @@ export function AboutSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center py-10 md:py-20">
       <div className="container px-4 md:px-6">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 pt-10 md:pt-20">Overview</h2>
+        {/* Two-column layout for Overview and News */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          {/* Overview Column */}
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 pt-10 md:pt-20">Overview</h2>
+            <div className="mb-10 md:mb-16">
+              <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-6">
+                The LLM Security Bootcamp aims to provide a comprehensive
+                understanding of security principles and best practices specific to
+                Large Language Models (LLMs). The bootcamp will include hands-on
+                sessions, and practical exercises. The target audience is students
+                from various engineering disciplines with an interest in Artificial
+                Intelligence and cybersecurity.
+              </p>
 
-        <div className="max-w-3xl mb-10 md:mb-16">
-          <p className="text-base md:text-lg text-muted-foreground mb-4 md:mb-6">
-            The LLM Security Bootcamp aims to provide a comprehensive
-            understanding of security principles and best practices specific to
-            Large Language Models (LLMs). The bootcamp will include hands-on
-            sessions, and practical exercises. The target audience is students
-            from various engineering disciplines with an interest in Artificial
-            Intelligence and cybersecurity.
-          </p>
+              <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">Objective</h3>
+              <ul className="list-disc pl-4 md:pl-6 mb-4 md:mb-6 text-sm md:text-base text-muted-foreground space-y-2">
+                <li>To educate students on security aspects of Large Language Models (LLMs)</li>
+                <li>To provide exposure to real-world applications of LLMs in cybersecurity</li>
+                <li>To bridge the gap between theoretical knowledge and industry practices in LLM security</li>
+              </ul>
+            </div>
+          </div>
 
-          <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">Objective</h3>
-          <ul className="list-disc pl-4 md:pl-6 mb-4 md:mb-6 text-sm md:text-base text-muted-foreground space-y-2">
-            <li>To educate students on security aspects of Large Language Models (LLMs)</li>
-            <li>To provide exposure to real-world applications of LLMs in cybersecurity</li>
-            <li>To bridge the gap between theoretical knowledge and industry practices in LLM security</li>
-          </ul>
+          {/* News Column */}
+          <div className="lg:pt-[5.5rem]">
+            <NewsContainer />
+          </div>
         </div>
 
+        {/* Stats Section */}
         <div className="grid grid-cols-2 gap-4 md:gap-8 mb-12 md:mb-20">
           {stats.map((stat) => (
             <div key={stat.label} className="text-center p-3 md:p-4">
@@ -114,6 +126,7 @@ export function AboutSection() {
           ))}
         </div>
 
+        {/* Speakers Section */}
         <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">Speakers</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {isLoading ? (

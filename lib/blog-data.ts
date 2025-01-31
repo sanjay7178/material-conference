@@ -75,37 +75,41 @@ Join us for this exciting opportunity to learn about LLM security from industry 
     excerpt:
       "We are seeking 20 event co-coordinators for the Two-Day Bootcamp on LLM Security.",
     content: `
-I hope this message finds you well. We are excited to announce the upcoming Two-Day Bootcamp on LLM Security to be held in Amaravati (Venue : VIT AP University) on 21st & 22nd February, 2025. This event is being organized by VIT-AP University in association with IITM and managed by Null Vijayawada.
+      I hope this message finds you well. We are excited to announce the upcoming Two-Day Bootcamp on LLM Security to be held in Amaravati (Venue : VIT AP University) on 21st & 22nd February, 2025. This event is being organized by VIT-AP University in association with IITM and managed by Null Vijayawada.
 
-To ensure the success of this event, we are seeking **20** event co-coordinators to assist with various responsibilities such as event logistics, participant support, and on-site management.
+      To ensure the success of this event, we are seeking **20** event co-coordinators to assist with various responsibilities such as event logistics, participant support, and on-site management.
 
-## Event Details
-**Title**: Two-Day Bootcamp on LLM Security  
-**Date**: 21st & 22nd February, 2025  
-**Location**: Amaravati  
-**Organized by**: VIT-AP University in association with IITM  
-**Managed by**: Null Vijayawada
+      ## Event Details
+      **Title**: Two-Day Bootcamp on LLM Security  
+      **Date**: 21st & 22nd February, 2025  
+      **Location**: Amaravati  
+      **Organized by**: VIT-AP University in association with IITM  
+      **Managed by**: Null Vijayawada
 
-### Principal Investigator 
-- Dr Chester Rebeiro, IITM
+      ### Principal Investigator 
+      - Dr Chester Rebeiro, IITM
 
-### Convenors
-- Dr. Hari Seetha
-- Dr. Sudhakar Ilango
+      ### Convenors
+      - Dr. Hari Seetha
+      - Dr. Sudhakar Ilango
 
-### Coordinators
-- Dr. Sibi Chakkaravarthy S
-- Dr. Ganesh Reddy Karri
-- Dr. Nandha Kumar
-- Dr. Priyanka S
+      ### Coordinators
+      - Dr. Sibi Chakkaravarthy S
+      - Dr. Ganesh Reddy Karri
+      - Dr. Nandha Kumar
+      - Dr. Priyanka S
+      
 
-We are confident that your involvement will help make this bootcamp a success. Please confirm your interest in volunteering by today. If you have any questions, feel free to reach out to me directly at sanjay - +91 6302635053, Hari krishna - 9361816271.
+      We are confident that your involvement will help make this bootcamp a success. Please confirm your interest in volunteering by today. If you have any questions, feel free to reach out to me directly at sanjay - +91 6302635053, Hari krishna - 9361816271.
 
-Thank you for your support and enthusiasm in contributing to the success of this significant event.
-  `,
+      Thank you for your support and enthusiasm in contributing to the success of this significant event.
+        `,
     submitProposalLabel: "Sign Up to Volunteer",
-    submitProposalUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfnmevFFJLZVOTQsvNINAR8LoC01cdLQNmhu26WWMThhymLCA/viewform",
-  },
+    submitProposalUrl:
+      "https://docs.google.com/forms/d/e/1FAIpQLSfnmevFFJLZVOTQsvNINAR8LoC01cdLQNmhu26WWMThhymLCA/viewform",
+  }
+  
+  ,
 };
 
 export function getAllPosts(): BlogPost[] {
@@ -115,5 +119,3 @@ export function getAllPosts(): BlogPost[] {
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts[slug];
 }
-
-
