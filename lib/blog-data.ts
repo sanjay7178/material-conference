@@ -96,6 +96,8 @@ For queries contact:
 - Sanjay: +91 9966018440
 - Hari Krishna: +91 9361816271
 
+Mail :  leads@nullvijayawada.org
+
 Join us in shaping the future of AI security education!
     `,
     submitProposalLabel: "Propose a Session",
