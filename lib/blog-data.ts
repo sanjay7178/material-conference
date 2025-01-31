@@ -95,14 +95,17 @@ Submit your proposal by February 10th, 2025
 For queries contact:
 - Sanjay: +91 9966018440
 - Hari Krishna: +91 9361816271
-Mail :  nullvja@gmail.com
+
+Mail :  [nullvja@gmail.com](mailto:nullvja@gmail.com)
 
 Submit your proposal by February 10th, 2025
 
 
-For more details visit :  www.nullvijayawada.org
-X:   x.com/nullvja
-LinkedIn :  https://www.linkedin.com/company/nullvja
+For more details visit :  [www.nullvijayawada.org](www.nullvijayawada.org)
+
+Twitter :   [https://twitter.com/nullvja](https://twitter.com/nullvja)
+
+LinkedIn :  [https://www.linkedin.com/company/nullvja](https://www.linkedin.com/company/nullvja)
 
 
 
