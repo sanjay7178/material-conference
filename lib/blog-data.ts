@@ -13,6 +13,8 @@ export const blogPosts: Record<string, BlogPost> = {
     content: `
 # Call for Industry Experts: LLM Security Workshop
 
+## [Submit a Proposal](https://forms.gle/3Jon7tLCLfmWQK68A)
+
 **Dates**: February 21-22, 2025  
 **Location**: VIT-AP University, Amaravati
 
@@ -91,13 +93,13 @@ Please send your:
 Submit your proposal by February 1, 2025
 
 For queries contact:
-- Sanjay: +91 6302635053
+- Sanjay: +91 9966018440
 - Hari Krishna: +91 9361816271
 
 Join us in shaping the future of AI security education!
     `,
     submitProposalLabel: "Propose a Session",
-    submitProposalUrl: "",
+    submitProposalUrl: "https://forms.gle/3Jon7tLCLfmWQK68A",
   },
 
   "call-for-volunteers": {
