@@ -49,9 +49,23 @@ We invite industry experts in cybersecurity and AI to share their knowledge and 
 
 4. **Emerging Threats in AI Security**
    - Current challenges in LLM security
-   - Advanced protection mechanisms
-   - Future trends and preparedness
-   - Case studies from industry
+    - Advanced protection mechanisms
+    - Future trends and preparedness
+    - Case studies from industry
+---
+### Additional Areas of Interest
+- Multimodal AI security
+- Security in AI-powered robotics
+- Edge AI security
+- AI security in healthcare
+- Security in recommendation systems
+- Privacy-preserving machine learning
+
+ **Reinforcement Learning Security**
+   - Security in autonomous systems
+   - Adversarial attacks on RL agents
+   - Safe RL deployment strategies
+   - Robustness in multi-agent systems
 
 ## Format
 - 2-hour session per topic
@@ -60,10 +74,12 @@ We invite industry experts in cybersecurity and AI to share their knowledge and 
 - Q&A and interaction with students
 
 ## Who Should Apply
-- Cybersecurity professionals with AI/ML experience
-- AI security researchers
-- Industry experts in LLM development and security
-- Security architects working with AI systems
+- Cybersecurity professionals with AI expertise
+- Computer Vision security researchers
+- NLP security specialists
+- RL security experts
+- AI safety researchers
+- Industry practitioners in any AI security domain
 
 ## How to Submit
 Please send your:
