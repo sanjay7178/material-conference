@@ -41,3 +41,6 @@ export default function BlogLoading() {
     </article>
   );
 }
+
+export const runtime = 'edge';
+
