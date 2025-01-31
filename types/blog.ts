@@ -1,11 +1,11 @@
 export interface BlogPost {
-  id: string;
+  id : string;
+  slug: string;
   title: string;
   date: string;
   content: string;
-  heroImage: string;
-  excerpt?: string;
-  slug: string;
-  submitProposalLabel?: string;
+  excerpt: string;
+  heroImage?: string;
   submitProposalUrl?: string;
+  submitProposalLabel?: string;
 }
