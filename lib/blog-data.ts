@@ -95,8 +95,16 @@ Submit your proposal by February 10th, 2025
 For queries contact:
 - Sanjay: +91 9966018440
 - Hari Krishna: +91 9361816271
-
 Mail :  leads@nullvijayawada.org
+
+Submit your proposal by February 10th, 2025
+
+
+For more details visit :  www.nullvijayawada.org
+X:   x.com/nullvja
+LinkedIn :  https://www.linkedin.com/company/nullvja
+
+
 
 Join us in shaping the future of AI security education!
     `,
