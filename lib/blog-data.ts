@@ -4,64 +4,81 @@ export const blogPosts: Record<string, BlogPost> = {
   "llm-security-workshop": {
     id: "llm-security-workshop",
     slug: "llm-security-workshop",
-    title: "Call for Industry Experts: LLM Security Workshop",
+    title: "Call for Industry Experts and Proposals: LLM Security Workshop",
     date: "Jan 26, 2025",
     heroImage: "/workshop-banner.jpg",
     tags: ["important"],
     excerpt:
-      "Join us for a comprehensive two-day LLM Security Bootcamp aimed at providing hands-on experience with security principles and best practices for Large Language Models.",
+      "Call for Industry Experts in Cybersecurity: Share your expertise on LLM Security and AI-based security aspects in our upcoming two-day workshop. Travel support and honorarium provided.",
     content: `
-[//]: # Event Details
+# Call for Industry Experts: LLM Security Workshop
+
 **Dates**: February 21-22, 2025  
 **Location**: VIT-AP University, Amaravati
 
 ## Overview
-The LLM Security Bootcamp aims to provide a comprehensive understanding of security principles and best practices specific to Large Language Models (LLMs). The bootcamp will include hands-on sessions, and practical exercises. The target audience is students from various engineering disciplines with an interest in Artificial Intelligence and cybersecurity.
+We invite industry experts in cybersecurity and AI to share their knowledge and practical experience in our comprehensive two-day LLM Security Workshop. This is an opportunity to shape the next generation of cybersecurity professionals by providing hands-on training and real-world insights.
 
-## Objectives
-- To educate students on security aspects of Large Language Models (LLMs)
-- To provide exposure to real-world applications of LLMs in cybersecurity
-- To bridge the gap between theoretical knowledge and industry practices in LLM security
+## What We Offer
+- Travel reimbursement to VIT-AP University
+- One night accommodation
+- Honorary payment for the session
+- Complimentary meals during the event
 
-## Workshop Schedule
+## Workshop Topics of Interest
 
-### Day 1
+### Day 1 Sessions
+1. **Adversarial AI & LLM Security**
+   - Current threats and defense mechanisms
+   - Real-world case studies
+   - Hands-on demonstration of security vulnerabilities
+   - Industry best practices
 
-#### Session 1: Adversarial Robustness
-- Understanding and mitigating adversarial attacks on LLMs
-- Hands-on: Crafting adversarial prompts
-- Practice: Testing LLM defenses using prompt examples
-- API Requirement: OpenAI GPT API
+2. **Data Privacy in LLM Applications**
+   - Enterprise-grade security measures
+   - Practical approaches to data protection
+   - Industry compliance and standards
+   - Real-world implementation strategies
 
-#### Session 2: Data Privacy and Security
-- Protecting sensitive data in LLM interactions
-- Hands-on: Simulating and detecting sensitive data leakage
-- Practice: Implementing differential privacy measures
-- API Requirement: Hugging Face API
+### Day 2 Sessions
+3. **AI Security Frameworks**
+   - Latest developments in AI security
+   - Implementation of security protocols
+   - Risk assessment methodologies
+   - Best practices from industry
 
-### Day 2
+4. **Emerging Threats in AI Security**
+   - Current challenges in LLM security
+   - Advanced protection mechanisms
+   - Future trends and preparedness
+   - Case studies from industry
 
-#### Session 3: Bias and Fairness Mitigation
-- Identifying and mitigating biases in LLM-generated content
-- Hands-on: Auditing LLM outputs for bias
-- Practice: Fine-tuning a model with debiased datasets
-- API Requirement: Google Vertex AI
+## Format
+- 2-hour session per topic
+- 1 hour theoretical presentation
+- 1 hour hands-on workshop/demonstration
+- Q&A and interaction with students
 
-#### Session 4: Detection and Mitigation of Misuse
-- Techniques to identify and mitigate malicious use cases
-- Hands-on: Developing toxicity filters
-- Practice: Moderating generated content with ethical guidelines
-- API Requirement: Anthropic Claude API
+## Who Should Apply
+- Cybersecurity professionals with AI/ML experience
+- AI security researchers
+- Industry experts in LLM development and security
+- Security architects working with AI systems
 
-## Requirements
-Participants will need access to various API keys for hands-on sessions:
-- OpenAI GPT API
-- Hugging Face API
-- Google Vertex AI
-- Anthropic Claude API
+## How to Submit
+Please send your:
+- Proposed topic and session outline
+- Brief bio and expertise
+- Previous speaking experiences
+- Preferred session slot
 
-Join us for this exciting opportunity to learn about LLM security from industry experts!
+Submit your proposal by February 1, 2025
 
+For queries contact:
+- Sanjay: +91 6302635053
+- Hari Krishna: +91 9361816271
+
+Join us in shaping the future of AI security education!
     `,
     submitProposalLabel: "Propose a Session",
     submitProposalUrl: "",
