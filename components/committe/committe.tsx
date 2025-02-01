@@ -279,3 +279,5 @@ export function Committee() {
     </div>
   )
 }
+
+export { convenors, coordinators, investigators };

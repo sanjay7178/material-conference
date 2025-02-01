@@ -1,27 +1,27 @@
 import { TeamIntro } from "@/components/team/team-intro"
 import { TeamSection } from "@/components/team/team-section"
-
+import { convenors , investigators , coordinators } from "@/components/committe/committe"
 // This would typically come from a CMS or API
 const coreTeam = [
   {
-    name: "Member 1",
-    role: "Social",
+    name: "Sai Sanjay K",
+    role: "Null Vijayawada Chapter Lead",
     image: "/placeholder.svg",
     social: {
       facebook: "#",
     },
   },
   {
-    name: "Member 2", 
-    role: "Party and happiness",
+    name: "Jahin Justin", 
+    role: "Null Vijayawada Chapter Lead",
     image: "/placeholder.svg",
     social: {
       facebook: "#",
     },
   },
   {
-    name: "Member 3",
-    role: "Website and sponsors",
+    name: "Daniel T",
+    role: "Null Vijayawada Chapter Lead",
     image: "/placeholder.svg", 
     social: {
       facebook: "#",
@@ -30,8 +30,8 @@ const coreTeam = [
     },
   },
   {
-    name: "Member 4",
-    role: "Sponsors",
+    name: "Hari Krishna",
+    role: "Null Vijayawada Chapter Member",
     image: "/placeholder.svg",
     social: {
       linkedin: "#", 
@@ -40,22 +40,22 @@ const coreTeam = [
     },
   },
   {
-    name: "Member 5",
-    role: "Social media",
+    name: "Anurag G",
+    role: "Null Vijayawada Chapter Member",
     image: "/placeholder.svg",
     social: {
       facebook: "#",
       twitter: "#", 
     },
   },
-  {
-    name: "Member 6",
-    role: "Party and happiness",
-    image: "/placeholder.svg",
-    social: {
-      twitter: "#",
-    },
-  },
+  // {
+  //   name: "Member 6",
+  //   role: "Party and happiness",
+  //   image: "/placeholder.svg",
+  //   social: {
+  //     twitter: "#",
+  //   },
+  // },
 ]
 
 const programCommittee = [
@@ -97,8 +97,12 @@ export default function TeamPage() {
       <div className="container mx-auto px-4 md:px-6 py-8 md:py-16">
         <div className="space-y-12 md:space-y-20">
           {/* <TeamIntro /> */}
-          {/* <TeamSection title="Core Team" members={coreTeam} />
-          <TeamSection title="Program Committee" members={programCommittee} /> */}
+          <TeamSection title="Investigator" members={investigators} />
+          <TeamSection title="Convenors" members={convenors} />
+          <TeamSection title="Coordinators" members={coordinators} />
+          <TeamSection title="Null Vijayawada Community" members={coreTeam} />
+
+
         </div>
       </div>
     </div>
