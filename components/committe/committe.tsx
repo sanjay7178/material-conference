@@ -80,7 +80,48 @@ const coordinators: CommitteeMember[] = [
       linkedin: "#",
       email: "mailto:priyanka.s@vitap.ac.in"
     }
-  }
+  },
+  {
+    name: "Dr. Anil VT",
+    role: "Coordinator",
+    department: "School of Computer Science and Engineering",
+    image: "external/Dr_Anil_Vitthalrao_Turukmane_70487_0162_9c8d31f279.avif",
+    social: {
+      linkedin: "#",
+      email: "mailto:anil.turukmane@vitap.ac.in"
+    }
+  },
+  {
+    name: "Dr. Santha Devi",
+    role: "Coordinator",
+    department: "School of Computer Science and Engineering",
+    image: "external/Dr_D_Santha_Devi_70602_IMG_4925_SCOPE_a9aff86f50.avif",
+    social: {
+      linkedin: "#",
+      email: "mailto:santhadevi.d@vitap.ac.in"
+    }
+  },
+  {
+    name: "Dr. Loganthan Pavithra",
+    role: "Coordinator",
+    department: "School of Computer Science and Engineering",
+    image: "external/Dr_Loganathan_Pavithra_70681_IMG_4860_SCOPE_40c3c76e3f.avif",
+    social: {
+      linkedin: "#",
+      email: ""
+    }
+  },
+  {
+    name: "Dr. Rajalakshmi",
+    role: "Coordinator",
+    department: "School of Computer Science and Engineering",
+    image: "external/Rajalakshmi_f75bd6a032.avif",
+    social: {
+      linkedin: "#",
+      email: ""
+    }
+  },
+  
 ]
 
 const investigators: CommitteeMember[] = [
