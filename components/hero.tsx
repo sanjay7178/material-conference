@@ -19,51 +19,21 @@ export function Hero() {
       {/* Content */}
       <div className="relative container text-center text-white space-y-8">
         <div className="flex justify-center mb-4">
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-            <a
-              href="https://cystar.iitm.ac.in/"
-              target="_blank"
-              className="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-all duration-300"
-            >
-              <img
-                src="/cystar.jpg"
-                alt="Sponsor 1"
-                className="h-12 md:h-20 object-contain"
-              />
-            </a>
-            <a
-              href="https://iitm.ac.in"
-              target="_blank"
-              className="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-all duration-300"
-            >
-              <img
-                src="/iitm.svg"
-                alt="Sponsor 2"
-                className="h-12 md:h-20 object-contain"
-              />
-            </a>
-            <a
-              href="https://vitap.ac.in"
-              target="_blank"
-              className="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-all duration-300"
-            >
-              <img
-                src="/vitap.png"
-                alt="Sponsor 3"
-                className="h-12 md:h-20 object-contain"
-              />
-            </a>
-            <a
-              href="https://null.community"
-              target="_blank"
-              className="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-all duration-300"
-            >
-              <img
-                src="/null.jpeg"
-                alt="Sponsor 4"
-                className="h-12 md:h-20 object-contain"
-              />
-            </a>
+          <div className="w-full max-w-6xl mx-auto px-4">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+              <a
+                href="https://cystar.iitm.ac.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-3xl hover:bg-white/20 transition-all duration-300 border border-white/20"
+              >
+                <img
+                  src="/rounded-combined.png"
+                  alt="Combined organization logos"
+                  className="h-15 md:h-[100px] w-auto object-contain rounded-xl"
+                />
+              </a>
+            </div>
           </div>
         </div>
         <div className="space-y-4">
