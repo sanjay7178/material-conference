@@ -92,6 +92,16 @@ const coordinators: CommitteeMember[] = [
     }
   },
   {
+    name: "Dr. E. Ajith Jubilson",
+    role: "Coordinator",
+    department: "School of Computer Science and Engineering",
+    image: "external/Dr_E_Ajith_Jubilson_SCOPE_1956_20273c1217.avif",
+    social: {
+      linkedin: "#",
+      email: "mailto:ajith.jubilson@vitap.ac.in"
+    }
+  },
+  {
     name: "Dr. Santha Devi",
     role: "Coordinator",
     department: "School of Computer Science and Engineering",
