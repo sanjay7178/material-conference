@@ -19,8 +19,10 @@ export default function SpeakersPage() {
       
       <div className="container mx-auto px-4 md:px-6 py-8 md:py-16">
         <div className="space-y-12 md:space-y-20">
-          <Speakers />
-          <PreviousSpeakers />
+          {/* Speakers will be announed shortly */}
+          <h3>Speakers will be announced shortly</h3>
+          {/* <Speakers />
+          <PreviousSpeakers /> */}
         </div>
       </div>
     </div>

@@ -128,7 +128,8 @@ export function AboutSection() {
 
         {/* Speakers Section */}
         <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">Speakers</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div>Speakers will be Announced shortly</div>
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {isLoading ? (
             <>
               {[...Array(4)].map((_, index) => (
@@ -182,7 +183,7 @@ export function AboutSection() {
               ))}
             </>
           )}
-        </div>
+        </div> */}
       </div>
     </section>
   );
