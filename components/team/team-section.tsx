@@ -52,7 +52,7 @@ export function TeamSection({
                 <a
                   href={member.social.linkedin}
                   className="text-gray-400 hover:text-purple-600 transition-colors"
-                  aria-label={`${name}'s LinkedIn`}
+                  aria-label={`${member.name}'s LinkedIn`}
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
@@ -61,7 +61,7 @@ export function TeamSection({
                 <a
                   href={member.social.email}
                   className="text-gray-400 hover:text-purple-600 transition-colors"
-                  aria-label={`Email ${name}`}
+                  aria-label={`Email ${member.name}`}
                 >
                   <Mail className="w-5 h-5" />
                 </a>
