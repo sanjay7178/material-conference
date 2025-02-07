@@ -14,43 +14,52 @@ const stats = [
   { number: "6", label: "Tracks" },
 ];
 
+interface SpeakerSocial {
+  facebook?: string;
+  twitter?: string;
+  linkedin?: string;
+}
+
 const speakers = [
   {
-    name: "Speaker 1",
-    role: "AI Safety Researcher at OpenAI, LLM Security Specialist",
+    name: "Punit Jain",
+    role: "Software Engineering Manager - Amazon ,Leading the engineering team for AWS AI products. ",
+    location: "Physical",
+    bio: "• A result-driven Software Development Manager with over 18 years of IT industry experience. • Expertise in designing and building highly available and scalable cloud based micro-services. • Experienced in leading teams in AWS AI space building Demand Forecasting, Observability capabilities and GenAI (LLM) based features. • Experienced in partnering with Product, Science and UX teams to build innovative AI solutions to solve customer problems.",
     image: "/placeholder.svg",
     social: {
-      facebook: "#",
-      twitter: "#",
-    },
+      // twitter: "#",
+      // facebook: "#",
+      linkedin: "https://www.linkedin.com/in/jainpunit/",
+    } as SpeakerSocial,
   },
-  {
-    name: "Speaker 2",
-    role: "MLOps Lead at Google AI, Security Architecture Expert",
-    image: "/placeholder.svg",
-    social: {
-      facebook: "#",
-      twitter: "#",
-    },
-  },
-  {
-    name: "Speaker 3",
-    role: "Principal AI Security Engineer at Microsoft",
-    image: "/placeholder.svg",
-    social: {
-      facebook: "#",
-      twitter: "#",
-    },
-  },
-  {
-    name: "Speaker 4",
-    role: "Head of LLM Security Research at DeepMind",
-    image: "/placeholder.svg",
-    social: {
-      facebook: "#",
-      twitter: "#",
-    },
-  },
+  // {
+  //   name: "Speaker 2",
+  //   role: "MLOps Lead at Google AI, Security Architecture Expert",
+  //   image: "/placeholder.svg",
+  //   social: {
+  //     facebook: "#",
+  //     twitter: "#",
+  //   },
+  // },
+  // {
+  //   name: "Speaker 3",
+  //   role: "Principal AI Security Engineer at Microsoft",
+  //   image: "/placeholder.svg",
+  //   social: {
+  //     facebook: "#",
+  //     twitter: "#",
+  //   },
+  // },
+  // {
+  //   name: "Speaker 4",
+  //   role: "Head of LLM Security Research at DeepMind",
+  //   image: "/placeholder.svg",
+  //   social: {
+  //     facebook: "#",
+  //     twitter: "#",
+  //   },
+  // },
 ];
 
 function SpeakerSkeleton() {
@@ -128,8 +137,8 @@ export function AboutSection() {
 
         {/* Speakers Section */}
         <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">Speakers</h2>
-        <div>Speakers will be Announced shortly</div>
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        {/* <div>Speakers will be Announced shortly</div> */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {isLoading ? (
             <>
               {[...Array(4)].map((_, index) => (
@@ -183,7 +192,7 @@ export function AboutSection() {
               ))}
             </>
           )}
-        </div> */}
+        </div>
       </div>
     </section>
   );
