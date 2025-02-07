@@ -6,60 +6,15 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Facebook, Twitter, LinkIcon } from "lucide-react";
 import { useState, useEffect } from "react";
 import NewsContainer from "../NewsContainer";
+import { SpeakerModal } from "../speakers/modal"
+import { Speaker, speakers } from "@/data/speakers"
+import { Linkedin } from "lucide-react"
 
 const stats = [
   { number: "180+", label: "Attendees" },
   { number: "2", label: "Days" },
   { number: "4+", label: "Sessions" },
   { number: "6", label: "Tracks" },
-];
-
-interface SpeakerSocial {
-  facebook?: string;
-  twitter?: string;
-  linkedin?: string;
-}
-
-const speakers = [
-  {
-    name: "Punit Jain",
-    role: "Software Engineering Manager - Amazon ,Leading the engineering team for AWS AI products. ",
-    location: "Physical",
-    bio: "• A result-driven Software Development Manager with over 18 years of IT industry experience. • Expertise in designing and building highly available and scalable cloud based micro-services. • Experienced in leading teams in AWS AI space building Demand Forecasting, Observability capabilities and GenAI (LLM) based features. • Experienced in partnering with Product, Science and UX teams to build innovative AI solutions to solve customer problems.",
-    image: "/placeholder.svg",
-    social: {
-      // twitter: "#",
-      // facebook: "#",
-      linkedin: "https://www.linkedin.com/in/jainpunit/",
-    } as SpeakerSocial,
-  },
-  // {
-  //   name: "Speaker 2",
-  //   role: "MLOps Lead at Google AI, Security Architecture Expert",
-  //   image: "/placeholder.svg",
-  //   social: {
-  //     facebook: "#",
-  //     twitter: "#",
-  //   },
-  // },
-  // {
-  //   name: "Speaker 3",
-  //   role: "Principal AI Security Engineer at Microsoft",
-  //   image: "/placeholder.svg",
-  //   social: {
-  //     facebook: "#",
-  //     twitter: "#",
-  //   },
-  // },
-  // {
-  //   name: "Speaker 4",
-  //   role: "Head of LLM Security Research at DeepMind",
-  //   image: "/placeholder.svg",
-  //   social: {
-  //     facebook: "#",
-  //     twitter: "#",
-  //   },
-  // },
 ];
 
 function SpeakerSkeleton() {
@@ -83,6 +38,7 @@ function SpeakerSkeleton() {
 
 export function AboutSection() {
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -95,6 +51,14 @@ export function AboutSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center py-10 md:py-20">
       <div className="container px-4 md:px-6">
+        {selectedSpeaker && (
+          <SpeakerModal 
+            speaker={selectedSpeaker} 
+            open={!!selectedSpeaker} 
+            onOpenChange={(open) => !open && setSelectedSpeaker(null)}
+          />
+        )}
+
         {/* Two-column layout for Overview and News */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Overview Column */}
@@ -137,7 +101,6 @@ export function AboutSection() {
 
         {/* Speakers Section */}
         <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">Speakers</h2>
-        {/* <div>Speakers will be Announced shortly</div> */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {isLoading ? (
             <>
@@ -150,12 +113,13 @@ export function AboutSection() {
               {speakers.map((speaker) => (
                 <Card
                   key={speaker.name}
-                  className="bg-transparent border-none shadow-none"
+                  className="bg-transparent border-none shadow-none cursor-pointer hover:shadow-lg transition-shadow"
+                  onClick={() => setSelectedSpeaker(speaker)}
                 >
-                  <CardContent className="p-0 text-center">
-                    <div className="mb-3 md:mb-4 relative">
+                  <CardContent className="p-2 text-center">
+                    <div className="mb-3 md:mb-6 relative">
                       <img
-                        src={speaker.image || "/placeholder.svg"}
+                        src={speaker.image}
                         alt={speaker.name}
                         className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto"
                       />
@@ -170,20 +134,15 @@ export function AboutSection() {
                       {speaker.role}
                     </p>
                     <div className="flex justify-center gap-3">
-                      {speaker.social.facebook && (
+                      {speaker.social.linkedin && (
                         <a
-                          href={speaker.social.facebook}
+                          href={speaker.social.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-muted-foreground hover:text-purple-600"
+                          onClick={(e) => e.stopPropagation()}
                         >
-                          <Facebook className="h-4 w-4" />
-                        </a>
-                      )}
-                      {speaker.social.twitter && (
-                        <a
-                          href={speaker.social.twitter}
-                          className="text-muted-foreground hover:text-purple-600"
-                        >
-                          <Twitter className="h-4 w-4" />
+                          <Linkedin className="h-4 w-4" />
                         </a>
                       )}
                     </div>
