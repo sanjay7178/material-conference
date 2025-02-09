@@ -17,7 +17,11 @@ export const speakers: Speaker[] = [
     name: "Punit Kumar Jain",
     role: "Senior FSI Solutions Architect, AWS",
     location: "Physical",
-    bio: "• A result-driven Software Development Manager with over 18 years of IT industry experience.\n• Expertise in designing and building highly available and scalable cloud based micro-services.\n• Experienced in leading teams in AWS AI space building Demand Forecasting, Observability capabilities and GenAI (LLM) based features.\n• Experienced in partnering with Product, Science and UX teams to build innovative AI solutions to solve customer problems.",
+    bio: `
+    Punit Jain is a FSI Solutions Architect at AWS working with large scale digital-native businesses. He is passionate about technology, helping customers architect and 
+    build innovative, secure, resilient and efficient solutions for complex business problems. 
+    He is also known as a regional security expert for his contributions to improving the security posture of many AWS customers. Additionally, Punit has deep expertise in Generative AI (GenAI) and is dedicated to enhancing developer productivity through GenAI-driven solutions.
+    `,
     image: "/speakers/punitjain-3.jpeg",
     companyLogo: "/speakers/company/amazon.jpg",
     social: {
