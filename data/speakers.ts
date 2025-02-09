@@ -28,11 +28,21 @@ export const speakers: Speaker[] = [
     name: "Deepan Raj",
     role: "Technical Manager - HCL Tech",
     location: "Physical",
-    bio: "",
+    bio: `
+    About Me
+    I always believe in the words "Stay Hungry Stay Foolish" said by Steve Jobs.
+
+    Innovation and Creativity is my strength. Whatever Job is given, I can Crack them just by "Keeping It Simple"
+    
+    More Info About Me
+
+    > Github - https://github.com/deepanrajm
+    > Youtube - https://www.youtube.com/DeepanTechspace
+    `,
     image: "/speakers/deepan-raj.jpeg",
     companyLogo: "/speakers/company/hcl1.jpg",
     social: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/deepanrajm/",
     },
   },
   {
