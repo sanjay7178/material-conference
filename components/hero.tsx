@@ -52,7 +52,7 @@ export function Hero() {
           {/* <Button2  className="text-white border-white hover:bg-white/10" sx={{ borderRadius: '0px' }}>
             VIEW HIGHLIGHTS
           </Button2> */}
-            <form action="https://lu.ma/1fa60wdk">
+            <form action="https://lu.ma/1fa60wdk?utm_source=nullvja-domain">
             <Button2 className="primary" sx={{ borderRadius: "0px" }} type="submit">
               REGISTER
             </Button2>

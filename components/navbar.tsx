@@ -98,7 +98,7 @@ export function Navbar() {
       </List>
       <Divider />
       <Box sx={{ p: 2 }}>
-      <form action="https://lu.ma/1fa60wdk">
+      <form action="https://lu.ma/1fa60wdk?utm_source=nullvja-domain">
             <Button className="primary" sx={{ borderRadius: "0px" }} type="submit">
               REGISTER
             </Button>
@@ -189,7 +189,7 @@ export function Navbar() {
               }}
             />
           </IconButton>
-          <form action="https://lu.ma/1fa60wdk">
+          <form action="https://lu.ma/1fa60wdk?utm_source=nullvja-domain">
             <Button className="primary" sx={{ borderRadius: "0px" }} type="submit">
               REGISTER
             </Button>
