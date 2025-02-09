@@ -49,7 +49,21 @@ export const speakers: Speaker[] = [
     name: "Jai Ganesh S",
     role: "Senior AI Architect Lead - Valeo",
     location: "Physical",
-    bio: "",
+    bio: `
+    Jai Ganesh Suresh, I've 8+ years of experience in my interested domains such as Python, Machine Learning and so. Updating our self always exhibit our potential and the interest towards the society. I used to belief myself and my own decision and want to be positive during the time of negative atmosphere.
+
+    Expertise Domains :
+
+    1. Artificial Intelligence
+    2. Deep Learning & Machine Learning
+    3. Computer Vision & Digital Image Processing
+    4. Python programming
+    5. Robotics & Arduino
+    6. Freelance Technical Trainer
+    7. Public motivational speaker
+    8. Intermediate knowledge of LabVIEW
+    
+    `,
     image: "/speakers/jai-ganesh-s.jpeg",
     companyLogo: "/speakers/company/valeo.svg",
     social: {
