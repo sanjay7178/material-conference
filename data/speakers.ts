@@ -62,12 +62,12 @@ export const speakers: Speaker[] = [
     6. Freelance Technical Trainer
     7. Public motivational speaker
     8. Intermediate knowledge of LabVIEW
-    
+
     `,
     image: "/speakers/jai-ganesh-s.jpeg",
     companyLogo: "/speakers/company/valeo.svg",
     social: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/jai-ganesh-suresh-24b64282/",
     },
   }
 ]
