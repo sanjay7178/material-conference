@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { Github, Linkedin, Twitter } from "lucide-react"
 
 export function Footer() {
   return (
@@ -89,8 +90,51 @@ export function Footer() {
           </div>
         </div>
         
+        {/* Social Media Links */}
+        <div className="flex justify-center gap-6 mt-8 mb-6">
+          <a
+            href="https://linkedin.com/company/nullvja"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-blue-600 transition-colors"
+          >
+            <Linkedin className="h-6 w-6" />
+          </a>
+          <a
+            href="https://x.com/nullvja"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-black transition-colors"
+          >
+            <Twitter className="h-6 w-6" />
+          </a>
+          <a
+            href="https://github.com/NullChapter"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-purple-600 transition-colors"
+          >
+            <Github className="h-6 w-6" />
+          </a>
+        </div>
+
         <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t text-center text-xs md:text-sm text-muted-foreground">
-          <p>&copy; 2025 Null VJA. All rights reserved.</p>
+          <p className="mb-2">&copy; 2025 Null VJA. All rights reserved.</p>
+          <p className="flex items-center justify-center gap-1">
+            Made with{" "}
+            <span className="text-red-500 animate-pulse" role="img" aria-label="love">
+              ❤️
+            </span>{" "}
+            and{" "}
+            <a
+              href="https://github.com/sanjay7178/LLM-Bootcamp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-purple-600 hover:text-purple-700 underline"
+            >
+              Open Source
+            </a>
+          </p>
         </div>
       </div>
     </footer>
