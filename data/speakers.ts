@@ -79,12 +79,14 @@ export const speakers: Speaker[] = [
     role: "Cloud Security Engineer - we45",
     location: "Physical",
     bio: `
-  
+  Geet Hirawat is a seasoned Cloud Security Engineer with expertise in securing multi-cloud architectures across AWS and Azure. 
+  His work focuses on building resilient cloud security frameworks through comprehensive security audits, threat modeling, and DevSecOps implementation. His expertise includes developing cloud-specific incident response playbooks, 
+  securing CI/CD pipelines, and automating cloud security workflows for enhanced resilience.  His approach combines hands-on technical expertise with a focus on building scalable, secure cloud architectures that meet complex compliance requirements.
     `,
-    image: "",
-    companyLogo: "",
+    image: "/speakers/geeth.jpeg",
+    companyLogo: "we45",
     social: {
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/geethirawat/",
     },
   }
 
