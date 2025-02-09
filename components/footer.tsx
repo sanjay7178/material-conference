@@ -127,7 +127,7 @@ export function Footer() {
             </span>{" "}
             and{" "}
             <a
-              href="https://github.com/sanjay7178/LLM-Bootcamp"
+              href="https://github.com/NullChapter/LLM-Security-Bootcamp"
               target="_blank"
               rel="noopener noreferrer"
               className="text-purple-600 hover:text-purple-700 underline"
