@@ -98,16 +98,11 @@ export function Navbar() {
       </List>
       <Divider />
       <Box sx={{ p: 2 }}>
-        <Button 
-          className="primary" 
-          fullWidth 
-          sx={{ 
-            borderRadius: '0px',
-            py: 1.5
-          }}
-        >
-          REGISTER
-        </Button>
+      <form action="https://lu.ma/1fa60wdk">
+            <Button className="primary" sx={{ borderRadius: "0px" }} type="submit">
+              REGISTER
+            </Button>
+            </form>
       </Box>
     </Box>
   )
@@ -194,15 +189,11 @@ export function Navbar() {
               }}
             />
           </IconButton>
-          <Button 
-            className="primary" 
-            sx={{ 
-              borderRadius: '0px',
-              ml: 2
-            }}
-          >
-            REGISTER
-          </Button>
+          <form action="https://lu.ma/1fa60wdk">
+            <Button className="primary" sx={{ borderRadius: "0px" }} type="submit">
+              REGISTER
+            </Button>
+            </form>
         </Box>
 
         {/* Mobile Menu Button */}
