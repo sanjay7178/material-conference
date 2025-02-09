@@ -74,6 +74,12 @@ export function AboutSection() {
                 Intelligence and cybersecurity.
               </p>
 
+              <div className="bg-purple-100 dark:bg-purple-900/20 rounded-lg p-4 mb-6">
+                <p className="text-sm md:text-base text-purple-800 dark:text-purple-200">
+                  🎁 <span className="font-semibold">Special Benefit:</span> All participants will receive free API keys for development, including access to popular LLM models for hands-on practice during and after the bootcamp.
+                </p>
+              </div>
+
               <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">Objective</h3>
               <ul className="list-disc pl-4 md:pl-6 mb-4 md:mb-6 text-sm md:text-base text-muted-foreground space-y-2">
                 <li>To educate students on security aspects of Large Language Models (LLMs)</li>
