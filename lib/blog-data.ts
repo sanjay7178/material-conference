@@ -1,6 +1,28 @@
 import { BlogPost } from "@/types/blog";
 
 export const blogPosts: Record<string, BlogPost> = {
+  "mous-iitm" :{
+    id: "mous-iitm",
+    slug : "mous-iitm",
+    title : "VIT-AP University signs 2 MoUs with IIT Madras",
+    date: "Feb 10, 2025",
+    heroImage: "/news/newindianexpress_2025-01-20_xzg7tyuz_VIT-AP-University.avif",
+    tags: ["important"],
+    excerpt : "The partnership is poised to establish a robust foundation for cutting-edge research, interdisciplinary collaboration, and academic excellence.",
+    content : `
+    
+    ## [Indian Express E-Article Link](https://www.newindianexpress.com/cities/vijayawada/2025/Jan/21/vit-ap-university-signs-2-mous-with-iit-madras)
+    VIJAYAWADA: VIT-AP University signed two Memoranda of Understanding (MoUs) with the Indian Institute of Technology-Madras to foster innovation and strengthen research collaborations. The partnership is poised to establish a robust foundation for cutting-edge research, interdisciplinary collaboration, and academic excellence.
+
+    VIT-AP University Vice-Chancellor Dr SV Kota Reddy signed the first MoU with IIT Madras Dean of Global Engagement Prof. Raghunathan Rengaswamy. Dean for Industrial Consultancy and Sponsored Research (ICSR) at IIT Madras Dr Manu Santhanam signed the second agreement, recognising VIT-AP as a spoke institute under the prestigious Information Security Education and Awareness (ISEA) project, led by IIT-Madras and the Union Ministry of Electronics and Information Technology (MeitY), with Prof Chester Rebeiro as Principal Investigator.
+
+    The MoUs lay out a strategic framework to jointly undertake innovative initiatives in domains such as Joint Research Programmes, Interdisciplinary Research (Advancing exploration in Artificial Intelligence (AI), Robotics, Internet of Things (IoT), Electric Vehicles (EVs), and the Advanced IC Design) Student and Research Scholar Engagement, Knowledge Exchange, Funding and Resource Mobilisation, Technology as well as Innovation Support.
+
+    Follow The New Indian Express channel on WhatsApp 
+
+    Download the TNIE app to stay with us and follow the latest
+    `
+  },
   "llm-security-workshop": {
     id: "llm-security-workshop",
     slug: "llm-security-workshop",
@@ -157,9 +179,10 @@ Join us in shaping the future of AI security education!
     submitProposalLabel: "Sign Up to Volunteer",
     submitProposalUrl:
       "https://docs.google.com/forms/d/e/1FAIpQLSfnmevFFJLZVOTQsvNINAR8LoC01cdLQNmhu26WWMThhymLCA/viewform",
-  }
+  },
   
-  ,
+  
+  
 };
 
 export function getAllPosts(): BlogPost[] {
