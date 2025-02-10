@@ -28,7 +28,7 @@ export function Hero() {
                 className="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-3xl hover:bg-white/20 transition-all duration-300 border border-white/20"
               >
                 <img
-                  src="/combined-logos-3.jpeg"
+                  src="/combined-logos-4.jpeg"
                   alt="Combined organization logos"
                   className="h-15 md:h-[100px] w-auto object-contain rounded-xl"
                 />
