@@ -45,7 +45,7 @@ const coordinators: CommitteeMember[] = [
     name: "Dr. Sibi Chakkaravarthy S",
     role: "Coordinator",
     department: "School of Computer Science and Engineering",
-    image: "coordinators/Dr_Sibi_Chakkaravarthy_S_70084_0587_206cccb3ec.avif",
+    image: "coordinators/Dr_Sibi_Chakkaravarthy_S_.jpeg",
     social: {
       linkedin: "#",
       email: "mailto:sibi.chakkaravarthy@vitap.ac.in"
