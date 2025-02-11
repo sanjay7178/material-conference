@@ -43,24 +43,36 @@ export function Certificate({ data }: CertificateProps) {
   const downloadCertificate = async () => {
     if (!certificateRef.current) return;
 
-    // Set scale to 3x for higher quality
     const canvas = await html2canvas(certificateRef.current, {
-      scale: 3, // Increase DPI by scaling up
+      scale: 3,
       useCORS: true,
       allowTaint: true,
       logging: false,
       backgroundColor: '#ffffff',
       imageTimeout: 0,
       onclone: (doc) => {
-        // Ensure fonts are properly loaded in the clone
         doc.fonts.ready.then(() => {
           console.log('Fonts loaded');
         });
       },
     });
 
-    const imgWidth = 297; // A4 width in mm
-    const imgHeight = 210; // A4 height in mm
+    // Get canvas dimensions
+    const canvasWidth = canvas.width;
+    const canvasHeight = canvas.height;
+
+    // A4 dimensions in mm (297 x 210 for landscape)
+    const pdfWidth = 297;
+    const pdfHeight = 210;
+
+    // Calculate scaling ratio to fit certificate properly
+    const ratio = Math.min(pdfWidth / canvasWidth, pdfHeight / canvasHeight);
+    const imgWidth = canvasWidth * ratio;
+    const imgHeight = canvasHeight * ratio;
+
+    // Calculate margins to center the image
+    const marginX = (pdfWidth - imgWidth) / 2;
+    const marginY = (pdfHeight - imgHeight) / 2;
     
     const pdf = new jsPDF({
       orientation: 'landscape',
@@ -69,12 +81,11 @@ export function Certificate({ data }: CertificateProps) {
       compress: true
     });
 
-    // Calculate positions to center the image
     pdf.addImage(
-      canvas.toDataURL('image/jpeg', 1.0), // Use maximum quality JPEG
+      canvas.toDataURL('image/jpeg', 1.0),
       'JPEG',
-      0,
-      0,
+      marginX, // Add margin to center horizontally
+      marginY, // Add margin to center vertically
       imgWidth,
       imgHeight,
       undefined,
