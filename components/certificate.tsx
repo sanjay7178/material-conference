@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Shield, Download } from 'lucide-react';
@@ -18,6 +18,27 @@ interface CertificateProps {
 
 export function Certificate({ data }: CertificateProps) {
   const certificateRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Force desktop viewport on mobile
+    const viewport = document.querySelector('meta[name=viewport]');
+    if (viewport) {
+      viewport.setAttribute('content', 'width=1024, initial-scale=1');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=1024, initial-scale=1';
+      document.head.appendChild(meta);
+    }
+
+    // Cleanup
+    return () => {
+      const viewport = document.querySelector('meta[name=viewport]');
+      if (viewport) {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1');
+      }
+    };
+  }, []);
 
   const downloadCertificate = async () => {
     if (!certificateRef.current) return;
@@ -64,8 +85,7 @@ export function Certificate({ data }: CertificateProps) {
   };
 
   return (
-    
-    <div className="max-w-5xl mx-auto p-4">
+    <div className="w-[1024px] mx-auto p-4">
         <br />
         <br />
       <div className="mb-4 flex justify-between items-center">
