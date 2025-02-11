@@ -86,8 +86,8 @@ export function Certificate({ data }: CertificateProps) {
 
   return (
     <div className="w-[1024px] mx-auto p-4">
-        <br />
-        <br />
+      <br />
+      <br />
       <div className="mb-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Shield className={data.verified ? "text-green-500" : "text-red-500"} />
@@ -95,10 +95,6 @@ export function Certificate({ data }: CertificateProps) {
             {data.verified ? "Verified Certificate" : "Invalid Certificate"}
           </span>
         </div>
-        <Button onClick={downloadCertificate}>
-          <Download className="mr-2 h-4 w-4" />
-          Download
-        </Button>
       </div>
 
       <Card className="p-8 bg-gradient-to-br from-white to-gray-50 border-8 border-double border-gray-200" ref={certificateRef}>
@@ -176,6 +172,19 @@ export function Certificate({ data }: CertificateProps) {
           </div>
         </div>
       </Card>
+
+      {/* Download button with optimized mobile UI */}
+      <div className=" relative bottom-0 left-0 right-0 mt-8 md:static md:mt-8">
+        <div className="bg-white/80 backdrop-blur-sm p-2 md:p-0 shadow-lg md:shadow-none md:bg-transparent">
+          <Button 
+            className="w-[30%] md:w-auto  py-3 md:py-4 text-base md:text-lg font-semibold bg-purple-600 hover:bg-purple-700 text-white rounded-lg md:rounded-xl shadow-lg transition-all"
+            onClick={downloadCertificate}
+          >
+            <Download className="mr-2 h-4 w-4 md:h-6 md:w-6" />
+            Download Certificate
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
