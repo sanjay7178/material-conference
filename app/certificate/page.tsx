@@ -1,6 +1,8 @@
 import { getCertificate } from "@/lib/certificate";
 import { Certificate } from "@/components/certificate";
+import { CertificateSearch } from "@/components/certificate-search";
 import { notFound } from "next/navigation";
+import { XCircle, AlertCircle } from "lucide-react";
 
 export default async function CertificatePage({
   searchParams,
@@ -9,11 +11,8 @@ export default async function CertificatePage({
 }) {
   if (!searchParams.id) {
     return (
-      <div className="container py-20 text-center">
-        <h1 className="text-2xl font-bold mb-4">Certificate Verification</h1>
-        <p className="text-gray-600">
-          Please provide a certificate ID to verify.
-        </p>
+      <div className="container py-20">
+        <CertificateSearch />
       </div>
     );
   }
@@ -22,7 +21,16 @@ export default async function CertificatePage({
     const certificate = await getCertificate(searchParams.id);
 
     if (!certificate) {
-      notFound();
+      return (
+        <div className="container py-20 text-center">
+          <XCircle className="h-16 w-16 mx-auto mb-4 text-red-500" />
+          <h1 className="text-2xl font-bold mb-4">Certificate Not Found</h1>
+          <p className="text-gray-600 mb-8">
+            We couldn't find a certificate with that ID. Please check the ID and try again.
+          </p>
+          <CertificateSearch />
+        </div>
+      );
     }
 
     return (
@@ -33,13 +41,14 @@ export default async function CertificatePage({
   } catch (error) {
     console.error("Error fetching certificate:", error);
     return (
-      <>
-        <div className="container py-20 text-center"></div>
+      <div className="container py-20 text-center">
+        <AlertCircle className="h-16 w-16 mx-auto mb-4 text-yellow-500" />
         <h1 className="text-2xl font-bold mb-4">Error</h1>
-        <p className="text-gray-600">
+        <p className="text-gray-600 mb-8">
           Failed to load certificate. Please try again later.
         </p>
-      </>
+        <CertificateSearch />
+      </div>
     );
   }
 }

@@ -10,7 +10,18 @@ const certificateDB: Record<string, Omit<ParticipantCertificate, 'signature' | '
     institution: 'VIT-AP University',
     issueDate: '2025-02-22',
   },
-  // Add more certificates...
+  'CERT-002': {
+    id: 'CERT-002',
+    name: 'Jane Smith',
+    institution: 'VIT-AP University',
+    issueDate: '2025-02-22',
+  },
+  'CERT-003': {
+    id: 'CERT-003',
+    name: 'Alice Johnson',
+    institution: 'VIT-AP University',
+    issueDate: '2025-02-22',
+  },
 };
 
 const PRIVATE_KEY = process.env.CERTIFICATE_PRIVATE_KEY || 'your-private-key';
