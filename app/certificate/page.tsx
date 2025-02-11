@@ -4,6 +4,37 @@ import { CertificateSearch } from "@/components/certificate-search";
 import { notFound } from "next/navigation";
 import { XCircle, AlertCircle } from "lucide-react";
 
+// Add dynamic metadata export
+export async function generateMetadata({ searchParams }: { searchParams: { id?: string } }) {
+  if (searchParams.id) {
+    const certificate = await getCertificate(searchParams.id);
+    if (certificate) {
+      return {
+        title: `Certificate of Participation - ${certificate.name}`,
+        description: `Certificate verifying that ${certificate.name} of ${certificate.institution} participated in Two-Day Bootcamp on LLM Security.`,
+        openGraph: {
+          title: `Certificate of Participation - ${certificate.name}`,
+          description: `Certificate for ${certificate.name} from ${certificate.institution}. Earned on ${certificate.issueDate}.`,
+          url: `${process.env.NEXT_PUBLIC_APP_URL}/certificate?id=${certificate.id}`,
+          images: [
+            {
+              // You may replace the path below with a static certificate image/logo that best represents your certificate.
+              url: `${process.env.NEXT_PUBLIC_APP_URL}/combined-logos-5.jpeg`,
+              width: 1200,
+              height: 630,
+              alt: `Certificate of ${certificate.name}`,
+            }
+          ],
+        },
+      };
+    }
+  }
+  return {
+    title: 'Verify Your Certificate',
+    description: 'Enter your certificate ID to verify its authenticity.',
+  };
+}
+
 export default async function CertificatePage({
   searchParams,
 }: {

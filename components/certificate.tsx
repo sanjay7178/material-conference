@@ -3,7 +3,7 @@
 import { useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Shield, Download } from 'lucide-react';
+import { Shield, Download, Share2 } from 'lucide-react';
 import type { ParticipantCertificate } from '@/types/certificate';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
@@ -90,6 +90,58 @@ export function Certificate({ data, verificationStatus }: CertificateProps) {
     );
 
     pdf.save(`certificate-${data.name}-${data.id}.pdf`);
+  };
+
+  const shareOnLinkedIn = async () => {
+    if (!certificateRef.current) return;
+
+    try {
+      // Generate certificate image
+      const canvas = await html2canvas(certificateRef.current, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: '#ffffff',
+      });
+
+      // Convert canvas to blob
+      const blob = await new Promise<Blob>((resolve) => {
+        canvas.toBlob((blob) => {
+          resolve(blob!);
+        }, 'image/jpeg', 0.9);
+      });
+
+      // Create a File from the Blob
+      const file = new File([blob], `certificate-${data.id}.jpg`, { type: 'image/jpeg' });
+      
+      // Certificate URL and additional post content
+      const url = `${process.env.NEXT_PUBLIC_APP_URL}/certificate?id=${data.id}`;
+      const title = `My Certificate of Participation - LLM Security Bootcamp`;
+      const text = `I participated in the Two-Day Bootcamp on LLM Security at VIT-AP University in association with IIT Madras.
+I'm excited to share that I've earned my certificate! Check it out and learn more about my journey.`;
+
+      // Try using Web Share API (if supported)
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({
+            files: [file],
+            title,
+            text,
+            url,
+          });
+          return;
+        } catch (error) {
+          console.error('Error sharing via Web Share API:', error);
+        }
+      }
+
+      // Fallback to LinkedIn URL sharing (LinkedIn only supports the URL parameter)
+      const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+      window.open(linkedInUrl, '_blank', 'width=600,height=600');
+      
+    } catch (error) {
+      console.error('Error generating certificate image:', error);
+    }
   };
 
   return (
@@ -200,15 +252,23 @@ export function Certificate({ data, verificationStatus }: CertificateProps) {
         </div>
       </Card>
 
-      {/* Download button with optimized mobile UI */}
-      <div className=" relative bottom-0 left-0 right-0 mt-8 md:static md:mt-8">
-        <div className="bg-white/80 backdrop-blur-sm p-2 md:p-0 shadow-lg md:shadow-none md:bg-transparent">
+      {/* Download and Share buttons */}
+      <div className="relative bottom-0 left-0 right-0 mt-8 md:static md:mt-8">
+        <div className="bg-white/80 backdrop-blur-sm p-2 md:p-0 shadow-lg md:shadow-none md:bg-transparent flex gap-4 justify-center md:justify-start">
           <Button 
-            className="w-[30%] md:w-auto  py-3 md:py-4 text-base md:text-lg font-semibold bg-purple-600 hover:bg-purple-700 text-white rounded-lg md:rounded-xl shadow-lg transition-all"
+            className="py-3 md:py-4 text-base md:text-lg font-semibold bg-purple-600 hover:bg-purple-700 text-white rounded-lg md:rounded-xl shadow-lg transition-all"
             onClick={downloadCertificate}
           >
             <Download className="mr-2 h-4 w-4 md:h-6 md:w-6" />
             Download Certificate
+          </Button>
+          
+          <Button 
+            className="py-3 md:py-4 text-base md:text-lg font-semibold bg-blue-600 hover:bg-blue-700 text-white rounded-lg md:rounded-xl shadow-lg transition-all"
+            onClick={shareOnLinkedIn}
+          >
+            <Share2 className="mr-2 h-4 w-4 md:h-6 md:w-6" />
+            Share on LinkedIn
           </Button>
         </div>
       </div>
