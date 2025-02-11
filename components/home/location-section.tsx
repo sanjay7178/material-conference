@@ -36,7 +36,9 @@ export function LocationSection() {
           </div>
           <div className="space-y-8 md:space-y-12">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Organizer</h2>
+              <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">
+                Organizer
+              </h2>
               <p className="text-sm md:text-base text-muted-foreground mb-3 md:mb-4">
                 Organized by: VIT-AP University in association with IITM ,
                 Managed by Null Vijayawada
@@ -76,33 +78,41 @@ export function LocationSection() {
 
         <div className="mt-12 md:mt-20 py-6 md:py-10">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 items-center justify-items-center">
-            {[...Array(12)].map((_, i) => (
-              <img
-              key={i}
-              src={
-                i % 4 === 0
-                ? "/vit-ap.svg"
-                : i % 4 === 1
-                ? "/iitm.svg"
-                : i % 4 === 2
-                ? "/null.svg"
-                : "/cystar.jpg"
-              }
-              alt={
-                i % 4 === 0
-                ? "vit-ap"
-                : i % 4 === 1
-                ? "iitm"
-                : i % 4 === 2
-                ? "null"
-                : "cystar"
-              }
-              className="h-8 md:h-12 opacity-60 hover:opacity-100 transition-opacity"
-              />
+            {[
+              {
+                src: "/vit-ap.svg",
+                alt: "vit-ap",
+                href: "https://vitap.ac.in",
+              },
+              { src: "/iitm.svg", alt: "iitm", href: "https://iitm.ac.in" },
+              { src: "/null.svg", alt: "null", href: "https://null.community" },
+              {
+                src: "/cystar.jpg",
+                alt: "cystar",
+                href: "https://cystar.iitm.ac.in",
+              },
+              { src: "/vtbif.png", alt: "vtbif", href: "https://vtbif.org" },
+            ].map((logo, i) => (
+              <a
+                key={i}
+                href={logo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-105 transition-transform"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-8 md:h-12 opacity-60 hover:opacity-100 transition-opacity"
+                />
+              </a>
             ))}
           </div>
           <div className="text-center mt-8 md:mt-12">
-            <Button variant="link" className="text-purple-600 font-semibold text-sm md:text-base">
+            <Button
+              variant="link"
+              className="text-purple-600 font-semibold text-sm md:text-base"
+            >
               BECOME A PARTNER
               <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
             </Button>

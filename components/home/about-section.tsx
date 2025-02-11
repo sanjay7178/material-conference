@@ -19,17 +19,17 @@ const stats = [
 
 function SpeakerSkeleton() {
   return (
-    <Card className="bg-transparent border-none shadow-none">
-      <CardContent className="p-0 text-center">
-        <div className="mb-3 md:mb-4 relative">
-          <Skeleton className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto" />
-          <Skeleton className="h-5 md:h-6 w-16 mx-auto mt-3" />
+    <Card className="bg-gradient-to-b from-white to-purple-50 dark:from-gray-900 dark:to-gray-800/50 border-none shadow-sm rounded-xl overflow-hidden">
+      <CardContent className="p-6 text-center">
+        <div className="mb-6 relative">
+          <Skeleton className="w-32 h-32 rounded-full mx-auto" />
+          <Skeleton className="h-6 w-16 mx-auto mt-4" />
         </div>
-        <Skeleton className="h-5 w-32 mx-auto mb-1 md:mb-2" />
-        <Skeleton className="h-4 w-48 mx-auto mb-3 md:mb-4" />
-        <div className="flex justify-center gap-3">
-          <Skeleton className="h-4 w-4 rounded-full" />
-          <Skeleton className="h-4 w-4 rounded-full" />
+        <Skeleton className="h-6 w-32 mx-auto mb-2" />
+        <Skeleton className="h-4 w-48 mx-auto mb-3" />
+        <Skeleton className="h-4 w-24 mx-auto mb-4" />
+        <div className="flex justify-center gap-3 pt-2">
+          <Skeleton className="h-5 w-5 rounded-full" />
         </div>
       </CardContent>
     </Card>
@@ -119,36 +119,44 @@ export function AboutSection() {
               {speakers.map((speaker) => (
                 <Card
                   key={speaker.name}
-                  className="bg-transparent border-none shadow-none cursor-pointer hover:shadow-lg transition-shadow"
+                  className="group bg-gradient-to-b from-white to-purple-50 dark:from-gray-900 dark:to-gray-800/50 border-none shadow-sm hover:shadow-xl transition-all duration-300 rounded-xl overflow-hidden cursor-pointer active:scale-95"
                   onClick={() => setSelectedSpeaker(speaker)}
                 >
-                  <CardContent className="p-2 text-center">
-                    <div className="mb-3 md:mb-6 relative">
-                      <img
-                        src={speaker.image}
-                        alt={speaker.name}
-                        className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto"
-                      />
+                  <CardContent className="p-4 sm:p-6 text-center">
+                    <div className="mb-5 sm:mb-6 relative">
+                      <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto relative">
+                        <div className="absolute inset-0 bg-purple-200 dark:bg-purple-900/20 rounded-full transform -rotate-6 transition-transform group-hover:rotate-6"></div>
+                        <img
+                          src={speaker.image}
+                          alt={speaker.name}
+                          className="w-full h-full rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-md relative z-10 transition-transform group-hover:scale-105"
+                        />
+                      </div>
                       <img
                         src="/gdg-logo.svg"
                         alt=""
-                        className="h-5 md:h-6 mx-auto mt-3"
+                        className="h-5 sm:h-6 mx-auto mt-3 opacity-80"
                       />
                     </div>
-                    <h3 className="font-bold text-base md:text-lg mb-1 md:mb-2">{speaker.name}</h3>
-                    <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 px-2">
+                    <h3 className="font-bold text-base sm:text-lg mb-1 text-gray-800 dark:text-gray-100 transition-colors group-hover:text-purple-600 dark:group-hover:text-purple-400">
+                      {speaker.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2">
                       {speaker.role}
                     </p>
-                    <div className="flex justify-center gap-3">
+                    <span className="text-xs sm:text-sm text-purple-600 dark:text-purple-400 font-medium mb-4 block">
+                      Topic: {speaker.topic}
+                    </span>
+                    <div className="flex justify-center gap-3 pt-2 border-t border-gray-200 dark:border-gray-700">
                       {speaker.social.linkedin && (
                         <a
                           href={speaker.social.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-purple-600"
+                          className="p-2 text-gray-500 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400 transition-colors rounded-full hover:bg-purple-50 dark:hover:bg-purple-900/20"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <Linkedin className="h-4 w-4" />
+                          <Linkedin className="h-4 sm:h-5 w-4 sm:w-5" />
                         </a>
                       )}
                     </div>

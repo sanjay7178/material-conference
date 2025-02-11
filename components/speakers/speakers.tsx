@@ -57,9 +57,15 @@ function SpeakerCard({ speaker, onClick }: { speaker: Speaker; onClick: () => vo
             <img src="/gdg-logo.svg" alt="" className="h-4 md:h-6 mx-auto" />
           </div>
           <h3 className="font-bold text-base md:text-lg mb-1">{speaker.name}</h3>
-          <p className="text-xs md:text-sm text-muted-foreground mb-3">
+          <p className="text-xs md:text-sm text-muted-foreground mb-1">
             {speaker.role}
           </p>
+          {/* New topic display */}
+            <div className="inline-block px-3 py-1 rounded-md bg-purple-100 dark:bg-purple-900/20 mb-2">
+            <p className="text-[10px] md:text-xs text-purple-700 dark:text-purple-300">
+              {speaker.topic}
+            </p>
+            </div>
           <div className="flex justify-center gap-3">
             {speaker.social.linkedin && (
               <a 

@@ -92,3 +92,27 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+[data-dialog-overlay] {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-dialog-content] {
+  z-index: 50;
+  background: hsl(var(--background));
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -5,6 +5,7 @@ export interface Speaker {
   bio: string
   image: string
   companyLogo: string
+  topic : string
   social: {
     twitter?: string
     facebook?: string
@@ -23,6 +24,12 @@ export const speakers: Speaker[] = [
     He is also known as a regional security expert for his contributions to improving the security posture of many AWS customers. Additionally, Punit has deep expertise in Generative AI (GenAI) and is dedicated to enhancing developer productivity through GenAI-driven solutions.
     `,
     image: "/speakers/punitjain-3.jpeg",
+    topic : `
+     1. Introduction to AWS 2.Build and scale genAI on AWS ,  \n
+     3.LLM security on AWS \n
+     4.Qna  \n
+     5.Hands on
+    ` ,
     companyLogo: "/speakers/company/amazon.jpg",
     social: {
       linkedin: "https://www.linkedin.com/in/punitjain/",
@@ -45,6 +52,7 @@ export const speakers: Speaker[] = [
     `,
     image: "/speakers/deepan-raj.jpeg",
     companyLogo: "/speakers/company/hcl1.jpg",
+    topic :" Evolution gpt model , Bert and custom Bert implementation (LLM)",
     social: {
       linkedin: "https://www.linkedin.com/in/deepanrajm/",
     },
@@ -68,6 +76,7 @@ export const speakers: Speaker[] = [
     8. Intermediate knowledge of LabVIEW
 
     `,
+    topic  : "Building Smarter Chatbots: LangChain, LangGraph & RAG in Action",
     image: "/speakers/jai-ganesh-s.jpeg",
     companyLogo: "/speakers/company/valeo.svg",
     social: {
@@ -85,6 +94,7 @@ export const speakers: Speaker[] = [
     `,
     image: "/speakers/geeth.jpeg",
     companyLogo: "we45",
+    topic : "Securing the AI Assembly Line: MLOps Edition",
     social: {
       linkedin: "https://www.linkedin.com/in/geethirawat/",
     },
