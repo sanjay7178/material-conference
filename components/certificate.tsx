@@ -9,7 +9,11 @@ import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 
 interface CertificateProps {
-  data: ParticipantCertificate;
+  data: Omit<ParticipantCertificate, 'verified'> & {
+    verified: boolean;
+    qrCode?: string;
+    verificationUrl?: string;
+  };
 }
 
 export function Certificate({ data }: CertificateProps) {
