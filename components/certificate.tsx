@@ -9,14 +9,11 @@ import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 
 interface CertificateProps {
-  data: Omit<ParticipantCertificate, 'verified'> & {
-    verified: boolean;
-    qrCode?: string;
-    verificationUrl?: string;
-  };
+  data: ParticipantCertificate;
+  verificationStatus: boolean;
 }
 
-export function Certificate({ data }: CertificateProps) {
+export function Certificate({ data, verificationStatus }: CertificateProps) {
   const certificateRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -101,21 +98,40 @@ export function Certificate({ data }: CertificateProps) {
       <br />
       <div className="mb-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <Shield className={data.verified ? "text-green-500" : "text-red-500"} />
-          <span className={data.verified ? "text-green-700" : "text-red-700"}>
-            {data.verified ? "Verified Certificate" : "Invalid Certificate"}
+          <Shield className={verificationStatus ? "text-green-500" : "text-red-500"} />
+          <span className={verificationStatus ? "text-green-700" : "text-red-700"}>
+            {verificationStatus ? "Verified Certificate" : "Invalid Certificate"}
           </span>
         </div>
       </div>
 
-      <Card className="p-8 bg-gradient-to-br from-white to-gray-50 border-8 border-double border-gray-200" ref={certificateRef}>
+      <Card 
+        className="relative p-8 bg-gradient-to-br from-white via-gray-50/30 to-white border-8 border-double border-gray-200 overflow-hidden" 
+        ref={certificateRef}
+      >
+        {/* Border Design */}
+        <div className="absolute inset-0 border-4 border-solid border-gray-300 rounded-lg pointer-events-none z-10" />
+        <div className="absolute inset-4 border border-solid border-gray-200 rounded-lg pointer-events-none z-10" />
+        
+        {/* Corner Ornaments - Simplified */}
+        <div className="absolute top-0 left-0 w-40 h-40">
+          <div className="absolute top-4 left-4 w-full h-full border-l-4 border-t-4 border-gray-300 rounded-tl-3xl" />
+        </div>
+        <div className="absolute top-0 right-0 w-40 h-40 transform rotate-90">
+          <div className="absolute top-4 left-4 w-full h-full border-l-4 border-t-4 border-gray-300 rounded-tl-3xl" />
+        </div>
+        <div className="absolute bottom-0 left-0 w-40 h-40 transform -rotate-90">
+          <div className="absolute top-4 left-4 w-full h-full border-l-4 border-t-4 border-gray-300 rounded-tl-3xl" />
+        </div>
+        <div className="absolute bottom-0 right-0 w-40 h-40 transform rotate-180">
+          <div className="absolute top-4 left-4 w-full h-full border-l-4 border-t-4 border-gray-300 rounded-tl-3xl" />
+        </div>
+
+        {/* Side Decorations */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 w-16 h-32 border-r-2 border-gray-200" />
+        <div className="absolute top-1/2 -translate-y-1/2 right-0 w-16 h-32 border-l-2 border-gray-200" />
+
         <div className="text-center space-y-8 py-16 px-8 relative">
-          {/* Decorative elements */}
-          <div className="absolute top-0 left-0 w-24 h-24 border-l-4 border-t-4 border-purple-200"></div>
-          <div className="absolute top-0 right-0 w-24 h-24 border-r-4 border-t-4 border-purple-200"></div>
-          <div className="absolute bottom-0 left-0 w-24 h-24 border-l-4 border-b-4 border-purple-200"></div>
-          <div className="absolute bottom-0 right-0 w-24 h-24 border-r-4 border-b-4 border-purple-200"></div>
-          
           <img src="/combined-logos-5.jpeg" alt="Logo" className="h-20 mx-auto mb-8" />
           
           <div>

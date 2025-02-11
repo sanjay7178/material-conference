@@ -27,7 +27,7 @@ export default async function CertificatePage({
 
     return (
       <div className="container py-10">
-        <Certificate data={certificate} />
+        <Certificate data={certificate} verificationStatus={certificate.verified} />
       </div>
     );
   } catch (error) {

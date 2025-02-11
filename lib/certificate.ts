@@ -13,17 +13,6 @@ const certificateDB: Record<string, Omit<ParticipantCertificate, 'signature' | '
   // Add more certificates...
 };
 
-// declare function getCertificate(id: string): ParticipantCertificate | null;
-
-// interface ParticipantCertificate {
-//   id: string;
-//   name: string;
-//   institution: string;
-//   issueDate: string;
-//   signature: string;
-//   verified: boolean;
-// }
-
 const PRIVATE_KEY = process.env.CERTIFICATE_PRIVATE_KEY || 'your-private-key';
 
 export async function getCertificate(id: string) : Promise<ParticipantCertificate | null> {
