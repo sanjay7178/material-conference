@@ -5,4 +5,6 @@ export interface ParticipantCertificate {
   issueDate: string;
   signature: string;
   verified: boolean;
+  verificationUrl?: string;
+  qrCode?: string;
 }

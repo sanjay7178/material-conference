@@ -1,5 +1,6 @@
 import { ParticipantCertificate } from '@/types/certificate';
 import crypto from 'crypto';
+import QRCode from 'qrcode';
 
 // Mock database - replace with your actual database implementation
 const certificateDB: Record<string, Omit<ParticipantCertificate, 'signature' | 'verified'>> = {
@@ -25,7 +26,7 @@ const certificateDB: Record<string, Omit<ParticipantCertificate, 'signature' | '
 
 const PRIVATE_KEY = process.env.CERTIFICATE_PRIVATE_KEY || 'your-private-key';
 
-export function getCertificate(id: string) : ParticipantCertificate | null {
+export async function getCertificate(id: string) : Promise<ParticipantCertificate | null> {
   const cert = certificateDB[id];
   if (!cert) return null;
 
@@ -35,10 +36,15 @@ export function getCertificate(id: string) : ParticipantCertificate | null {
     .update(`${cert.id}${cert.name}${cert.institution}${cert.issueDate}`)
     .digest('hex');
 
+  const verificationUrl = `${process.env.NEXT_PUBLIC_APP_URL}/certificate?id=${cert.id}`;
+  const qrCode = await QRCode.toDataURL(verificationUrl);
+
   return {
     ...cert,
     signature,
     verified: true,
+    verificationUrl,
+    qrCode,
   };
 }
 
