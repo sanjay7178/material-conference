@@ -1,35 +1,60 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Button } from "@/components/ui/button"
-import { SlidersHorizontal, Bookmark, Clock, Users, Coffee, Presentation, PartyPopperIcon as Party, X, Mic } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Card, CardContent } from "@/components/ui/card"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Checkbox } from "@/components/ui/checkbox"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import {
+  SlidersHorizontal,
+  Bookmark,
+  Clock,
+  Users,
+  Coffee,
+  Presentation,
+  PartyPopperIcon as Party,
+  X,
+  Mic,
+} from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Checkbox } from "@/components/ui/checkbox";
+import { cn } from "@/lib/utils";
 
 interface Speaker {
-  name: string
-  role: string
-  company: string
-  location: string
-  avatar: string
+  name: string;
+  role: string;
+  company: string;
+  location: string;
+  avatar: string;
 }
 
 interface Session {
-  time: string
-  timeMinutes: string
-  title: string
-  description: string
-  duration: string
-  language?: string
-  difficulty?: "Beginner" | "Intermediate" | "Advanced"
-  track?: "Adversarial Robustness" | "Data Privacy" | "Bias and Fairness" | "Misuse Detection" | "ML/AI" | "OWASP Top 10 for LLM" | "Security Engineering" | "Secure Development" | "Security" | "LLM" | "ML/AI"
-  type?: "talk" | "workshop" | "break" | "networking" | "podcast"
-  speakers?: Speaker[]
+  time: string;
+  timeMinutes: string;
+  title: string;
+  description: string;
+  duration: string;
+  language?: string;
+  difficulty?: "Beginner" | "Intermediate" | "Advanced";
+  track?:
+    | "Adversarial Robustness"
+    | "Data Privacy"
+    | "Bias and Fairness"
+    | "Misuse Detection"
+    | "ML/AI"
+    | "OWASP Top 10 for LLM"
+    | "Security Engineering"
+    | "Secure Development"
+    | "Security"
+    | "LLM"
+    | "ML/AI";
+  type?: "talk" | "workshop" | "break" | "networking" | "podcast";
+  speakers?: Speaker[];
 }
 
 const scheduleData: Record<string, Session[]> = {
@@ -45,8 +70,9 @@ const scheduleData: Record<string, Session[]> = {
     {
       time: "10",
       timeMinutes: "00",
-      title: "Session 1: Adversarial Robustness",
-      description: "Understanding and mitigating adversarial attacks on LLMs, including prompt injection and evasion.",
+      title:
+        "Session 3: Building Smarter Chatbots: LangChain, LangGraph & RAG in Action",
+      description: "",
       duration: "3 hours",
       language: "EN",
       difficulty: "Intermediate",
@@ -54,14 +80,15 @@ const scheduleData: Record<string, Session[]> = {
       type: "workshop",
       speakers: [
         {
-          name: "Speaker 1",
-          role: "AI Security Researcher",
-          company: "Tech University",
+          name: "Jai Ganesh S",
+          role: "Senior AI Architect Lead",
+          company: "Valeo",
           location: "India",
-          avatar: "/speakers/speaker1.png",
+          avatar: "speakers/jai-ganesh-s.jpeg",
         },
       ],
     },
+    
     {
       time: "13",
       timeMinutes: "00",
@@ -73,8 +100,9 @@ const scheduleData: Record<string, Session[]> = {
     {
       time: "14",
       timeMinutes: "00",
-      title: "Session 2: Data Privacy and Security",
-      description: "Protecting sensitive data in LLM interactions and preventing data leakage.",
+      title:
+        "Session 2:  Evolution gpt model , Bert and custom Bert implementation (LLM)",
+      description: "",
       duration: "3 hours",
       language: "EN",
       difficulty: "Advanced",
@@ -82,11 +110,11 @@ const scheduleData: Record<string, Session[]> = {
       type: "workshop",
       speakers: [
         {
-          name: "Speaker 2",
-          role: "Privacy Expert",
-          company: "Security Institute",
+          name: "Deepan Raj",
+          role: "Technical Manager",
+          company: "HCL Tech",
           location: "India",
-          avatar: "/speakers/speaker2.png",
+          avatar: "speakers/deepan-raj.jpeg",
         },
       ],
     },
@@ -95,8 +123,14 @@ const scheduleData: Record<string, Session[]> = {
     {
       time: "10",
       timeMinutes: "00",
-      title: "Session 3: Bias and Fairness Mitigation",
-      description: "Identifying and mitigating biases in LLM-generated content for ethical AI deployment.",
+      title:
+        "Session 1: Build , Scale GenAI on AWS and Security of LLMs on AWS",
+      description: `
+       1. Introduction to AWS 2.Build and scale genAI on AWS ,  \n
+       3.LLM security on AWS \n
+       4.Qna  \n
+       5.Hands on
+      `,
       duration: "3 hours",
       language: "EN",
       difficulty: "Intermediate",
@@ -104,11 +138,11 @@ const scheduleData: Record<string, Session[]> = {
       type: "workshop",
       speakers: [
         {
-          name: "Speaker 3",
-          role: "AI Ethics Researcher",
-          company: "AI Institute",
+          name: "Punit Kumar Jain",
+          role: "Senior FSI Solutions Architect",
+          company: "Amazon Web Services",
           location: "India",
-          avatar: "/speakers/speaker3.png",
+          avatar: "speakers/punitjain-3.jpeg",
         },
       ],
     },
@@ -124,7 +158,8 @@ const scheduleData: Record<string, Session[]> = {
       time: "14",
       timeMinutes: "00",
       title: "Podcast: LLM Security - Industry Perspectives",
-      description: "An engaging discussion between industry leaders on real-world LLM security challenges and solutions",
+      description:
+        "An engaging discussion between industry leaders on real-world LLM security challenges and solutions",
       duration: "1 hour",
       language: "EN",
       track: "Security",
@@ -150,14 +185,14 @@ const scheduleData: Record<string, Session[]> = {
           company: "Security Labs",
           location: "India",
           avatar: "/speakers/speaker3.png",
-        }
+        },
       ],
     },
     {
       time: "15",
       timeMinutes: "00",
-      title: "Session 4: Detection and Mitigation of Misuse",
-      description: "Techniques to identify and mitigate malicious use cases of LLMs, like phishing or misinformation.",
+      title: "Session 4:  Securing the AI Assembly Line: MLOps Edition",
+      description: "",
       duration: "3 hours",
       language: "EN",
       difficulty: "Advanced",
@@ -165,16 +200,16 @@ const scheduleData: Record<string, Session[]> = {
       type: "workshop",
       speakers: [
         {
-          name: "Speaker 1",
-          role: "Security Researcher",
-          company: "Defense Labs",
+          name: "Geet Hirawat",
+          role: "Cloud Security Engineer",
+          company: "We45",
           location: "India",
-          avatar: "/speakers/speaker1.png",
+          avatar: "speakers/geeth.jpeg",
         },
       ],
     },
   ],
-}
+};
 
 const trackColors: Record<string, string> = {
   "Adversarial Robustness": "bg-green-100 text-green-800 border-green-200",
@@ -185,61 +220,90 @@ const trackColors: Record<string, string> = {
   "OWASP Top 10 for LLM": "bg-yellow-100 text-yellow-800 border-yellow-200",
   "Security Engineering": "bg-teal-100 text-teal-800 border-teal-200",
   "Secure Development": "bg-cyan-100 text-cyan-800 border-cyan-200",
-  "Security": "bg-indigo-100 text-indigo-800 border-indigo-200",
-  "LLM": "bg-violet-100 text-violet-800 border-violet-200"
-}
+  Security: "bg-indigo-100 text-indigo-800 border-indigo-200",
+  LLM: "bg-violet-100 text-violet-800 border-violet-200",
+};
 
 const difficultyColors = {
   Beginner: "bg-emerald-100 text-emerald-800",
   Intermediate: "bg-amber-100 text-amber-800",
   Advanced: "bg-rose-100 text-rose-800",
-}
+};
 
-const tracks = ["Adversarial Robustness" , "Data Privacy" , "Bias and Fairness" , "Misuse Detection" , "ML/AI" , "OWASP Top 10 for LLM" , "Security Engineering" , "Secure Development" , "Security" , "LLM" ]
-const difficulties = ["Beginner", "Intermediate", "Advanced"]
-const types = ["talk", "workshop", "break", "networking" ,"podcast"]
+const tracks = [
+  "Adversarial Robustness",
+  "Data Privacy",
+  "Bias and Fairness",
+  "Misuse Detection",
+  "ML/AI",
+  "OWASP Top 10 for LLM",
+  "Security Engineering",
+  "Secure Development",
+  "Security",
+  "LLM",
+];
+const difficulties = ["Beginner", "Intermediate", "Advanced"];
+const types = ["talk", "workshop", "break", "networking", "podcast"];
 
 const SessionTypeIcon = ({ type }: { type: Session["type"] }) => {
   switch (type) {
     case "talk":
-      return <Presentation className="h-5 w-5" />
+      return <Presentation className="h-5 w-5" />;
     case "workshop":
-      return <Users className="h-5 w-5" />
+      return <Users className="h-5 w-5" />;
     case "break":
-      return <Coffee className="h-5 w-5" />
+      return <Coffee className="h-5 w-5" />;
     case "networking":
-      return <Party className="h-5 w-5" />
+      return <Party className="h-5 w-5" />;
     case "podcast":
-      return <Mic className="h-5 w-5" />
+      return <Mic className="h-5 w-5" />;
     default:
-      return null
+      return null;
   }
-}
+};
 
 export function Schedule() {
-  const [activeTab, setActiveTab] = useState("day-1")
+  const [activeTab, setActiveTab] = useState("day-1");
   const [filters, setFilters] = useState({
     tracks: [] as string[],
     difficulties: [] as string[],
-    types: [] as string[]
-  })
+    types: [] as string[],
+  });
 
   const filterSession = (session: Session) => {
-    if (filters.tracks.length && session.track && !filters.tracks.includes(session.track)) return false
-    if (filters.difficulties.length && session.difficulty && !filters.difficulties.includes(session.difficulty)) return false
-    if (filters.types.length && session.type && !filters.types.includes(session.type)) return false
-    return true
-  }
+    if (
+      filters.tracks.length &&
+      session.track &&
+      !filters.tracks.includes(session.track)
+    )
+      return false;
+    if (
+      filters.difficulties.length &&
+      session.difficulty &&
+      !filters.difficulties.includes(session.difficulty)
+    )
+      return false;
+    if (
+      filters.types.length &&
+      session.type &&
+      !filters.types.includes(session.type)
+    )
+      return false;
+    return true;
+  };
 
   const clearFilters = () => {
     setFilters({
       tracks: [],
       difficulties: [],
-      types: []
-    })
-  }
+      types: [],
+    });
+  };
 
-  const hasActiveFilters = filters.tracks.length > 0 || filters.difficulties.length > 0 || filters.types.length > 0
+  const hasActiveFilters =
+    filters.tracks.length > 0 ||
+    filters.difficulties.length > 0 ||
+    filters.types.length > 0;
 
   return (
     <div className="relative">
@@ -254,14 +318,14 @@ export function Schedule() {
                   width: "50%",
                 }}
               />
-              <TabsTrigger 
-                value="day-1" 
+              <TabsTrigger
+                value="day-1"
                 className="relative h-10 rounded-none px-8 font-medium data-[state=active]:text-purple-600 data-[state=active]:bg-transparent transition-colors"
               >
-                Day 1 
+                Day 1
               </TabsTrigger>
-              <TabsTrigger 
-                value="day-2" 
+              <TabsTrigger
+                value="day-2"
                 className="relative h-10 rounded-none px-8 font-medium data-[state=active]:text-purple-600 data-[state=active]:bg-transparent transition-colors"
               >
                 Day 2
@@ -269,12 +333,18 @@ export function Schedule() {
             </TabsList>
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="outline" size="sm" className="w-full sm:w-auto gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full sm:w-auto gap-2"
+                >
                   <SlidersHorizontal className="h-4 w-4" />
                   FILTERS
                   {hasActiveFilters && (
                     <Badge variant="secondary" className="ml-1 rounded-full">
-                      {filters.tracks.length + filters.difficulties.length + filters.types.length}
+                      {filters.tracks.length +
+                        filters.difficulties.length +
+                        filters.types.length}
                     </Badge>
                   )}
                 </Button>
@@ -284,30 +354,40 @@ export function Schedule() {
                   {hasActiveFilters && (
                     <div className="flex justify-between items-center pb-2 border-b">
                       <h4 className="font-medium">Active Filters</h4>
-                      <Button variant="ghost" size="sm" onClick={clearFilters} className="h-auto p-1">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={clearFilters}
+                        className="h-auto p-1"
+                      >
                         <X className="h-4 w-4" />
                       </Button>
                     </div>
                   )}
-                  
+
                   <div className="space-y-2">
                     <h4 className="font-medium">Track</h4>
                     <div className="grid grid-cols-2 gap-2">
                       {tracks.map((track) => (
-                        <div key={track} className="flex items-center space-x-2">
-                          <Checkbox 
+                        <div
+                          key={track}
+                          className="flex items-center space-x-2"
+                        >
+                          <Checkbox
                             id={`track-${track}`}
                             checked={filters.tracks.includes(track)}
                             onCheckedChange={(checked) => {
-                              setFilters(prev => ({
+                              setFilters((prev) => ({
                                 ...prev,
-                                tracks: checked 
+                                tracks: checked
                                   ? [...prev.tracks, track]
-                                  : prev.tracks.filter(t => t !== track)
-                              }))
+                                  : prev.tracks.filter((t) => t !== track),
+                              }));
                             }}
                           />
-                          <label htmlFor={`track-${track}`} className="text-sm">{track}</label>
+                          <label htmlFor={`track-${track}`} className="text-sm">
+                            {track}
+                          </label>
                         </div>
                       ))}
                     </div>
@@ -317,20 +397,30 @@ export function Schedule() {
                     <h4 className="font-medium">Difficulty</h4>
                     <div className="grid grid-cols-2 gap-2">
                       {difficulties.map((difficulty) => (
-                        <div key={difficulty} className="flex items-center space-x-2">
-                          <Checkbox 
+                        <div
+                          key={difficulty}
+                          className="flex items-center space-x-2"
+                        >
+                          <Checkbox
                             id={`difficulty-${difficulty}`}
                             checked={filters.difficulties.includes(difficulty)}
                             onCheckedChange={(checked) => {
-                              setFilters(prev => ({
+                              setFilters((prev) => ({
                                 ...prev,
-                                difficulties: checked 
+                                difficulties: checked
                                   ? [...prev.difficulties, difficulty]
-                                  : prev.difficulties.filter(d => d !== difficulty)
-                              }))
+                                  : prev.difficulties.filter(
+                                      (d) => d !== difficulty
+                                    ),
+                              }));
                             }}
                           />
-                          <label htmlFor={`difficulty-${difficulty}`} className="text-sm">{difficulty}</label>
+                          <label
+                            htmlFor={`difficulty-${difficulty}`}
+                            className="text-sm"
+                          >
+                            {difficulty}
+                          </label>
                         </div>
                       ))}
                     </div>
@@ -341,19 +431,24 @@ export function Schedule() {
                     <div className="grid grid-cols-2 gap-2">
                       {types.map((type) => (
                         <div key={type} className="flex items-center space-x-2">
-                          <Checkbox 
+                          <Checkbox
                             id={`type-${type}`}
                             checked={filters.types.includes(type)}
                             onCheckedChange={(checked) => {
-                              setFilters(prev => ({
+                              setFilters((prev) => ({
                                 ...prev,
-                                types: checked 
+                                types: checked
                                   ? [...prev.types, type]
-                                  : prev.types.filter(t => t !== type)
-                              }))
+                                  : prev.types.filter((t) => t !== type),
+                              }));
                             }}
                           />
-                          <label htmlFor={`type-${type}`} className="text-sm capitalize">{type}</label>
+                          <label
+                            htmlFor={`type-${type}`}
+                            className="text-sm capitalize"
+                          >
+                            {type}
+                          </label>
                         </div>
                       ))}
                     </div>
@@ -366,21 +461,26 @@ export function Schedule() {
 
         <div className="relative px-2 sm:px-0">
           {Object.entries(scheduleData).map(([day, sessions]) => (
-            <TabsContent 
-              key={day} 
+            <TabsContent
+              key={day}
               value={day}
               className="transition-all duration-300 animate-in slide-in-from-right-4"
             >
               <div className="space-y-4 sm:space-y-6">
                 {sessions.filter(filterSession).map((session, index) => (
-                  <Card key={index} className="relative overflow-hidden transition-all duration-200 hover:shadow-lg">
+                  <Card
+                    key={index}
+                    className="relative overflow-hidden transition-all duration-200 hover:shadow-lg"
+                  >
                     <CardContent className="p-4 sm:p-6">
                       <div className="flex flex-col sm:flex-row sm:gap-6">
                         <div className="flex sm:block items-center justify-between mb-4 sm:mb-0">
                           <div className="w-20 flex-shrink-0 flex flex-col items-center">
                             <div className="text-2xl sm:text-3xl font-bold text-purple-600">
                               {session.time}
-                              <span className="text-sm sm:text-base text-purple-400">{session.timeMinutes}</span>
+                              <span className="text-sm sm:text-base text-purple-400">
+                                {session.timeMinutes}
+                              </span>
                             </div>
                             <div className="flex items-center gap-1 text-xs sm:text-sm text-muted-foreground mt-1">
                               <Clock className="h-3 w-3" />
@@ -406,12 +506,17 @@ export function Schedule() {
                                 <h3 className="text-base sm:text-xl font-semibold mb-2 flex flex-wrap items-center gap-2">
                                   {session.title}
                                   {session.language && (
-                                    <Badge variant="outline" className="ml-0 sm:ml-2 text-xs">
+                                    <Badge
+                                      variant="outline"
+                                      className="ml-0 sm:ml-2 text-xs"
+                                    >
                                       {session.language}
                                     </Badge>
                                   )}
                                 </h3>
-                                <p className="text-sm text-muted-foreground mb-3 sm:mb-4">{session.description}</p>
+                                <p className="text-sm text-muted-foreground mb-3 sm:mb-4">
+                                  {session.description}
+                                </p>
                               </div>
                             </div>
                             <Button
@@ -425,14 +530,23 @@ export function Schedule() {
 
                           <div className="flex flex-wrap gap-2 mb-4">
                             {session.track && (
-                              <Badge variant="outline" className={cn("font-medium", trackColors[session.track])}>
+                              <Badge
+                                variant="outline"
+                                className={cn(
+                                  "font-medium",
+                                  trackColors[session.track]
+                                )}
+                              >
                                 {session.track}
                               </Badge>
                             )}
                             {session.difficulty && (
                               <Badge
                                 variant="outline"
-                                className={cn("font-medium", difficultyColors[session.difficulty])}
+                                className={cn(
+                                  "font-medium",
+                                  difficultyColors[session.difficulty]
+                                )}
                               >
                                 {session.difficulty}
                               </Badge>
@@ -447,7 +561,10 @@ export function Schedule() {
                                   className="flex items-center gap-2 sm:gap-3 bg-gray-50 rounded-full pl-1 pr-3 sm:pr-4 py-1 transition-colors hover:bg-gray-100 w-full sm:w-auto"
                                 >
                                   <Avatar className="h-6 w-6 sm:h-8 sm:w-8 border-2 border-white">
-                                    <AvatarImage src={speaker.avatar} alt={speaker.name} />
+                                    <AvatarImage
+                                      src={speaker.avatar}
+                                      alt={speaker.name}
+                                    />
                                     <AvatarFallback className="bg-purple-100 text-purple-700">
                                       {speaker.name
                                         .split(" ")
@@ -456,8 +573,12 @@ export function Schedule() {
                                     </AvatarFallback>
                                   </Avatar>
                                   <div className="min-w-0 flex-1">
-                                    <div className="font-medium text-xs sm:text-sm truncate">{speaker.name}</div>
-                                    <div className="text-xs text-muted-foreground truncate">{speaker.company}</div>
+                                    <div className="font-medium text-xs sm:text-sm truncate">
+                                      {speaker.name}
+                                    </div>
+                                    <div className="text-xs text-muted-foreground truncate">
+                                      {speaker.company}
+                                    </div>
                                   </div>
                                 </div>
                               ))}
@@ -476,4 +597,3 @@ export function Schedule() {
     </div>
   );
 }
-
