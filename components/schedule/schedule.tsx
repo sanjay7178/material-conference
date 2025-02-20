@@ -61,17 +61,42 @@ const scheduleData: Record<string, Session[]> = {
   "day-1": [
     {
       time: "09",
-      timeMinutes: "30",
-      title: "Registration & Welcome Coffee",
-      description: "Get your workshop materials and enjoy morning refreshments",
+      timeMinutes: "00",
+      title: "Participants check-in",
+      description: "Get your workshop materials ",
       duration: "30 mins",
       type: "break",
+    },
+    {
+      time: "09",
+      timeMinutes: "45",
+      title: "Event Inaguration",
+      description: "Opening remarks and welcome address.",
+      duration: "15 mins",
+      type: "talk",
+    },
+    {
+      time: "09",
+      timeMinutes: "50",
+      title: "Introduction to Null Vijaywada Community",
+      description: "Know more about the community",
+      duration: "10 mins",
+      type: "networking",
+      speakers: [
+        {
+          name: "Sai Sanjay",
+          role: "Chapter Lead - Null Vijayawada",
+          company: "Chapter Lead - Null Vijayawada",
+          location: "India",
+          avatar: "",
+        },
+      ],
     },
     {
       time: "10",
       timeMinutes: "00",
       title:
-        "Session 3: Building Smarter Chatbots: LangChain, LangGraph & RAG in Action",
+        "Session 1: Building Smarter Chatbots: LangChain, LangGraph & RAG in Action",
       description: "",
       duration: "3 hours",
       language: "EN",
@@ -124,7 +149,7 @@ const scheduleData: Record<string, Session[]> = {
       time: "10",
       timeMinutes: "00",
       title:
-        "Session 1: Build , Scale GenAI on AWS and Security of LLMs on AWS",
+        "Session 3: Build , Scale GenAI on AWS and Security of LLMs on AWS",
       description: `
        1. Introduction to AWS 2.Build and scale genAI on AWS ,  \n
        3.LLM security on AWS \n
@@ -157,7 +182,7 @@ const scheduleData: Record<string, Session[]> = {
     {
       time: "14",
       timeMinutes: "00",
-      title: "Podcast: LLM Security - Industry Perspectives",
+      title: "Tentative : Podcast: LLM Security - Industry Perspectives",
       description:
         "An engaging discussion between industry leaders on real-world LLM security challenges and solutions",
       duration: "1 hour",
