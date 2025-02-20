@@ -78,7 +78,7 @@ const scheduleData: Record<string, Session[]> = {
     {
       time: "09",
       timeMinutes: "50",
-      title: "Introduction to Null Vijaywada Community",
+      title: "Introduction to Null Vijayawada Community",
       description: "Know more about the community",
       duration: "10 mins",
       type: "networking",
