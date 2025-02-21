@@ -75,9 +75,8 @@ export function LocationSection() {
             </div>
           </div>
         </div>
-
-        <div className="mt-12 md:mt-20 py-6 md:py-10 overflow-hidden flex flex-col items-center">
-          <div className="flex space-x-16 md:space-x-24">
+        <div className="mt-8 md:mt-20 py-4 md:py-10 overflow-hidden flex flex-col items-center">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12 px-4">
             {[
               {
           src: "/vit-ap.svg",
@@ -92,6 +91,8 @@ export function LocationSection() {
           href: "https://cystar.iitm.ac.in",
               },
               { src: "/vtbif.png", alt: "vtbif", href: "https://vtbif.org" },
+              { src: "/Amazon_Web_Services_Logo.svg", alt: "aws", href: "https://aws.com" },
+              { src: "/df.svg", alt: "Digitalfortress in", href: "https://digitalfortress.in" },
             ].map((logo, i) => (
               <a
           key={i}
@@ -103,12 +104,12 @@ export function LocationSection() {
           <img
             src={logo.src}
             alt={logo.alt}
-            className="h-12 md:h-16 opacity-60 hover:opacity-100 transition-opacity"
+            className="h-10 md:h-16 w-auto opacity-60 hover:opacity-100 transition-opacity"
           />
               </a>
             ))}
           </div>
-          <div className="text-center mt-8 md:mt-12">
+          <div className="text-center mt-6 md:mt-12">
             <Button
               variant="link"
               className="text-purple-600 font-semibold text-sm md:text-base"
@@ -117,8 +118,8 @@ export function LocationSection() {
               <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
             </Button>
           </div>
-          <div className="mt-12 md:mt-20 py-6 md:py-10 overflow-hidden">
-            <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-center">
+          <div className="mt-8 md:mt-20 py-4 md:py-10 overflow-hidden">
+            <h2 className="text-lg md:text-2xl font-bold mb-3 md:mb-4 text-center">
               API Partner
             </h2>
             <div className="flex justify-center">
@@ -131,7 +132,7 @@ export function LocationSection() {
           <img
             src="/navlabs.png"
             alt="Navigate Labs"
-            className="h-12 md:h-16 opacity-60 hover:opacity-100 transition-opacity"
+            className="h-14 md:h-20 w-auto opacity-60 hover:opacity-100 transition-opacity"
           />
               </a>
             </div>
