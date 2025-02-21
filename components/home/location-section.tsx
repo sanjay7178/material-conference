@@ -76,8 +76,8 @@ export function LocationSection() {
           </div>
         </div>
 
-        <div className="mt-12 md:mt-20 py-6 md:py-10 overflow-hidden">
-          <div className="flex w-max animate-scroll space-x-16 md:space-x-24">
+        <div className="mt-12 md:mt-20 py-6 md:py-10 overflow-hidden flex flex-col items-center">
+          <div className="flex space-x-16 md:space-x-24">
             {[
               {
           src: "/vit-ap.svg",
@@ -92,11 +92,6 @@ export function LocationSection() {
           href: "https://cystar.iitm.ac.in",
               },
               { src: "/vtbif.png", alt: "vtbif", href: "https://vtbif.org" },
-              {
-          src: "/navlabs.png",
-          alt: "Navigate Labs",
-          href: "https://www.navigatelabsai.com/",
-              },
             ].map((logo, i) => (
               <a
           key={i}
@@ -122,19 +117,25 @@ export function LocationSection() {
               <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
             </Button>
           </div>
-          <style jsx>{`
-            @keyframes scroll {
-              0% {
-          transform: translateX(100%);
-              }
-              100% {
-          transform: translateX(-100%);
-              }
-            }
-            .animate-scroll {
-              animation: scroll 15s linear infinite;
-            }
-          `}</style>
+          <div className="mt-12 md:mt-20 py-6 md:py-10 overflow-hidden">
+            <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-center">
+              API Partner
+            </h2>
+            <div className="flex justify-center">
+              <a
+          href="https://www.navigatelabsai.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:scale-105 transition-transform"
+              >
+          <img
+            src="/navlabs.png"
+            alt="Navigate Labs"
+            className="h-12 md:h-16 opacity-60 hover:opacity-100 transition-opacity"
+          />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
