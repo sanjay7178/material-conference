@@ -1,6 +1,20 @@
 import { BlogPost } from "@/types/blog";
 
 export const blogPosts: Record<string, BlogPost> = {
+  "day1-materials" :{
+    id: "day1-materials",
+    slug : "day1-materials",
+    title : "BootCamp Speaker Materials for Day1",
+    date: "Feb 21, 2025",
+    heroImage: "",
+    tags: ["regular"],
+    excerpt : "BootCamp Speaker Materials for Day1",
+    content : `
+    
+    ## [Jai Ganesh's Material ](https://github.com/Jaish19/GAN-Model-MNIST)
+    
+    `
+  },
   "mous-iitm" :{
     id: "mous-iitm",
     slug : "mous-iitm",
