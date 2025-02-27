@@ -237,9 +237,16 @@ I'm excited to share that I've earned my certificate! Check it out and learn mor
             <p className="text-xl text-gray-600 font-light">
               This is to certify that
             </p>
-            <h2 className="text-3xl font-semibold text-purple-800 font-serif">
-              {data.name}
-            </h2>
+            <div className="space-y-1">
+              <h2 className="text-3xl font-semibold text-purple-800 font-serif">
+                {data.name}
+              </h2>
+              {data.register_no && (
+                <p className="text-lg text-gray-600">
+                  Registration Number: {data.register_no}
+                </p>
+              )}
+            </div>
             <p className="text-xl text-gray-600">
               from{" "}
               <span className="font-semibold italic">{data.institution}</span>
