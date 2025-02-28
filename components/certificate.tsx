@@ -271,10 +271,10 @@ I'm excited to share that I've earned my certificate! Check it out and learn mor
                 className="h-16 mx-auto mb-3"
               />
               <div className="text-base font-semibold text-gray-800">
-                Dr. Chester Rebeiro
+                Dr. Sudhakar Ilango
               </div>
               <div className="text-sm text-gray-600">
-                Principal Investigator, IITM
+                Dean, SCOPE
               </div>
             </div>
 
@@ -289,6 +289,20 @@ I'm excited to share that I've earned my certificate! Check it out and learn mor
               </div>
               <div className="text-sm text-gray-600">
                 Vice Chancellor, VIT-AP
+              </div>
+            </div>
+
+            <div className="text-center">
+              <img
+                src="/signature3.png"
+                alt="Signature"
+                className="h-16 mx-auto mb-3"
+              />
+              <div className="text-base font-semibold text-gray-800">
+                Dr. Hari Seetha
+              </div>
+              <div className="text-sm text-gray-600">
+                Coordinator, Center of Excellence
               </div>
             </div>
           </div>
