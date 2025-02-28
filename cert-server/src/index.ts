@@ -15,8 +15,11 @@ app.get('/api/certificate/:id', async (c) => {
   
   try {
     const result = await c.env.DB
-      .prepare('SELECT * FROM certificates WHERE id = ?')
-      .bind(id)
+      .prepare(`
+        SELECT * FROM certificates 
+        WHERE id = ? OR LOWER(name) LIKE LOWER(?)
+      `)
+      .bind(id, `%${id}%`)
       .first<Certificate>();
     
     if (!result) {
@@ -28,6 +31,31 @@ app.get('/api/certificate/:id', async (c) => {
     return c.json({ error: 'Failed to fetch certificate' }, 500)
   }
 })
+
+app.get('/api/search', async (c) => {
+  const query = c.req.query('q');
+  
+  if (!query) {
+    return c.json({ error: 'Search query is required' }, 400);
+  }
+
+  try {
+    const results = await c.env.DB
+      .prepare(`
+        SELECT * FROM certificates 
+        WHERE id LIKE ? 
+        OR LOWER(name) LIKE LOWER(?) 
+        OR LOWER(register_no) LIKE LOWER(?)
+        LIMIT 10
+      `)
+      .bind(`%${query}%`, `%${query}%`, `%${query}%`)
+      .all<Certificate>();
+    
+    return c.json(results);
+  } catch (error) {
+    return c.json({ error: 'Failed to search certificates' }, 500);
+  }
+});
 
 app.post('/api/certificates/init', async (c) => {
   const certificates = [
