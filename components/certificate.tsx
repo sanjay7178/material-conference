@@ -275,7 +275,7 @@ I'm excited to share that I've earned my certificate! Check it out and learn mor
                 Dr. Hari Seetha
               </div>
               <div className="text-sm text-gray-600">
-                Director COE Artificial Intelligence and Robotics
+                Director COE Artificial Intelligence and Robotics, VIT-AP
               </div>
             </div>
 
@@ -288,7 +288,7 @@ I'm excited to share that I've earned my certificate! Check it out and learn mor
               <div className="text-base font-semibold text-gray-800">
                 Dr. S. Sudhakar Ilango
               </div>
-              <div className="text-sm text-gray-600">Dean, SCOPE</div>
+              <div className="text-sm text-gray-600">Dean, SCOPE VIT-AP</div>
             </div>
 
             <div className="text-center">
