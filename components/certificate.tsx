@@ -264,6 +264,21 @@ I'm excited to share that I've earned my certificate! Check it out and learn mor
           </p>
 
           <div className="mt-16 flex justify-between items-end px-16">
+
+            <div className="text-center">
+              <img
+                src="/signature/hari_seetha_mam.png"
+                alt="Signature"
+                className="h-10 mx-auto mb-3"
+              />
+              <div className="text-base font-semibold text-gray-800">
+                Dr. Hari Seetha
+              </div>
+              <div className="text-sm text-gray-600">
+                Director COE Artificial Intelligence and Robotics
+              </div>
+            </div>
+
             <div className="text-center">
               <img
                 src="/signature1.png"
@@ -271,11 +286,9 @@ I'm excited to share that I've earned my certificate! Check it out and learn mor
                 className="h-16 mx-auto mb-3"
               />
               <div className="text-base font-semibold text-gray-800">
-                Dr. Sudhakar Ilango
+                Dr. S. Sudhakar Ilango
               </div>
-              <div className="text-sm text-gray-600">
-                Dean, SCOPE
-              </div>
+              <div className="text-sm text-gray-600">Dean, SCOPE</div>
             </div>
 
             <div className="text-center">
@@ -285,24 +298,10 @@ I'm excited to share that I've earned my certificate! Check it out and learn mor
                 className="h-16 mx-auto mb-3"
               />
               <div className="text-base font-semibold text-gray-800">
-                Dr. S V Kota Reddy
+                Dr. S. V. Kota Reddy
               </div>
               <div className="text-sm text-gray-600">
                 Vice Chancellor, VIT-AP
-              </div>
-            </div>
-
-            <div className="text-center">
-              <img
-                src="/signature3.png"
-                alt="Signature"
-                className="h-16 mx-auto mb-3"
-              />
-              <div className="text-base font-semibold text-gray-800">
-                Dr. Hari Seetha
-              </div>
-              <div className="text-sm text-gray-600">
-                Coordinator, Center of Excellence
               </div>
             </div>
           </div>
