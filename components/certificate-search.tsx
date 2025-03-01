@@ -25,7 +25,7 @@ export function CertificateSearch() {
       <div className="flex w-full max-w-lg gap-2">
         <Input
           type="text"
-          placeholder="Enter Certificate ID (e.g., CERT-001)"
+          placeholder="Enter Certificate ID (e.g., VITAP-01 or LLM-01) or Yor Short Name (eg., lokesh)"
           value={certId}
           onChange={(e) => setCertId(e.target.value)}
           className="flex-1"
