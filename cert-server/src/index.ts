@@ -1,7 +1,9 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
+import { swaggerUI } from '@hono/swagger-ui'
 
 const app = new Hono<{ Bindings: Env }>()
+app.get('/ui', swaggerUI({ url: '/doc' }))
 
 // Enable CORS
 app.use('/*', cors())
