@@ -281,7 +281,7 @@ I'm excited to share that I've earned my certificate! Check it out and learn mor
 
             <div className="text-center">
               <img
-                src="/signature1.png"
+                src="/signature/Ilango Sign.png"
                 alt="Signature"
                 className="h-16 mx-auto mb-3"
               />
@@ -293,7 +293,7 @@ I'm excited to share that I've earned my certificate! Check it out and learn mor
 
             <div className="text-center">
               <img
-                src="/signature2.png"
+                src="/signature/VC Sir Sign  PNG.png"
                 alt="Signature"
                 className="h-16 mx-auto mb-3"
               />
