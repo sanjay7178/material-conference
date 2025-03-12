@@ -249,7 +249,7 @@ app.post('/api/openai/get-key', async (c) => {
     if (!result) {
       return c.json({ 
         success: false, 
-        message: 'No OpenAI key found for this email or you have already used your key.' 
+        message: 'No OpenAI key found for this email or you have not given feedback from lu.ma feedback campaign email or use correct email which you used lu.ma event event registration' 
       }, 404);
     }
 
