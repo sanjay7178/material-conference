@@ -1,5 +1,6 @@
 interface Env {
   DB: D1Database;
+  resend_key?: string;
 }
 
 interface Certificate {
@@ -9,4 +10,13 @@ interface Certificate {
   institution: string;
   issueDate: string;
   created_at?: string;
+}
+
+interface OpenAIKey {
+  id: number;
+  email: string;
+  name: string;
+  openai_key: string;
+  used: boolean;
+  created_at: string;
 }
